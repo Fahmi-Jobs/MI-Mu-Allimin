@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - MI Mu'allimin Muhammadiyah Selatpanjang</title>
+    <meta name="description" content="Hubungi MI Mu'allimin Muhammadiyah Selatpanjang untuk informasi lebih lanjut. Alamat, telepon, email, dan formulir kontak tersedia di halaman ini.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo dan Nama Sekolah -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-mosque text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">MI Mu'allimin Muhammadiyah</h1>
+                        <p class="text-sm text-gray-600">Selatpanjang</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600 transition-colors">Tentang Kami</a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600 transition-colors">Akademik</a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-blue-600 transition-colors">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600 transition-colors">Galeri</a>
+                    <a href="kontak.html" class="text-blue-600 font-medium hover:text-blue-800 transition-colors">Kontak</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 hover:text-blue-600" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="md:hidden mt-4 hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-3 pb-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Beranda</a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600">Tentang Kami</a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600">Akademik</a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-blue-600">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600">Galeri</a>
+                    <a href="kontak.html" class="text-blue-600 font-medium">Kontak</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Hubungi Kami</h2>
+            <p class="text-xl max-w-2xl mx-auto">Kami siap membantu Anda. Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut tentang MI Mu'allimin Muhammadiyah Selatpanjang</p>
+        </div>
+    </section>
+
+    <!-- Informasi Kontak -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center bg-green-50 p-8 rounded-xl card-hover">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Alamat Sekolah</h4>
+                        <p class="text-gray-600">Jl. Masjid Taqwa No. 02<br>Selatpanjang Selatan<br>Kec. Tebing Tinggi, Kab. Kepulauan Meranti<br>Kode Pos 28753</p>
+                    </div>
+                    
+                    <div class="text-center bg-blue-50 p-8 rounded-xl card-hover">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Telepon</h4>
+                        <p class="text-gray-600">
+                            <strong>Kantor:</strong> (0761) 12345<br>
+                            <strong>WhatsApp:</strong> 0822-8585-2725<br>
+                            <strong>Kepala Sekolah:</strong> 082283419939
+                        </p>
+                    </div>
+                    
+                    <div class="text-center bg-purple-50 p-8 rounded-xl card-hover">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Email</h4>
+                        <p class="text-gray-600">
+                            <strong>Umum:</strong> mimuallimin77@gmail.com<br>
+                            <strong>Pendaftaran:</strong> pendaftaran@mimuallimin.sch.id<br>
+                            <strong>Akademik:</strong> akademik@mimuallimin.sch.id
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Jam Operasional -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Jam Operasional</h4>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="text-lg font-semibold text-gray-800 mb-4">Kantor Administrasi</h5>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex justify-between">
+                                    <span>Senin - Jumat</span>
+                                    <span>07:00 - 15:00 WIB</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Sabtu</span>
+                                    <span>08:00 - 12:00 WIB</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Minggu & Libur</span>
+                                    <span>Tutup</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="text-lg font-semibold text-gray-800 mb-4">Kegiatan Belajar Mengajar</h5>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex justify-between">
+                                    <span>Senin - Kamis</span>
+                                    <span>07:30 - 14:00 WIB</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Jumat</span>
+                                    <span>07:30 - 11:30 WIB</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Ekstrakurikuler</span>
+                                    <span>14:00 - 16:00 WIB</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulir Kontak -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Kirim Pesan</h3>
+                    <p class="text-lg text-gray-600">Isi formulir di bawah ini dan kami akan segera menghubungi Anda kembali</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
+                                <input type="text" id="nama" name="nama" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="Masukkan nama lengkap">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="nama@email.com">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon</label>
+                                <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="08xx-xxxx-xxxx">
+                            </div>
+                            
+                            <div>
+                                <label for="subjek" class="block text-sm font-medium text-gray-700 mb-2">Subjek *</label>
+                                <select id="subjek" name="subjek" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                                    <option value="">Pilih subjek</option>
+                                    <option value="pendaftaran">Informasi Pendaftaran</option>
+                                    <option value="akademik">Program Akademik</option>
+                                    <option value="tahfiz">Program Tahfiz</option>
+                                    <option value="biaya">Biaya Pendidikan</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="pesan" class="block text-sm font-medium text-gray-700 mb-2">Pesan *</label>
+                            <textarea id="pesan" name="pesan" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <input type="checkbox" id="setuju" name="setuju" required class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="setuju" class="text-sm text-gray-600">
+                                Saya setuju dengan <a href="#" class="text-blue-600 hover:text-blue-800">kebijakan privasi</a> dan memberikan izin untuk dihubungi oleh pihak madrasah.
+                            </label>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+                                <i class="fas fa-paper-plane mr-2"></i>Kirim Pesan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peta Lokasi -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Lokasi Madrasah</h3>
+                    <p class="text-lg text-gray-600">Temukan lokasi MI Mu'allimin Muhammadiyah Selatpanjang dengan mudah</p>
+                </div>
+                
+                <div class="bg-gray-200 rounded-xl overflow-hidden shadow-md">
+                    <!-- Placeholder untuk Google Maps -->
+                    <div class="h-96 bg-gradient-to-br from-blue-400 to-green-400 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-map-marked-alt text-6xl mb-4"></i>
+                            <h4 class="text-2xl font-semibold mb-2">Peta Lokasi</h4>
+                            <p class="text-lg">Google Maps akan ditampilkan di sini</p>
+                            <p class="text-sm mt-2">Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 grid md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <h5 class="text-lg font-semibold text-gray-800 mb-4">Transportasi Umum</h5>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><i class="fas fa-bus mr-2 text-blue-600"></i>Angkutan Kota: Rute Selatpanjang Selatan</li>
+                            <li><i class="fas fa-motorcycle mr-2 text-blue-600"></i>Ojek Online: Tersedia di depan madrasah</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-xl">
+                        <h5 class="text-lg font-semibold text-gray-800 mb-4">Fasilitas Parkir</h5>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><i class="fas fa-motorcycle mr-2 text-green-600"></i>Parkir motor: 50 slot</li>
+                            <li><i class="fas fa-shield-alt mr-2 text-green-600"></i>Area parkir aman dan terjaga</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Sosial -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Ikuti Kami</h3>
+                <p class="text-lg text-gray-600 mb-8">Dapatkan update terbaru tentang kegiatan madrasah melalui media sosial kami</p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="https://www.facebook.com/share/1W2ghwc78U/" class="bg-blue-600 hover:bg-blue-700 text-white p-6 rounded-xl transition-colors card-hover">
+                        <i class="fab fa-facebook text-4xl mb-4"></i>
+                        <h5 class="text-xl font-semibold mb-2">Facebook</h5>
+                        <p>MI Mu'allimin Selatpanjang</p>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="bg-pink-600 hover:bg-pink-700 text-white p-6 rounded-xl transition-colors card-hover">
+                        <i class="fab fa-instagram text-4xl mb-4"></i>
+                        <h5 class="text-xl font-semibold mb-2">Instagram</h5>
+                        <p>@mi_muallimin_selatpanjang</p>
+                    </a>
+                    
+                    <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="bg-red-600 hover:bg-red-700 text-white p-6 rounded-xl transition-colors card-hover">
+                        <i class="fab fa-youtube text-4xl mb-4"></i>
+                        <h5 class="text-xl font-semibold mb-2">YouTube</h5>
+                        <p>MI Mu'allimin Channel</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Informasi Sekolah -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-mosque text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold">MI Mu'allimin Muhammadiyah</h4>
+                            <p class="text-sm text-gray-300">Selatpanjang</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Madrasah Ibtidaiyah unggulan yang mengutamakan pendidikan Islam berkualitas dengan penguatan akidah dan akhlak mulia.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1W2ghwc78U/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Menu Cepat -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Menu Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Beranda</a></li>
+                        <li><a href="tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+                        <li><a href="akademik.html" class="text-gray-300 hover:text-white">Program Akademik</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-white">Pendaftaran</a></li>
+                        <li><a href="galeri.html" class="text-gray-300 hover:text-white">Galeri</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kontak -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</li>
+                        <li><i class="fas fa-phone mr-2"></i>0822-8585-2725</li>
+                        <li><i class="fas fa-envelope mr-2"></i>mimuallimin77@gmail.com</li>
+                        <li><i class="fas fa-clock mr-2"></i>Senin - Jumat: 07:00 - 15:00</li>
+                    </ul>
+                </div>
+                
+                <!-- Kalender Hijriah -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kalender Hijriah</h4>
+                    <div id="hijri-calendar" class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-yellow-400" id="hijri-date">Loading...</div>
+                            <div class="text-sm text-gray-300 mt-1" id="hijri-month-year">Kalender Hijriah Global Tunggal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi. | <a href="#" class="hover:text-white">Kebijakan Privasi</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            if (validateForm('contact-form')) {
+                // Simulate form submission
+                alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda kembali.');
+                this.reset();
+            } else {
+                alert('Mohon lengkapi semua field yang wajib diisi.');
+            }
+        });
+    </script>
+</body>
+</html>
