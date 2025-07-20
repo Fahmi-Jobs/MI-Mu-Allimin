@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Akademik - MI Mu'allimin Muhammadiyah Selatpanjang</title>
+    <meta name="description" content="Program akademik MI Mu'allimin meliputi kurikulum nasional, pendidikan agama Islam, kegiatan ekstrakurikuler, dan metode pembelajaran untuk mengembangkan potensi siswa.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo dan Nama Sekolah -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-mosque text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">MI Mu'allimin Muhammadiyah</h1>
+                        <p class="text-sm text-gray-600">Selatpanjang</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600 transition-colors">Tentang Kami</a>
+                    <a href="akademik.html" class="text-blue-600 font-medium hover:text-blue-800 transition-colors">Akademik</a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-blue-600 transition-colors">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600 transition-colors">Galeri</a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-blue-600 transition-colors">Kontak</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 hover:text-blue-600" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="md:hidden mt-4 hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-3 pb-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Beranda</a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600">Tentang Kami</a>
+                    <a href="akademik.html" class="text-blue-600 font-medium">Akademik</a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-blue-600">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600">Galeri</a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-blue-600">Kontak</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Program Akademik</h2>
+            <p class="text-xl max-w-2xl mx-auto">Kurikulum terpadu pendidikan umum dan agama untuk membentuk generasi muslim yang berilmu dan berakhlak</p>
+        </div>
+    </section>
+
+    <!-- Kurikulum -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Kurikulum Pembelajaran</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Kurikulum nasional yang diperkaya dengan pendidikan agama Islam dan pengembangan karakter</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="h-64 bg-gradient-to-br from-green-400 to-blue-600 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-book-quran text-white text-6xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6">Kurikulum Terpadu</h4>
+                    <p class="text-lg text-gray-700 mb-6">MI Mu'allimin menerapkan kurikulum nasional yang dipadukan dengan pendidikan agama Islam untuk membentuk siswa yang berilmu pengetahuan dan berakhlak mulia.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                            <div>
+                                <h5 class="font-semibold text-gray-800">Pembelajaran Al-Quran</h5>
+                                <p class="text-gray-600">Program Tahfiz dan Tahsin Al-Quran untuk semua tingkat kelas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                            <div>
+                                <h5 class="font-semibold text-gray-800">Pendidikan Akidah & Akhlak</h5>
+                                <p class="text-gray-600">Pembentukan karakter islami melalui pembelajaran sehari-hari</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                            <div>
+                                <h5 class="font-semibold text-gray-800">Teknologi Informasi</h5>
+                                <p class="text-gray-600">Penguasaan komputer dan teknologi informasi sejak dini</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mata Pelajaran -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mata Pelajaran</h3>
+                <p class="text-lg text-gray-600">Kombinasi mata pelajaran umum dan agama untuk pendidikan holistik</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book text-blue-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">Bahasa Indonesia</h5>
+                    <p class="text-gray-600 text-sm">Literasi dan komunikasi</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calculator text-green-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">Matematika</h5>
+                    <p class="text-gray-600 text-sm">Numerasi dan logika</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-flask text-purple-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">IPA</h5>
+                    <p class="text-gray-600 text-sm">Sains dan eksperimen</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">IPS</h5>
+                    <p class="text-gray-600 text-sm">Sosial dan budaya</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-quran text-red-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">Al-Quran Hadits</h5>
+                    <p class="text-gray-600 text-sm">Tahsin dan Tahfiz</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mosque text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">Aqidah Akhlak</h5>
+                    <p class="text-gray-600 text-sm">Pembentukan karakter</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-history text-pink-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">Sejarah Islam</h5>
+                    <p class="text-gray-600 text-sm">Peradaban Islam</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-laptop text-orange-600 text-2xl"></i>
+                    </div>
+                    <h5 class="text-lg font-semibold text-gray-800 mb-2">Komputer</h5>
+                    <p class="text-gray-600 text-sm">Teknologi informasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kegiatan Ekstrakurikuler -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Kegiatan Ekstrakurikuler</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pengembangan bakat dan minat siswa di luar jam pelajaran</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-quran text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-3">Tahfiz Al-Quran</h5>
+                    <p class="text-gray-600 mb-4">Program menghafal Al-Quran dengan metode yang menyenangkan untuk siswa</p>
+                    <div class="text-sm text-green-600 font-medium">Setiap Senin & Kamis</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-3">Komputer Dasar</h5>
+                    <p class="text-gray-600 mb-4">Pengenalan teknologi informasi dan keterampilan komputer dasar</p>
+                    <div class="text-sm text-blue-600 font-medium">Setiap Selasa & Jumat</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-futbol text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-3">Olahraga</h5>
+                    <p class="text-gray-600 mb-4">Sepak bola, bulu tangkis, dan berbagai cabang olahraga lainnya</p>
+                    <div class="text-sm text-purple-600 font-medium">Setiap Rabu & Sabtu</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-3">Seni & Kaligrafi</h5>
+                    <p class="text-gray-600 mb-4">Mengembangkan kreativitas melalui seni rupa dan kaligrafi Islam</p>
+                    <div class="text-sm text-yellow-600 font-medium">Setiap Senin & Rabu</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-campground text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-3">Pramuka</h5>
+                    <p class="text-gray-600 mb-4">Kegiatan kepramukaan untuk membentuk karakter dan jiwa kepemimpinan</p>
+                    <div class="text-sm text-red-600 font-medium">Setiap Sabtu</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-microphone text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-3">Seni Baca Al-Quran</h5>
+                    <p class="text-gray-600 mb-4">Pengembangan bakat dalam seni membaca Al-Quran (Tilawah)</p>
+                    <div class="text-sm text-indigo-600 font-medium">Setiap Kamis & Jumat</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metode Pembelajaran -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Metode Pembelajaran</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pendekatan pembelajaran yang inovatif dan islami</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6">Pembelajaran Islami</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-mosque text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-800 mb-1">Pembelajaran Al-Quran</h5>
+                                <p class="text-gray-600">Metode Tahsin dan Tahfiz yang menyenangkan untuk semua tingkat</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-hands-helping text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-800 mb-1">Pembiasaan Akhlak</h5>
+                                <p class="text-gray-600">Praktik ibadah dan akhlak sehari-hari dalam lingkungan sekolah</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-book text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-800 mb-1">Kitab Kuning</h5>
+                                <p class="text-gray-600">Pengenalan kitab-kitab dasar keislaman untuk kelas tinggi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6">Teknologi Pembelajaran</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-laptop text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-800 mb-1">Digital Learning</h5>
+                                <p class="text-gray-600">Penggunaan teknologi digital untuk mendukung proses pembelajaran</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-project-diagram text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-800 mb-1">Project Based Learning</h5>
+                                <p class="text-gray-600">Pembelajaran berbasis proyek untuk mengasah kreativitas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-chalkboard-teacher text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-gray-800 mb-1">Pembelajaran Interaktif</h5>
+                                <p class="text-gray-600">Metode mengajar yang melibatkan partisipasi aktif siswa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Akademik -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Prestasi Akademik</h3>
+                <p class="text-lg text-gray-600">Pencapaian membanggakan siswa MI Mu'allimin</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-yellow-600 text-3xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-800 mb-2">15+</div>
+                    <div class="text-lg text-gray-600 mb-2">Juara MTQ</div>
+                    <div class="text-sm text-gray-500">Tingkat Kecamatan & Kabupaten</div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-blue-600 text-3xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-800 mb-2">90%</div>
+                    <div class="text-lg text-gray-600 mb-2">Lulusan</div>
+                    <div class="text-sm text-gray-500">Diterima di SMP/MTs favorit</div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-green-600 text-3xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-gray-800 mb-2">10+</div>
+                    <div class="text-lg text-gray-600 mb-2">Juara Olimpiade</div>
+                    <div class="text-sm text-gray-500">Sains dan Matematika</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-green-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-4">Bergabunglah dengan Keluarga Besar MI Mu'allimin</h3>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Wujudkan pendidikan terbaik untuk anak Anda dengan kurikulum terpadu yang mengutamakan ilmu pengetahuan dan akhlak mulia</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="pendaftaran.html" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-8 rounded-lg transition-colors">
+                    <i class="fas fa-user-plus mr-2"></i>Daftar Sekarang
+                </a>
+                <a href="kontak.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-green-600 font-semibold py-3 px-8 rounded-lg transition-colors">
+                    <i class="fas fa-phone mr-2"></i>Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Informasi Sekolah -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-mosque text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold">MI Mu'allimin Muhammadiyah</h4>
+                            <p class="text-sm text-gray-300">Selatpanjang</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Madrasah Ibtidaiyah unggulan yang mengutamakan pendidikan Islam berkualitas dengan penguatan akidah dan akhlak mulia.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1W2ghwc78U/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Menu Cepat -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Menu Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Beranda</a></li>
+                        <li><a href="tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-white">Pendaftaran</a></li>
+                        <li><a href="galeri.html" class="text-gray-300 hover:text-white">Galeri</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kontak -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</li>
+                        <li><i class="fas fa-phone mr-2"></i>0822-8585-2725</li>
+                        <li><i class="fas fa-envelope mr-2"></i>mimuallimin77@gmail.com</li>
+                        <li><i class="fas fa-clock mr-2"></i>Senin - Jumat: 07:00 - 15:00</li>
+                    </ul>
+                </div>
+                
+                <!-- Kalender Hijriah -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kalender Hijriah</h4>
+                    <div id="hijri-calendar" class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-yellow-400" id="hijri-date">Loading...</div>
+                            <div class="text-sm text-gray-300 mt-1" id="hijri-month-year">Kalender Hijriah Global Tunggal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
