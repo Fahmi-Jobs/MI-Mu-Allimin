@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - MI Mu'allimin Muhammadiyah Selatpanjang</title>
+    <meta name="description" content="Pelajari lebih lanjut tentang sejarah, visi, misi, dan nilai-nilai MI Mu'allimin Muhammadiyah Selatpanjang. Madrasah Ibtidaiyah unggulan di Kepulauan Meranti.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #10b981;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #10b981;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo dan Nama Sekolah -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-mosque text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">MI Mu'allimin Muhammadiyah</h1>
+                        <p class="text-sm text-gray-600">Selatpanjang</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
+                    <a href="tentang.html" class="text-blue-600 font-medium hover:text-blue-800 transition-colors">Tentang Kami</a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600 transition-colors">Akademik</a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-blue-600 transition-colors">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600 transition-colors">Galeri</a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-blue-600 transition-colors">Kontak</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 hover:text-blue-600" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="md:hidden mt-4 hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-3 pb-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Beranda</a>
+                    <a href="tentang.html" class="text-blue-600 font-medium">Tentang Kami</a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600">Akademik</a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-blue-600">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600">Galeri</a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-blue-600">Kontak</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Tentang MI Mu'allimin</h2>
+            <p class="text-xl max-w-2xl mx-auto">Mengenal lebih dekat sejarah, visi, misi, dan nilai-nilai yang menjadi fondasi pendidikan kami</p>
+        </div>
+    </section>
+
+    <!-- Profil Sekolah -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Profil Sekolah</h3>
+                    <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md mb-8">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6">Identitas Satuan Pendidikan</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="font-medium text-gray-800">Nama Sekolah:</p>
+                            <p class="text-gray-600 mb-4">MI Mu'allimin Muhammadiyah Selatpanjang</p>
+                            
+                            <p class="font-medium text-gray-800">NPSN:</p>
+                            <p class="text-gray-600 mb-4">69827661</p>
+                            
+                            <p class="font-medium text-gray-800">NSM:</p>
+                            <p class="text-gray-600 mb-4">111214100013</p>
+                            
+                            <p class="font-medium text-gray-800">Alamat:</p>
+                            <p class="text-gray-600">Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</p>
+                            
+                            <p class="font-medium text-gray-800">Desa/Kelurahan:</p>
+                            <p class="text-gray-600 mb-4">Selatpanjang Selatan</p>
+                            
+                            <p class="font-medium text-gray-800">Status Sekolah:</p>
+                            <p class="text-gray-600 mb-4">Swasta</p>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Kecamatan:</p>
+                            <p class="text-gray-600 mb-4">Tebing Tinggi</p>
+                            
+                            <p class="font-medium text-gray-800">Kabupaten:</p>
+                            <p class="text-gray-600 mb-4">Kepulauan Meranti</p>
+                            
+                            <p class="font-medium text-gray-800">Provinsi:</p>
+                            <p class="text-gray-600 mb-4">Riau</p>
+                            
+                            <p class="font-medium text-gray-800">Bentuk Pendidikan:</p>
+                            <p class="text-gray-600 mb-4">Madrasah Ibtidaiyah (MI)</p>
+                            
+                            <p class="font-medium text-gray-800">Jenjang Pendidikan:</p>
+                            <p class="text-gray-600 mb-4">Pendidikan Dasar (DIKDAS)</p>
+                            
+                            <p class="font-medium text-gray-800">Email:</p>
+                            <p class="text-gray-600">mimuallimin77@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md mb-8">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6">Dokumentasi dan Perijinan</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="font-medium text-gray-800">Kementerian Pembina:</p>
+                            <p class="text-gray-600 mb-4">Kementerian Agama</p>
+                            
+                            <p class="font-medium text-gray-800">Naungan:</p>
+                            <p class="text-gray-600 mb-4">Majelis Dikdasmen PDM Kabupaten Kepulauan Meranti</p>
+                            
+                            <p class="font-medium text-gray-800">NPYP:</p>
+                            <p class="text-gray-600 mb-4">AO5552</p>
+                            
+                            <p class="font-medium text-gray-800">Nomor SK Pendirian:</p>
+                            <p class="text-gray-600 mb-4">80/C-II/80</p>
+                            
+                            <p class="font-medium text-gray-800">Tanggal SK Pendirian:</p>
+                            <p class="text-gray-600 mb-4">17 September 1980</p>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Nomor SK Operasional:</p>
+                            <p class="text-gray-600 mb-4">Kd.04.12/2/MIS/PP.00.4/0013/2013</p>
+                            
+                            <p class="font-medium text-gray-800">Tanggal SK Operasional:</p>
+                            <p class="text-gray-600 mb-4">1 April 2013</p>
+                            
+                            <p class="font-medium text-gray-800">Akreditasi:</p>
+                            <p class="text-gray-600 mb-4">B (SK Akreditasi No. 193/BAP-SM/KP-09/XI/2017)</p>
+                            
+                            <p class="font-medium text-gray-800">Tanggal Upload SK Operasional:</p>
+                            <p class="text-gray-600 mb-4">3 Juni 2021</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md mb-8">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6">Rekapitulasi Lembaga</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="font-medium text-gray-800">Nomor Statistik Madrasah (NSM):</p>
+                            <p class="text-gray-600 mb-4">111214100013</p>
+                            
+                            <p class="font-medium text-gray-800">NPSN:</p>
+                            <p class="text-gray-600 mb-4">69827661</p>
+                            
+                            <p class="font-medium text-gray-800">Status:</p>
+                            <p class="text-gray-600 mb-4">Swasta</p>
+                            
+                            <p class="font-medium text-gray-800">Akreditasi:</p>
+                            <p class="text-gray-600 mb-4">B</p>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">Kabupaten/Kota:</p>
+                            <p class="text-gray-600 mb-4">Kabupaten Kepulauan Meranti</p>
+                            
+                            <p class="font-medium text-gray-800">Provinsi:</p>
+                            <p class="text-gray-600 mb-4">Riau</p>
+                            
+                            <p class="font-medium text-gray-800">Kontak:</p>
+                            <p class="text-gray-600 mb-4">0822-8585-2725</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md">
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-6">Identitas Kepala Sekolah</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="font-medium text-gray-800">Nama:</p>
+                            <p class="text-gray-600 mb-4">Husniyati, SH</p>
+                            
+                            <p class="font-medium text-gray-800">Alamat:</p>
+                            <p class="text-gray-600">Jl. Masjid Taqwa</p>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">No. HP:</p>
+                            <p class="text-gray-600 mb-4">082283419939</p>
+                            
+                            <p class="font-medium text-gray-800">Email:</p>
+                            <p class="text-gray-600">mimuallimin77@gmail.com</p>
+                            
+                            <p class="font-medium text-gray-800">Tanggal Mulai Tugas:</p>
+                            <p class="text-gray-600">13 Januari 2005</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sejarah Sekolah -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Sejarah MI Mu'allimin</h3>
+                    <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Awal Mula (1960-an)</h4>
+                            <p class="text-gray-600">Perguruan Mu'allimin Muhammadiyah Selatpanjang berawal dari SMP Muhammadiyah yang berdiri pada tahun 1960-an. Awal berdirinya penuh dengan rintangan dari masyarakat Selatpanjang karena membawa nama Muhammadiyah yang dianggap sebagai aliran baru. Murid pertama hanya 6 orang dengan gedung sekolah menumpang di Koperasi Wan Ahmad.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Pembangunan Gedung (1968)</h4>
+                            <p class="text-gray-600">Pada tahun 1968, Muhammadiyah Selatpanjang membentuk tim untuk mendirikan gedung sekolah sendiri setelah mendapat hibah tanah dari Syekh Abdurrahman di Jalan Rintis. Gedung dibangun dengan sumbangan masyarakat berupa atap daun, tiang nibung, dan lantai papan meranti. Pada masa ini sekolah berubah nama menjadi SMP Jenderal Sudirman (1968-1972) karena tekanan politik.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Kembali ke Nama Asal (1972)</h4>
+                            <p class="text-gray-600">Tahun 1972, nama sekolah kembali menjadi Perguruan Mu'allimin Muhammadiyah dengan kurikulum dari Pimpinan Pusat Muhammadiyah. Sekolah berkembang pesat dengan siswa dari berbagai daerah sekitar Selatpanjang.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Perkembangan Lembaga (1978)</h4>
+                            <p class="text-gray-600">Tahun 1978, Perguruan Mu'allimin berkembang menjadi Madrasah Ibtidaiyah (setingkat SD), Madrasah Tsanawiyah (setingkat SMP), dan Madrasah Aliyah (setingkat SMA) sesuai regulasi pemerintah. Pada 1 November 1979 didirikan Panti Asuhan 'Aisyiyah yang menampung anak yatim dan pra-sejahtera yang bersekolah di Mu'allimin.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Era Modern</h4>
+                            <p class="text-gray-600">MI Mu'allimin terus berkembang dengan berbagai prestasi dan peningkatan kualitas pendidikan. Saat ini memiliki 311 siswa dengan 14 rombongan belajar dan 24 tenaga pendidik yang profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Fasilitas Sekolah</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Berbagai fasilitas yang disediakan untuk mendukung proses belajar mengajar</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-school text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-lg font-semibold text-gray-800 mb-1">Ruang Kelas</h5>
+                        <p class="text-gray-600">Ruang kelas yang nyaman dan kondusif untuk belajar</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-book text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-lg font-semibold text-gray-800 mb-1">Perpustakaan</h5>
+                        <p class="text-gray-600">Koleksi buku pelajaran dan bacaan penunjang</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-running text-yellow-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-lg font-semibold text-gray-800 mb-1">Lapangan Olahraga</h5>
+                        <p class="text-gray-600">Fasilitas olahraga untuk pengembangan fisik siswa</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-mosque text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-lg font-semibold text-gray-800 mb-1">Musholla/Masjid</h5>
+                        <p class="text-gray-600">Tempat ibadah dan kegiatan keagamaan</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-utensils text-red-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-lg font-semibold text-gray-800 mb-1">Kantin Sekolah</h5>
+                        <p class="text-gray-600">Menyediakan makanan sehat untuk siswa</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-laptop text-indigo-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-lg font-semibold text-gray-800 mb-1">Lab Komputer</h5>
+                        <p class="text-gray-600">Fasilitas pembelajaran teknologi informasi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi, Misi, Tujuan -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Visi -->
+                    <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-eye text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Visi</h4>
+                        <ul class="text-gray-700 space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Islam</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Berilmu Pengetahuan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Berprestasi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Terampil dan Berakhlak Mulia</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Misi -->
+                    <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-bullseye text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Misi</h4>
+                        <ul class="text-gray-700 space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                <span>Membudayakan dan membiasakan hidup Islami kepada warga sekolah</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                <span>Pembinaan dan pendalaman di bidang akademik dan keagamaan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                <span>Menghasilkan peserta didik yang terampil dalam membaca Al-Quran dan komputer</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Tujuan -->
+                    <div class="bg-white p-8 rounded-xl shadow-md card-hover">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-flag text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Tujuan</h4>
+                        <ul class="text-gray-700 space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                                <span>Berprestasi dalam kegiatan keagamaan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                                <span>Berprestasi dalam perolehan nilai UAN</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                                <span>Berprestasi dalam persaingan masuk SMP/MTs Negeri</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                                <span>Berprestasi dalam penerapan ilmu pengetahuan dan teknologi</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nilai-nilai Sekolah -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nilai-nilai Kami</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Prinsip-prinsip yang menjadi landasan dalam setiap kegiatan pendidikan di MI Mu'allimin</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-green-50 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-quran text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-2">Al-Quran sebagai Pedoman</h5>
+                    <p class="text-gray-600">Menjadikan Al-Quran sebagai dasar dalam seluruh aspek pendidikan</p>
+                </div>
+                
+                <div class="text-center p-6 bg-blue-50 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-2">Keunggulan Akademik</h5>
+                    <p class="text-gray-600">Mengutamakan penguasaan ilmu pengetahuan dan teknologi</p>
+                </div>
+                
+                <div class="text-center p-6 bg-yellow-50 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-2">Budaya Prestasi</h5>
+                    <p class="text-gray-600">Mendorong siswa untuk berprestasi di berbagai bidang</p>
+                </div>
+                
+                <div class="text-center p-6 bg-purple-50 rounded-xl card-hover">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hands-helping text-white text-2xl"></i>
+                    </div>
+                    <h5 class="text-xl font-semibold text-gray-800 mb-2">Akhlak Mulia</h5>
+                    <p class="text-gray-600">Membangun karakter siswa berdasarkan akhlak Islami</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tim Pengajar -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Tenaga Pendidik</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Tim pengajar profesional yang berdedikasi untuk pendidikan terbaik</p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead class="bg-green-600 text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">No</th>
+                            <th class="py-3 px-4 text-left">Nama</th>
+                            <th class="py-3 px-4 text-left">Jenis Kelamin</th>
+                            <th class="py-3 px-4 text-left">Jabatan</th>
+                            <th class="py-3 px-4 text-left">Pendidikan Terakhir</th>
+                            <th class="py-3 px-4 text-left">Mulai Tugas</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">1</td>
+                            <td class="py-3 px-4">HUSNIYATI, SH</td>
+                            <td class="py-3 px-4">P</td>
+                            <td class="py-3 px-4">KEPALA MADRASAH</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">13 Januari 2005</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">2</td>
+                            <td class="py-3 px-4">HASANAH</td>
+                            <td class="py-3 px-4">P</td>
+                            <td class="py-3 px-4">GURU BIDANG STUDI ISMUBA</td>
+                            <td class="py-3 px-4">SMA</td>
+                            <td class="py-3 px-4">18 September 1987</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">3</td>
+                            <td class="py-3 px-4">HALIMAH, S.Ag</td>
+                            <td class="py-3 px-4">P</td>
+                            <td class="py-3 px-4">GURU KELAS</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">17 Juni 1989</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">4</td>
+                            <td class="py-3 px-4">ZULHELMI,S.Pd.I</td>
+                            <td class="py-3 px-4">L</td>
+                            <td class="py-3 px-4">GURU KELAS</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">09 September 1990</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">5</td>
+                            <td class="py-3 px-4">MARDINI, S.Pd.I</td>
+                            <td class="py-3 px-4">P</td>
+                            <td class="py-3 px-4">GURU KELAS</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">08 Juli 2007</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">6</td>
+                            <td class="py-3 px-4">SRI MARIYANI, S.Pd.SD</td>
+                            <td class="py-3 px-4">P</td>
+                            <td class="py-3 px-4">GURU KELAS</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">08 Agustus 2007</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">7</td>
+                            <td class="py-3 px-4">GUSNIARNI,SE</td>
+                            <td class="py-3 px-4">L</td>
+                            <td class="py-3 px-4">TENAGA KEPENDIDIKAN</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">04 Januari 2008</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">8</td>
+                            <td class="py-3 px-4">SUSMAYANI, S.Pd</td>
+                            <td class="py-3 px-4">P</td>
+                            <td class="py-3 px-4">GURU KELAS</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">09 Juli 2012</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">9</td>
+                            <td class="py-3 px-4">NURUL FIDIANA, S.Pd</td>
+                            <td class="py-3 px-4">P</td>
+                            <td class="py-3 px-4">GURU KELAS</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">11 Juli 2012</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-3 px-4">10</td>
+                            <td class="py-3 px-4">ARIF JOKO PRASETYO S.Pd</td>
+                            <td class="py-3 px-4">L</td>
+                            <td class="py-3 px-4">GURU BIDANG STUDI</td>
+                            <td class="py-3 px-4">S1</td>
+                            <td class="py-3 px-4">07 April 2014</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                    Lihat Seluruh Guru
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rekapitulasi -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Data Statistik</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Rekapitulasi siswa dan tenaga pendidik MI Mu'allimin</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-green-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">311</div>
+                    <h5 class="text-lg font-semibold text-gray-800">Jumlah Siswa</h5>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">14</div>
+                    <h5 class="text-lg font-semibold text-gray-800">Rombongan Belajar</h5>
+                </div>
+                
+                <div class="bg-yellow-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-4xl font-bold text-yellow-600 mb-2">24</div>
+                    <h5 class="text-lg font-semibold text-gray-800">Tenaga Pendidik</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Informasi Sekolah -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-mosque text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold">MI Mu'allimin Muhammadiyah</h4>
+                            <p class="text-sm text-gray-300">Selatpanjang</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">Madrasah Ibtidaiyah unggulan yang mengutamakan pendidikan Islam berkualitas dengan penguatan akidah dan akhlak mulia.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="https://instagram.com/mi_muallimin_selatpanjang" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Menu Cepat -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Menu Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white">Beranda</a></li>
+                        <li><a href="akademik.html" class="text-gray-300 hover:text-white">Program Akademik</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-white">Pendaftaran</a></li>
+                        <li><a href="galeri.html" class="text-gray-300 hover:text-white">Galeri</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kontak -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</li>
+                        <li><i class="fas fa-phone mr-2"></i> 0822-8585-2725</li>
+                        <li><i class="fas fa-envelope mr-2"></i>mimuallimin77@gmail.com</li>
+                        <li><i class="fas fa-clock mr-2"></i>Senin - Jumat: 07:00 - 15:00</li>
+                    </ul>
+                </div>
+                
+                <!-- Kalender Hijriah -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kalender Hijriah</h4>
+                    <div id="hijri-calendar" class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-yellow-400" id="hijri-date">Loading...</div>
+                            <div class="text-sm text-gray-300 mt-1" id="hijri-month-year">Kalender Hijriah Global Tunggal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Hijriah date
+        function updateHijriDate() {
+            const hijriMonths = ['Muharram', 'Safar', 'Rabi\' al-Awwal', 'Rabi\' al-Thani', 'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Sha\'ban', 'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'];
+            const today = new Date();
+            const hijriDate = new Intl.DateTimeFormat('en-u-ca-islamic', {
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric'
+            }).format(today);
+            
+            const parts = hijriDate.split('/');
+            const day = parts[0];
+            const month = hijriMonths[parseInt(parts[1]) - 1];
+            const year = parts[2];
+            
+            document.getElementById('hijri-date').textContent = day;
+            document.getElementById('hijri-month-year').textContent = `${month} ${year} H`;
+        }
+        
+        updateHijriDate();
+    </script>
+</body>
+</html>
