@@ -1,488 +1,1076 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftaran Siswa Baru - MI Mu'allimin Muhammadiyah Selatpanjang</title>
     <meta name="description" content="Informasi lengkap pendaftaran siswa baru MI Mu'allimin Muhammadiyah Selatpanjang. Pelajari persyaratan, jadwal, dan prosedur pendaftaran untuk tahun ajaran baru.">
+    <meta name="keywords" content="pendaftaran MI Mu'allimin, madrasah ibtidaiyah selatpanjang, sekolah islam terbaik, pendidikan dasar islam">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'arabic': ['Amiri', 'serif']
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1E40AF',
+                            dark: '#1E3A8A'
+                        },
+                        secondary: {
+                            DEFAULT: '#D97706',
+                            dark: '#B45309'
+                        },
+                        accent: {
+                            green: '#16A34A',
+                            gold: '#EAB308'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Custom Styles */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%),
+                        url('assets/img/registration-hero.jpg') no-repeat center center;
+            background-size: cover;
+            background-position: center;
         }
+        
+        .islamic-pattern {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .islamic-pattern::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .text-outline {
+            text-shadow: 1px 1px 0 #1E3A8A, -1px -1px 0 #1E3A8A;
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.5));
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #1E40AF, #16A34A);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .btn-primary {
+            background-color: #1E40AF;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: #EAB308;
+            color: #1E3A8A;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Animation Delays */
+        .animation-delay-100 { animation-delay: 0.1s; }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-300 { animation-delay: 0.3s; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #F1F1F1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #1E40AF, #16A34A);
+            border-radius: 10px;
+        }
+        
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #1E40AF;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Timeline Styles */
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline-step::before {
+            content: "";
+            position: absolute;
+            left: 1.25rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #1E40AF;
+        }
+        
+        .timeline-step:last-child::before {
+            height: 0;
+        }
+        
+        .timeline-number {
+            position: absolute;
+            left: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: #1E40AF;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .data-table thead th {
+            background: linear-gradient(to right, #1E40AF, #1E3A8A);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .data-table tbody tr:nth-child(odd) {
+            background-color: #F8FAFC;
+        }
+        
+        .data-table tbody tr:hover {
+            background-color: #EFF6FF;
+        }
+        
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #E5E7EB;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500">
+        <div class="text-center">
+            <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+            <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 mx-auto mb-4">
+            <p class="text-gray-600">Memuat...</p>
+        </div>
+    </div>
+
     <!-- Header/Navigation -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4">
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
-                <!-- Logo dan Nama Sekolah -->
+                <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-mosque text-white text-xl"></i>
-                    </div>
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-12 logo-glow">
                     <div>
-                        <h1 class="text-xl font-bold text-gray-800">MI Mu'allimin Muhammadiyah</h1>
-                        <p class="text-sm text-gray-600">Selatpanjang</p>
+                        <h1 class="text-xl font-bold text-gray-800">MI MU'ALLIMIN</h1>
+                        <p class="text-xs text-gray-600">Muhammadiyah Selatpanjang</p>
                     </div>
                 </div>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
-                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600 transition-colors">Tentang Kami</a>
-                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600 transition-colors">Akademik</a>
-                    <a href="pendaftaran.html" class="text-blue-600 font-medium hover:text-blue-800 transition-colors">Pendaftaran</a>
-                    <a href="berita.html" class="text-gray-700 hover:text-blue-600 transition-colors">Berita</a>
-                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600 transition-colors">Galeri</a>
-                    <a href="kontak.html" class="text-gray-700 hover:text-blue-600 transition-colors">Kontak</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Beranda
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="tentang.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Tentang Kami
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Akademik
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="pendaftaran.html" class="relative text-primary font-medium group">
+                        Pendaftaran
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></span>
+                    </a>
+                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Berita
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="galeri.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Galeri
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="kalender.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Kalender KHGT
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="kontak.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Kontak
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-gray-700 hover:text-blue-600" id="mobile-menu-btn">
+                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Navigation -->
-            <div class="md:hidden mt-4 hidden" id="mobile-menu">
+            <div class="lg:hidden mt-4 hidden" id="mobile-menu">
                 <div class="flex flex-col space-y-3 pb-4">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Beranda</a>
-                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600">Tentang Kami</a>
-                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600">Akademik</a>
-                    <a href="pendaftaran.html" class="text-blue-600 font-medium">Pendaftaran</a>
-                    <a href="berita.html" class="text-gray-700 hover:text-blue-600">Berita</a>
-                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600">Galeri</a>
-                    <a href="kontak.html" class="text-gray-700 hover:text-blue-600">Kontak</a>
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Beranda</a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Tentang Kami</a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Akademik</a>
+                    <a href="pendaftaran.html" class="text-primary font-medium py-2 px-4 rounded-lg bg-primary/10">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Galeri</a>
+                    <a href="kalender.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kalender KHGT</a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kontak</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Page Header -->
-    <section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Pendaftaran Siswa Baru</h2>
-            <p class="text-xl max-w-2xl mx-auto">Tahun Ajaran 2024/2025 - Bergabunglah dengan keluarga besar MI Mu'allimin</p>
-        </div>
-    </section>
-
-    <!-- Informasi Penting -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
-                    <div class="flex items-center">
-                        <i class="fas fa-exclamation-triangle text-yellow-400 text-2xl mr-4"></i>
-                        <div>
-                            <h4 class="text-lg font-semibold text-yellow-800 mb-2">Informasi Penting</h4>
-                            <p class="text-yellow-700">Pendaftaran siswa baru tahun ajaran 2024/2025 telah dibuka. Kuota terbatas untuk 60 siswa baru, daftarkan segera putra-putri Anda!</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <div class="text-center bg-blue-50 p-6 rounded-xl">
-                        <i class="fas fa-calendar-alt text-blue-600 text-3xl mb-4"></i>
-                        <h5 class="text-lg font-semibold text-gray-800 mb-2">Periode Pendaftaran</h5>
-                        <p class="text-gray-600">1 Februari - 31 Maret 2024</p>
-                    </div>
-                    
-                    <div class="text-center bg-green-50 p-6 rounded-xl">
-                        <i class="fas fa-users text-green-600 text-3xl mb-4"></i>
-                        <h5 class="text-lg font-semibold text-gray-800 mb-2">Kuota Siswa</h5>
-                        <p class="text-gray-600">60 siswa (2 kelas)</p>
-                    </div>
-                    
-                    <div class="text-center bg-purple-50 p-6 rounded-xl">
-                        <i class="fas fa-child text-purple-600 text-3xl mb-4"></i>
-                        <h5 class="text-lg font-semibold text-gray-800 mb-2">Usia Minimal</h5>
-                        <p class="text-gray-600">6 tahun per 1 Juli 2024</p>
-                    </div>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-bg text-white py-32 relative overflow-hidden islamic-pattern">
+            <div class="absolute inset-0 bg-black/30 z-0"></div>
+            <div class="container mx-auto px-4 text-center relative z-10" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    <span class="text-outline">Pendaftaran Siswa Baru</span><br>
+                    <span class="text-accent-gold">Tahun Ajaran 2024/2025</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
+                    Membuka kesempatan bagi putra-putri Anda untuk mendapatkan pendidikan Islam terbaik di Selatpanjang
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#formulir" class="btn-secondary">
+                        <i class="fas fa-file-alt mr-2"></i>Formulir Pendaftaran
+                    </a>
+                    <a href="#persyaratan" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                        <i class="fas fa-list-check mr-2"></i>Lihat Persyaratan
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Prosedur Pendaftaran -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Prosedur Pendaftaran</h3>
-                    <p class="text-lg text-gray-600">Ikuti langkah-langkah berikut untuk mendaftarkan putra-putri Anda</p>
-                </div>
-                
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">1</div>
-                        <div class="bg-white p-6 rounded-xl shadow-md flex-1">
-                            <h5 class="text-xl font-semibold text-gray-800 mb-2">Persiapan Dokumen</h5>
-                            <p class="text-gray-600">Siapkan semua dokumen yang diperlukan sesuai dengan daftar persyaratan yang telah ditentukan.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">2</div>
-                        <div class="bg-white p-6 rounded-xl shadow-md flex-1">
-                            <h5 class="text-xl font-semibold text-gray-800 mb-2">Pengambilan Formulir</h5>
-                            <p class="text-gray-600">Ambil formulir pendaftaran di kantor madrasah atau unduh dari website resmi.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">3</div>
-                        <div class="bg-white p-6 rounded-xl shadow-md flex-1">
-                            <h5 class="text-xl font-semibold text-gray-800 mb-2">Pengisian Formulir</h5>
-                            <p class="text-gray-600">Isi formulir dengan lengkap dan benar. Pastikan semua data yang dimasukkan akurat.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">4</div>
-                        <div class="bg-white p-6 rounded-xl shadow-md flex-1">
-                            <h5 class="text-xl font-semibold text-gray-800 mb-2">Penyerahan Berkas</h5>
-                            <p class="text-gray-600">Serahkan formulir beserta dokumen pendukung ke kantor madrasah dan bayar biaya pendaftaran sebesar Rp 200.000.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">5</div>
-                        <div class="bg-white p-6 rounded-xl shadow-md flex-1">
-                            <h5 class="text-xl font-semibold text-gray-800 mb-2">Tes Masuk</h5>
-                            <p class="text-gray-600">Ikuti tes masuk sesuai jadwal yang telah ditentukan. Tes meliputi kemampuan dasar (baca tulis hitung) dan wawancara dengan orang tua.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">6</div>
-                        <div class="bg-white p-6 rounded-xl shadow-md flex-1">
-                            <h5 class="text-xl font-semibold text-gray-800 mb-2">Pengumuman Hasil</h5>
-                            <p class="text-gray-600">Pengumuman hasil seleksi akan diumumkan melalui website dan papan pengumuman madrasah.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Persyaratan -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Persyaratan Pendaftaran</h3>
-                    <p class="text-lg text-gray-600">Dokumen yang harus disiapkan untuk pendaftaran</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-blue-50 p-8 rounded-xl">
-                        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Dokumen Wajib</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                <span class="text-gray-700">Fotokopi Akta Kelahiran (2 lembar)</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                <span class="text-gray-700">Fotokopi Kartu Keluarga (2 lembar)</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                <span class="text-gray-700">Fotokopi KTP Orang Tua (2 lembar)</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                <span class="text-gray-700">Pas Foto Anak 3x4 (4 lembar) background merah</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-check-circle text-green-600 mt-1"></i>
-                                <span class="text-gray-700">Surat Keterangan Sehat dari Dokter</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-green-50 p-8 rounded-xl">
-                        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Dokumen Tambahan</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-plus-circle text-blue-600 mt-1"></i>
-                                <span class="text-gray-700">Sertifikat TK/PAUD (jika ada)</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-plus-circle text-blue-600 mt-1"></i>
-                                <span class="text-gray-700">Surat Keterangan Tidak Mampu (jika mengajukan beasiswa)</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-plus-circle text-blue-600 mt-1"></i>
-                                <span class="text-gray-700">Sertifikat Tahfiz (jika ada)</span>
-                            </li>
-                            <li class="flex items-start space-x-3">
-                                <i class="fas fa-plus-circle text-blue-600 mt-1"></i>
-                                <span class="text-gray-700">Surat Pindah Sekolah (untuk siswa pindahan)</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Jadwal Penting -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Jadwal Penting</h3>
-                    <p class="text-lg text-gray-600">Catat tanggal-tanggal penting dalam proses pendaftaran</p>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-blue-600 text-white">
-                                <tr>
-                                    <th class="px-6 py-4 text-left">Kegiatan</th>
-                                    <th class="px-6 py-4 text-left">Tanggal</th>
-                                    <th class="px-6 py-4 text-left">Keterangan</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 font-medium text-gray-800">Pembukaan Pendaftaran</td>
-                                    <td class="px-6 py-4 text-gray-600">1 Februari 2024</td>
-                                    <td class="px-6 py-4 text-gray-600">Mulai pukul 08:00 WIB</td>
-                                </tr>
-                                <tr class="bg-gray-50">
-                                    <td class="px-6 py-4 font-medium text-gray-800">Penutupan Pendaftaran</td>
-                                    <td class="px-6 py-4 text-gray-600">31 Maret 2024</td>
-                                    <td class="px-6 py-4 text-gray-600">Pukul 15:00 WIB</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 font-medium text-gray-800">Tes Masuk</td>
-                                    <td class="px-6 py-4 text-gray-600">5-7 April 2024</td>
-                                    <td class="px-6 py-4 text-gray-600">Sesuai jadwal yang ditentukan</td>
-                                </tr>
-                                <tr class="bg-gray-50">
-                                    <td class="px-6 py-4 font-medium text-gray-800">Pengumuman Hasil</td>
-                                    <td class="px-6 py-4 text-gray-600">15 April 2024</td>
-                                    <td class="px-6 py-4 text-gray-600">Pukul 10:00 WIB</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 font-medium text-gray-800">Daftar Ulang</td>
-                                    <td class="px-6 py-4 text-gray-600">16-20 April 2024</td>
-                                    <td class="px-6 py-4 text-gray-600">Bagi yang diterima</td>
-                                </tr>
-                                <tr class="bg-gray-50">
-                                    <td class="px-6 py-4 font-medium text-gray-800">Orientasi Siswa Baru</td>
-                                    <td class="px-6 py-4 text-gray-600">15-17 Juli 2024</td>
-                                    <td class="px-6 py-4 text-gray-600">Masa Pengenalan Lingkungan Madrasah</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Biaya Pendidikan -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Biaya Pendidikan</h3>
-                    <p class="text-lg text-gray-600">Rincian biaya pendidikan tahun ajaran 2024/2025</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-blue-50 p-8 rounded-xl">
-                        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Biaya Masuk</h4>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center border-b border-blue-200 pb-2">
-                                <span class="text-gray-700">Uang Pangkal</span>
-                                <span class="font-semibold text-gray-800">Rp 3.000.000</span>
-                            </div>
-                            <div class="flex justify-between items-center border-b border-blue-200 pb-2">
-                                <span class="text-gray-700">Biaya Pendaftaran</span>
-                                <span class="font-semibold text-gray-800">Rp 200.000</span>
-                            </div>
-                            <div class="flex justify-between items-center border-b border-blue-200 pb-2">
-                                <span class="text-gray-700">Seragam & Perlengkapan</span>
-                                <span class="font-semibold text-gray-800">Rp 1.200.000</span>
-                            </div>
-                            <div class="flex justify-between items-center pt-2">
-                                <span class="text-lg font-semibold text-gray-800">Total</span>
-                                <span class="text-lg font-bold text-blue-600">Rp 4.400.000</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-green-50 p-8 rounded-xl">
-                        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Biaya Bulanan</h4>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center border-b border-green-200 pb-2">
-                                <span class="text-gray-700">SPP</span>
-                                <span class="font-semibold text-gray-800">Rp 350.000</span>
-                            </div>
-                            <div class="flex justify-between items-center border-b border-green-200 pb-2">
-                                <span class="text-gray-700">Ekstrakurikuler</span>
-                                <span class="font-semibold text-gray-800">Rp 100.000</span>
-                            </div>
-                            <div class="flex justify-between items-center border-b border-green-200 pb-2">
-                                <span class="text-gray-700">Program Tahfiz</span>
-                                <span class="font-semibold text-gray-800">Rp 150.000</span>
-                            </div>
-                            <div class="flex justify-between items-center pt-2">
-                                <span class="text-lg font-semibold text-gray-800">Total per Bulan</span>
-                                <span class="text-lg font-bold text-green-600">Rp 600.000</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-8 bg-yellow-50 border-l-4 border-yellow-400 p-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-info-circle text-yellow-400 text-xl mr-3"></i>
-                        <div>
-                            <h5 class="font-semibold text-yellow-800 mb-1">Informasi Beasiswa</h5>
-                            <p class="text-yellow-700">Tersedia program beasiswa untuk siswa berprestasi dan kurang mampu. Hubungi bagian administrasi untuk informasi lebih lanjut.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Pertanyaan yang Sering Diajukan</h3>
-                    <p class="text-lg text-gray-600">Temukan jawaban atas pertanyaan umum seputar pendaftaran</p>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="bg-white rounded-xl shadow-md p-6">
-                        <h5 class="text-lg font-semibold text-gray-800 mb-3">Apakah ada tes masuk untuk calon siswa?</h5>
-                        <p class="text-gray-600">Ya, semua calon siswa akan mengikuti tes masuk yang meliputi tes kemampuan dasar (membaca, menulis, berhitung) dan wawancara sederhana untuk mengenal karakter anak.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl shadow-md p-6">
-                        <h5 class="text-lg font-semibold text-gray-800 mb-3">Bagaimana jika anak belum bisa membaca?</h5>
-                        <p class="text-gray-600">Tidak masalah. Tes masuk lebih fokus pada kesiapan anak untuk belajar. Kami memiliki program khusus untuk membantu anak-anak yang belum lancar membaca.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl shadow-md p-6">
-                        <h5 class="text-lg font-semibold text-gray-800 mb-3">Apakah tersedia program beasiswa?</h5>
-                        <p class="text-gray-600">Ya, kami menyediakan beasiswa untuk siswa berprestasi dan keluarga kurang mampu. Silakan hubungi bagian administrasi untuk informasi lebih detail.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl shadow-md p-6">
-                        <h5 class="text-lg font-semibold text-gray-800 mb-3">Bagaimana sistem pembelajaran di MI Mu'allimin?</h5>
-                        <p class="text-gray-600">Kami menggunakan kurikulum nasional yang dipadukan dengan pendidikan agama Islam, program Tahfiz, dan pengembangan karakter islami.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section class="py-16 bg-blue-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-3xl md:text-4xl font-bold mb-4">Masih Ada Pertanyaan?</h3>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Tim kami siap membantu Anda. Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="kontak.html" class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors">
-                    <i class="fas fa-phone mr-2"></i>Hubungi Kami
-                </a>
-                <a href="#" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 font-semibold py-3 px-8 rounded-lg transition-colors">
-                    <i class="fas fa-download mr-2"></i>Download Brosur
+            
+            <!-- Animated Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up" data-aos-delay="500">
+                <a href="#informasi" class="text-white hover:text-accent-gold">
+                    <i class="fas fa-chevron-down text-2xl"></i>
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Informasi Penting -->
+        <section class="py-16 bg-gradient-to-r from-primary to-accent-green text-white" id="informasi">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20" data-aos="fade-up">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                                <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Informasi Penting Pendaftaran</h3>
+                                <p class="text-lg opacity-90">Pendaftaran siswa baru tahun ajaran 2024/2025 telah dibuka. Kuota terbatas untuk 60 siswa baru (2 kelas), segera daftarkan putra-putri Anda sebelum kuota penuh!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 mt-12">
+                        <div class="text-center p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-calendar-alt text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Periode Pendaftaran</h4>
+                            <p class="opacity-90">1 Februari - 31 Maret 2024</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Kuota Siswa</h4>
+                            <p class="opacity-90">60 siswa (2 kelas)</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-child text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Usia Minimal</h4>
+                            <p class="opacity-90">6 tahun per 1 Juli 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prosedur Pendaftaran -->
+        <section class="py-20 bg-white" id="prosedur">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <span class="gradient-text">Prosedur</span> Pendaftaran
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Ikuti langkah-langkah berikut untuk mendaftarkan putra-putri Anda
+                    </p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-8">
+                        <!-- Step 1 -->
+                        <div class="timeline-step" data-aos="fade-up">
+                            <div class="timeline-number">1</div>
+                            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-file-alt text-xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Persiapan Dokumen</h3>
+                                </div>
+                                <p class="text-gray-600">Siapkan semua dokumen yang diperlukan sesuai dengan daftar persyaratan yang telah ditentukan. Pastikan dokumen lengkap dan valid.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="timeline-step" data-aos="fade-up" data-aos-delay="100">
+                            <div class="timeline-number">2</div>
+                            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-file-download text-xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Pengambilan Formulir</h3>
+                                </div>
+                                <p class="text-gray-600">Ambil formulir pendaftaran di kantor madrasah atau unduh dari website resmi. Formulir juga tersedia melalui WhatsApp admin.</p>
+                                <div class="mt-4">
+                                    <a href="#" class="btn-primary inline-flex items-center">
+                                        <i class="fas fa-download mr-2"></i>Download Formulir
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="timeline-step" data-aos="fade-up" data-aos-delay="200">
+                            <div class="timeline-number">3</div>
+                            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-edit text-xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Pengisian Formulir</h3>
+                                </div>
+                                <p class="text-gray-600">Isi formulir dengan lengkap dan benar. Pastikan semua data yang dimasukkan akurat sesuai dengan dokumen resmi.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="timeline-step" data-aos="fade-up" data-aos-delay="300">
+                            <div class="timeline-number">4</div>
+                            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-file-upload text-xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Penyerahan Berkas</h3>
+                                </div>
+                                <p class="text-gray-600">Serahkan formulir beserta dokumen pendukung ke kantor madrasah dan bayar biaya pendaftaran sebesar Rp 200.000. Pembayaran bisa melalui transfer bank atau langsung di madrasah.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="timeline-step" data-aos="fade-up" data-aos-delay="400">
+                            <div class="timeline-number">5</div>
+                            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-clipboard-check text-xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Tes Masuk</h3>
+                                </div>
+                                <p class="text-gray-600">Ikuti tes masuk sesuai jadwal yang telah ditentukan. Tes meliputi kemampuan dasar (baca tulis hitung) dan wawancara dengan orang tua. Tes dilaksanakan dalam suasana ramah anak.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 6 -->
+                        <div class="timeline-step" data-aos="fade-up" data-aos-delay="500">
+                            <div class="timeline-number">6</div>
+                            <div class="card-hover bg-gray-50 p-8 rounded-xl">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-accent-green rounded-full flex items-center justify-center text-white mr-4">
+                                        <i class="fas fa-award text-xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Pengumuman Hasil</h3>
+                                </div>
+                                <p class="text-gray-600">Pengumuman hasil seleksi akan diumumkan melalui website, WhatsApp, dan papan pengumuman madrasah. Siswa yang diterima harus melakukan daftar ulang sesuai jadwal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Persyaratan Pendaftaran -->
+        <section class="py-20 bg-gray-50" id="persyaratan">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <span class="gradient-text">Persyaratan</span> Pendaftaran
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Dokumen yang harus disiapkan untuk proses pendaftaran
+                    </p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Dokumen Wajib -->
+                        <div class="card-hover bg-white p-8 rounded-xl shadow-md" data-aos="fade-up">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-file-signature text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Dokumen Wajib</h3>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Fotokopi Akta Kelahiran (2 lembar) yang telah dilegalisir</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Fotokopi Kartu Keluarga (2 lembar) yang telah dilegalisir</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Fotokopi KTP Orang Tua/Wali (2 lembar)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Pas foto anak ukuran 3x4 (4 lembar) background merah</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Surat Keterangan Sehat dari Dokter/Puskesmas</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Dokumen Tambahan -->
+                        <div class="card-hover bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-accent-green rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-file-medical text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Dokumen Tambahan</h3>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-plus text-blue-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Sertifikat TK/PAUD (jika pernah mengikuti)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-plus text-blue-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Surat Keterangan Tidak Mampu (jika mengajukan beasiswa)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-plus text-blue-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Sertifikat Tahfiz (jika ada)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-plus text-blue-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Surat Pindah Sekolah (untuk siswa pindahan)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1 mr-3">
+                                        <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-plus text-blue-600 text-xs"></i>
+                                        </div>
+                                    </div>
+                                    <span class="text-gray-700">Laporan Hasil Belajar (untuk siswa pindahan)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg" data-aos="fade-up">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-info-circle text-yellow-500 text-xl mt-1 mr-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-yellow-800 mb-2">Catatan Penting</h4>
+                                <p class="text-yellow-700">Semua dokumen harus disiapkan dalam bentuk fotokopi dan menunjukkan dokumen asli untuk verifikasi. Dokumen yang tidak lengkap dapat menyebabkan proses pendaftaran tertunda.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jadwal Penting -->
+        <section class="py-20 bg-white" id="jadwal">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <span class="gradient-text">Jadwal</span> Penting
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Catat tanggal-tanggal penting dalam proses pendaftaran
+                    </p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                        <div class="overflow-x-auto">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Kegiatan</th>
+                                        <th>Tanggal</th>
+                                        <th>Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium">Pembukaan Pendaftaran</td>
+                                        <td>1 Februari 2024</td>
+                                        <td>Mulai pukul 08:00 WIB</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Penutupan Pendaftaran</td>
+                                        <td>31 Maret 2024</td>
+                                        <td>Pukul 15:00 WIB</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Tes Masuk</td>
+                                        <td>5-7 April 2024</td>
+                                        <td>Sesuai jadwal yang ditentukan</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Pengumuman Hasil</td>
+                                        <td>15 April 2024</td>
+                                        <td>Pukul 10:00 WIB</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Daftar Ulang</td>
+                                        <td>16-20 April 2024</td>
+                                        <td>Bagi yang diterima</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Orientasi Siswa Baru</td>
+                                        <td>15-17 Juli 2024</td>
+                                        <td>Masa Pengenalan Lingkungan Madrasah</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biaya Pendidikan -->
+        <section class="py-20 bg-gray-50" id="biaya">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <span class="gradient-text">Biaya</span> Pendidikan
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Rincian biaya pendidikan tahun ajaran 2024/2025
+                    </p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Biaya Masuk -->
+                        <div class="card-hover bg-white p-8 rounded-xl shadow-md" data-aos="fade-up">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-sign-in-alt text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Biaya Masuk</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span class="text-gray-700">Uang Pangkal</span>
+                                    <span class="font-semibold text-gray-800">Rp 3.000.000</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span class="text-gray-700">Biaya Pendaftaran</span>
+                                    <span class="font-semibold text-gray-800">Rp 200.000</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span class="text-gray-700">Seragam & Perlengkapan</span>
+                                    <span class="font-semibold text-gray-800">Rp 1.200.000</span>
+                                </div>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-lg font-semibold text-gray-800">Total</span>
+                                    <span class="text-xl font-bold text-primary">Rp 4.400.000</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Biaya Bulanan -->
+                        <div class="card-hover bg-white p-8 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-accent-green rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-calendar-day text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Biaya Bulanan</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span class="text-gray-700">SPP Pendidikan</span>
+                                    <span class="font-semibold text-gray-800">Rp 350.000</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span class="text-gray-700">Ekstrakurikuler</span>
+                                    <span class="font-semibold text-gray-800">Rp 100.000</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span class="text-gray-700">Program Tahfiz</span>
+                                    <span class="font-semibold text-gray-800">Rp 150.000</span>
+                                </div>
+                                <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                    <span class="text-gray-700">Makan Siang & Snack</span>
+                                    <span class="font-semibold text-gray-800">Rp 200.000</span>
+                                </div>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-lg font-semibold text-gray-800">Total per Bulan</span>
+                                    <span class="text-xl font-bold text-accent-green">Rp 800.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg" data-aos="fade-up">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-info-circle text-blue-500 text-xl mt-1 mr-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-blue-800 mb-2">Informasi Pembayaran</h4>
+                                <p class="text-blue-700 mb-2">Pembayaran dapat dilakukan melalui:</p>
+                                <ul class="list-disc list-inside text-blue-700 space-y-1">
+                                    <li>Transfer ke rekening BSI No. 1234567890 a.n. MI Mu'allimin Muhammadiyah</li>
+                                    <li>Tunai langsung di kantor madrasah</li>
+                                    <li>Pembayaran cicilan tersedia dengan ketentuan khusus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-green-50 border-l-4 border-green-400 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-award text-green-500 text-xl mt-1 mr-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-green-800 mb-2">Program Beasiswa</h4>
+                                <p class="text-green-700">Tersedia program beasiswa untuk:</p>
+                                <ul class="list-disc list-inside text-green-700 space-y-1">
+                                    <li>Siswa berprestasi akademik/non-akademik</li>
+                                    <li>Keluarga kurang mampu (membawa SKTM)</li>
+                                    <li>Anak yatim/piatu/yatim piatu</li>
+                                    <li>Hafiz Al-Quran minimal 1 juz</li>
+                                </ul>
+                                <p class="text-green-700 mt-2">Hubungi bagian administrasi untuk informasi lebih lanjut.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ -->
+        <section class="py-20 bg-gray-50" id="faq">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <span class="gradient-text">Pertanyaan</span> yang Sering Diajukan
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Temukan jawaban atas pertanyaan umum seputar pendaftaran
+                    </p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="card-hover bg-white rounded-xl shadow-md p-6" data-aos="fade-up">
+                        <h5 class="text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-question-circle text-primary mr-3"></i>
+                            Apakah ada tes masuk untuk calon siswa?
+                        </h5>
+                        <p class="text-gray-600">Ya, semua calon siswa akan mengikuti tes masuk yang meliputi tes kemampuan dasar (membaca, menulis, berhitung) dan wawancara sederhana untuk mengenal karakter anak. Tes ini bertujuan untuk memetakan kemampuan awal siswa, bukan sebagai syarat mutlak penerimaan.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
+                        <h5 class="text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-question-circle text-primary mr-3"></i>
+                            Bagaimana jika anak belum bisa membaca?
+                        </h5>
+                        <p class="text-gray-600">Tidak masalah. Tes masuk lebih fokus pada kesiapan anak untuk belajar. Kami memiliki program khusus untuk membantu anak-anak yang belum lancar membaca. Yang penting anak menunjukkan minat belajar dan memiliki kesiapan untuk mengikuti kegiatan di madrasah.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="200">
+                        <h5 class="text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-question-circle text-primary mr-3"></i>
+                            Apakah tersedia program beasiswa?
+                        </h5>
+                        <p class="text-gray-600">Ya, kami menyediakan beasiswa untuk siswa berprestasi dan keluarga kurang mampu. Beasiswa bisa mencakup sebagian atau seluruh biaya pendidikan tergantung kriteria yang dipenuhi. Silakan hubungi bagian administrasi untuk informasi lebih detail dan persyaratannya.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="300">
+                        <h5 class="text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-question-circle text-primary mr-3"></i>
+                            Bagaimana sistem pembelajaran di MI Mu'allimin?
+                        </h5>
+                        <p class="text-gray-600">Kami menggunakan kurikulum nasional yang dipadukan dengan pendidikan agama Islam, program Tahfiz, dan pengembangan karakter islami. Pembelajaran dilaksanakan dari Senin hingga Jumat pukul 07.30 - 14.00 WIB, dengan berbagai kegiatan ekstrakurikuler pilihan seperti Tahfiz, Bahasa Arab, Seni Islami, dan Sains.</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="400">
+                        <h5 class="text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-question-circle text-primary mr-3"></i>
+                            Apakah ada fasilitas antar jemput?
+                        </h5>
+                        <p class="text-gray-600">Ya, kami menyediakan layanan antar jemput dengan rute tertentu. Biaya transportasi ditanggung oleh orang tua siswa dan dapat dibayarkan per bulan. Informasi lebih lanjut tentang rute dan biaya dapat ditanyakan langsung ke bagian administrasi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Masih Ada Pertanyaan?</h2>
+                    <p class="text-xl mb-8 opacity-90">
+                        Tim kami siap membantu Anda. Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut tentang pendaftaran.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="kontak.html" class="btn-secondary">
+                            <i class="fas fa-phone-alt mr-2"></i>Hubungi Kami
+                        </a>
+                        <a href="#" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg">
+                            <i class="fas fa-download mr-2"></i>Download Brosur
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Informasi Sekolah -->
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-mosque text-white"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-bold">MI Mu'allimin Muhammadiyah</h4>
-                            <p class="text-sm text-gray-300">Selatpanjang</p>
-                        </div>
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Tentang Sekolah -->
+                <div data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-10 mr-3">
+                        <h3 class="text-xl font-bold">MI MU'ALLIMIN</h3>
                     </div>
-                    <p class="text-gray-300 mb-4">Madrasah Ibtidaiyah unggulan yang mengutamakan pendidikan Islam berkualitas dengan penguatan akidah dan akhlak mulia.</p>
+                    <p class="text-gray-400 mb-4">
+                        Madrasah Ibtidaiyah unggulan dengan pendidikan islam berkualitas di Selatpanjang, Riau.
+                    </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1W2ghwc78U/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                        <a href="https://www.facebook.com/mi.muallimin" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="wa.me/+682285852725" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Menu Cepat -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Menu Cepat</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white">Beranda</a></li>
-                        <li><a href="tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
-                        <li><a href="akademik.html" class="text-gray-300 hover:text-white">Program Akademik</a></li>
-                        <li><a href="galeri.html" class="text-gray-300 hover:text-white">Galeri</a></li>
+                <!-- Link Cepat -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-bold mb-6">Link Cepat</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="tentang.html" class="text-gray-400 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="akademik.html" class="text-gray-400 hover:text-white transition-colors">Akademik</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-400 hover:text-white transition-colors">Pendaftaran</a></li>
+                        <li><a href="berita.html" class="text-gray-400 hover:text-white transition-colors">Berita</a></li>
+                        <li><a href="galeri.html" class="text-gray-400 hover:text-white transition-colors">Galeri</a></li>
                     </ul>
                 </div>
                 
                 <!-- Kontak -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-map-marker-alt mr-2"></i>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</li>
-                        <li><i class="fas fa-phone mr-2"></i>0822-8585-2725</li>
-                        <li><i class="fas fa-envelope mr-2"></i>mimuallimin77@gmail.com</li>
-                        <li><i class="fas fa-clock mr-2"></i>Senin - Jumat: 07:00 - 15:00</li>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-lg font-bold mb-6">Kontak Kami</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan, Riau</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3"></i>
+                            <span>082283419939</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>mimuallimin77@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3"></i>
+                            <span>Senin-Jumat: 07.00 - 15.00 WIB</span>
+                        </li>
                     </ul>
                 </div>
                 
-                <!-- Kalender Hijriah -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Kalender Hijriah</h4>
-                    <div id="hijri-calendar" class="bg-gray-700 p-4 rounded-lg">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-yellow-400" id="hijri-date">Loading...</div>
-                            <div class="text-sm text-gray-300 mt-1" id="hijri-month-year">Kalender Hijriah Global Tunggal</div>
-                        </div>
-                    </div>
+                <!-- Newsletter -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Dapatkan informasi terbaru seputar kegiatan dan pengumuman dari MI Mu'allimin.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Anda" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi. | <a href="#" class="hover:text-white">Kebijakan Privasi</a></p>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Kebijakan Privasi</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Syarat & Ketentuan</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Peta Situs</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 invisible hover:bg-primary-dark hover:-translate-y-1">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.add('bg-white');
+                navbar.classList.remove('bg-white/90');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/90');
+                navbar.classList.remove('bg-white');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
