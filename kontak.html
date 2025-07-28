@@ -1,385 +1,913 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak - MI Mu'allimin Muhammadiyah Selatpanjang</title>
     <meta name="description" content="Hubungi MI Mu'allimin Muhammadiyah Selatpanjang untuk informasi lebih lanjut. Alamat, telepon, email, dan formulir kontak tersedia di halaman ini.">
+    <meta name="keywords" content="kontak MI Mu'allimin, alamat madrasah Selatpanjang, telepon sekolah islam, pendaftaran MI Muhammadiyah">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'arabic': ['Amiri', 'serif']
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1E40AF',
+                            dark: '#1E3A8A'
+                        },
+                        secondary: {
+                            DEFAULT: '#D97706',
+                            dark: '#B45309'
+                        },
+                        accent: {
+                            green: '#16A34A',
+                            gold: '#EAB308'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Custom Styles */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%),
+                        url('assets/img/contact-hero.jpg') no-repeat center center;
+            background-size: cover;
+            background-position: center;
         }
+        
+        .islamic-pattern {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .islamic-pattern::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .text-outline {
+            text-shadow: 1px 1px 0 #1E3A8A, -1px -1px 0 #1E3A8A;
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.5));
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #1E40AF, #16A34A);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .btn-primary {
+            background-color: #1E40AF;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background-color: #EAB308;
+            color: #1E3A8A;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #D97706;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Animation Delays */
+        .animation-delay-100 { animation-delay: 0.1s; }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-300 { animation-delay: 0.3s; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #F1F1F1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #1E40AF, #16A34A);
+            border-radius: 10px;
+        }
+        
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #1E40AF;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Contact Form Styles */
+        .form-input {
+            transition: all 0.3s ease;
+            border: 1px solid #E5E7EB;
+        }
+        
+        .form-input:focus {
+            border-color: #1E40AF;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+        
+        .contact-icon {
+            background: linear-gradient(135deg, #1E40AF, #1E3A8A);
+            color: white;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500">
+        <div class="text-center">
+            <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
+            <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 mx-auto mb-4">
+            <p class="text-gray-600">Memuat...</p>
+        </div>
+    </div>
+
     <!-- Header/Navigation -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-4">
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
-                <!-- Logo dan Nama Sekolah -->
+                <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-mosque text-white text-xl"></i>
-                    </div>
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-12 logo-glow">
                     <div>
-                        <h1 class="text-xl font-bold text-gray-800">MI Mu'allimin Muhammadiyah</h1>
-                        <p class="text-sm text-gray-600">Selatpanjang</p>
+                        <h1 class="text-xl font-bold text-gray-800">MI MU'ALLIMIN</h1>
+                        <p class="text-xs text-gray-600">Muhammadiyah Selatpanjang</p>
                     </div>
                 </div>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
-                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600 transition-colors">Tentang Kami</a>
-                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600 transition-colors">Akademik</a>
-                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pendaftaran</a>
-                    <a href="berita.html" class="text-gray-700 hover:text-blue-600 transition-colors">Berita</a>
-                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600 transition-colors">Galeri</a>
-                    <a href="kontak.html" class="text-blue-600 font-medium hover:text-blue-800 transition-colors">Kontak</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Beranda
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="tentang.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Tentang Kami
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Akademik
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="pendaftaran.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Pendaftaran
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Berita
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="galeri.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Galeri
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="kalender.html" class="relative text-gray-700 hover:text-primary font-medium group">
+                        Kalender KHGT
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="kontak.html" class="relative text-primary font-medium group">
+                        Kontak
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transition-all"></span>
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-gray-700 hover:text-blue-600" id="mobile-menu-btn">
+                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Navigation -->
-            <div class="md:hidden mt-4 hidden" id="mobile-menu">
+            <div class="lg:hidden mt-4 hidden" id="mobile-menu">
                 <div class="flex flex-col space-y-3 pb-4">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Beranda</a>
-                    <a href="tentang.html" class="text-gray-700 hover:text-blue-600">Tentang Kami</a>
-                    <a href="akademik.html" class="text-gray-700 hover:text-blue-600">Akademik</a>
-                    <a href="pendaftaran.html" class="text-gray-700 hover:text-blue-600">Pendaftaran</a>
-                    <a href="berita.html" class="text-gray-700 hover:text-blue-600">Berita</a>
-                    <a href="galeri.html" class="text-gray-700 hover:text-blue-600">Galeri</a>
-                    <a href="kontak.html" class="text-blue-600 font-medium">Kontak</a>
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Beranda</a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Tentang Kami</a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Akademik</a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Pendaftaran</a>
+                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Berita</a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Galeri</a>
+                    <a href="kalender.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kalender KHGT</a>
+                    <a href="kontak.html" class="text-primary font-medium py-2 px-4 rounded-lg bg-primary/10">Kontak</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Page Header -->
-    <section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Hubungi Kami</h2>
-            <p class="text-xl max-w-2xl mx-auto">Kami siap membantu Anda. Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut tentang MI Mu'allimin Muhammadiyah Selatpanjang</p>
-        </div>
-    </section>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-bg text-white py-32 relative overflow-hidden islamic-pattern">
+            <div class="absolute inset-0 bg-black/30 z-0"></div>
+            <div class="container mx-auto px-4 text-center relative z-10" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    <span class="text-outline">Hubungi</span><br>
+                    <span class="text-accent-gold">MI Mu'allimin Muhammadiyah</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
+                    Kami siap membantu Anda dengan segala informasi yang dibutuhkan tentang pendidikan di MI Mu'allimin.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#informasi-kontak" class="btn-secondary">
+                        <i class="fas fa-phone-alt mr-2"></i>Informasi Kontak
+                    </a>
+                    <a href="#form-kontak" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i>Kirim Pesan
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Animated Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up" data-aos-delay="500">
+                <a href="#informasi-kontak" class="text-white hover:text-accent-gold">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </section>
 
-    <!-- Informasi Kontak -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="text-center bg-green-50 p-8 rounded-xl card-hover">
-                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+        <!-- Informasi Kontak -->
+        <section id="informasi-kontak" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                        <span class="gradient-text">Informasi</span> Kontak
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Berbagai cara untuk menghubungi kami dan mendapatkan informasi yang Anda butuhkan
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Alamat -->
+                    <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-8 text-center">
+                            <div class="contact-icon mx-auto">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Alamat Sekolah</h3>
+                            <p class="text-gray-600 mb-6">
+                                Jl. Masjid Taqwa No. 02<br>
+                                Selatpanjang Selatan<br>
+                                Kec. Tebing Tinggi, Kab. Kepulauan Meranti<br>
+                                Kode Pos 28753
+                            </p>
+                            <a href="#peta-lokasi" class="text-primary font-medium hover:text-primary-dark inline-flex items-center">
+                                Lihat Peta <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
                         </div>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Alamat Sekolah</h4>
-                        <p class="text-gray-600">Jl. Masjid Taqwa No. 02<br>Selatpanjang Selatan<br>Kec. Tebing Tinggi, Kab. Kepulauan Meranti<br>Kode Pos 28753</p>
                     </div>
                     
-                    <div class="text-center bg-blue-50 p-8 rounded-xl card-hover">
-                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-phone text-white text-2xl"></i>
+                    <!-- Telepon -->
+                    <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-8 text-center">
+                            <div class="contact-icon mx-auto">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Telepon & WhatsApp</h3>
+                            <ul class="text-gray-600 mb-6 space-y-2">
+                                <li class="flex items-center justify-center">
+                                    <i class="fas fa-phone mr-2 text-primary"></i>
+                                    <span>(0761) 12345 (Kantor)</span>
+                                </li>
+                                <li class="flex items-center justify-center">
+                                    <i class="fab fa-whatsapp mr-2 text-primary"></i>
+                                    <span>0822-8585-2725 (WhatsApp)</span>
+                                </li>
+                                <li class="flex items-center justify-center">
+                                    <i class="fas fa-user-tie mr-2 text-primary"></i>
+                                    <span>0822-8341-9939 (Kepala Sekolah)</span>
+                                </li>
+                            </ul>
+                            <a href="tel:+6282285852725" class="btn-primary inline-flex items-center">
+                                <i class="fas fa-phone-alt mr-2"></i>Hubungi Sekarang
+                            </a>
                         </div>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Telepon</h4>
-                        <p class="text-gray-600">
-                            <strong>Kantor:</strong> (0761) 12345<br>
-                            <strong>WhatsApp:</strong> 0822-8585-2725<br>
-                            <strong>Kepala Sekolah:</strong> 082283419939
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-8 text-center">
+                            <div class="contact-icon mx-auto">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Email & Media Sosial</h3>
+                            <ul class="text-gray-600 mb-6 space-y-2">
+                                <li class="flex items-center justify-center">
+                                    <i class="fas fa-envelope mr-2 text-primary"></i>
+                                    <span>mimuallimin77@gmail.com</span>
+                                </li>
+                                <li class="flex items-center justify-center">
+                                    <i class="fab fa-facebook mr-2 text-primary"></i>
+                                    <span>MI Mu'allimin Selatpanjang</span>
+                                </li>
+                                <li class="flex items-center justify-center">
+                                    <i class="fab fa-instagram mr-2 text-primary"></i>
+                                    <span>@mi_muallimin_selatpanjang</span>
+                                </li>
+                            </ul>
+                            <a href="mailto:mimuallimin77@gmail.com" class="btn-primary inline-flex items-center">
+                                <i class="fas fa-envelope mr-2"></i>Kirim Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jam Operasional -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                        <div class="md:flex">
+                            <div class="md:w-1/3 bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center p-8 text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-clock text-5xl mb-6"></i>
+                                    <h3 class="text-2xl font-bold mb-2">Jam Operasional</h3>
+                                    <p class="opacity-90">Waktu pelayanan kami</p>
+                                </div>
+                            </div>
+                            <div class="md:w-2/3 p-8">
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                            <i class="fas fa-building mr-2 text-primary"></i> Kantor Administrasi
+                                        </h4>
+                                        <ul class="space-y-3 text-gray-600">
+                                            <li class="flex justify-between">
+                                                <span>Senin - Jumat</span>
+                                                <span class="font-medium">07:00 - 15:00 WIB</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>Sabtu</span>
+                                                <span class="font-medium">08:00 - 12:00 WIB</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>Minggu & Libur</span>
+                                                <span class="font-medium text-red-500">Tutup</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                            <i class="fas fa-chalkboard-teacher mr-2 text-primary"></i> Kegiatan Belajar
+                                        </h4>
+                                        <ul class="space-y-3 text-gray-600">
+                                            <li class="flex justify-between">
+                                                <span>Senin - Kamis</span>
+                                                <span class="font-medium">07:30 - 14:00 WIB</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>Jumat</span>
+                                                <span class="font-medium">07:30 - 11:30 WIB</span>
+                                            </li>
+                                            <li class="flex justify-between">
+                                                <span>Ekstrakurikuler</span>
+                                                <span class="font-medium">14:00 - 16:00 WIB</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulir Kontak -->
+        <section id="form-kontak" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                            <span class="gradient-text">Kirim</span> Pesan
+                        </h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Isi formulir di bawah ini dan kami akan segera menghubungi Anda kembali
                         </p>
                     </div>
                     
-                    <div class="text-center bg-purple-50 p-8 rounded-xl card-hover">
-                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-envelope text-white text-2xl"></i>
+                    <div class="bg-gray-50 rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap <span class="text-red-500">*</span></label>
+                                    <input type="text" id="nama" name="nama" required 
+                                           class="form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                           placeholder="Masukkan nama lengkap">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email <span class="text-red-500">*</span></label>
+                                    <input type="email" id="email" name="email" required 
+                                           class="form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                           placeholder="nama@email.com">
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon/WhatsApp</label>
+                                    <input type="tel" id="telepon" name="telepon" 
+                                           class="form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                           placeholder="08xx-xxxx-xxxx">
+                                </div>
+                                
+                                <div>
+                                    <label for="subjek" class="block text-sm font-medium text-gray-700 mb-2">Subjek <span class="text-red-500">*</span></label>
+                                    <select id="subjek" name="subjek" required 
+                                            class="form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                                        <option value="">Pilih subjek</option>
+                                        <option value="pendaftaran">Informasi Pendaftaran</option>
+                                        <option value="akademik">Program Akademik</option>
+                                        <option value="tahfiz">Program Tahfiz</option>
+                                        <option value="biaya">Biaya Pendidikan</option>
+                                        <option value="lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="pesan" class="block text-sm font-medium text-gray-700 mb-2">Pesan <span class="text-red-500">*</span></label>
+                                <textarea id="pesan" name="pesan" rows="6" required 
+                                          class="form-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                          placeholder="Tulis pesan Anda di sini..."></textarea>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <input type="checkbox" id="setuju" name="setuju" required 
+                                       class="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                                <label for="setuju" class="ml-2 text-sm text-gray-600">
+                                    Saya setuju dengan <a href="#" class="text-primary hover:text-primary-dark">kebijakan privasi</a> dan memberikan izin untuk dihubungi oleh pihak madrasah.
+                                </label>
+                            </div>
+                            
+                            <div class="text-center pt-4">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-paper-plane mr-2"></i>Kirim Pesan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Peta Lokasi -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Header Section -->
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                <span class="gradient-text">Lokasi</span> Madrasah
+            </h2>
+            <p class="text-lg text-gray-600 max-w-xl mx-auto">
+                Temukan lokasi MI Mu'allimin Muhammadiyah Selatpanjang dengan mudah
+            </p>
+        </div>
+
+        <!-- Map Card -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <!-- Card Header -->
+            <div class="bg-gradient-to-r from-primary-blue to-primary-navy px-6 py-4">
+                <h3 class="text-lg font-semibold text-white flex items-center">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Peta Lokasi
+                </h3>
+            </div>
+            
+            <!-- Google Maps Placeholder -->
+            <div class="h-80 bg-gray-100 flex items-center justify-center relative">
+                <div class="text-center text-gray-500">
+                    <i class="fas fa-map-marked-alt text-5xl mb-4 opacity-30"></i>
+                    <p class="text-lg">Google Maps akan ditampilkan di sini</p>
+                </div>
+                
+                <!-- Replace this div with actual Google Maps iframe -->
+                <!--
+                <iframe src="YOUR_GOOGLE_MAPS_EMBED_URL" 
+                        class="absolute inset-0 w-full h-full" 
+                        frameborder="0" 
+                        allowfullscreen>
+                </iframe>
+                -->
+            </div>
+            
+            <!-- Address Section -->
+            <div class="px-6 py-4 border-b border-gray-200">
+                <p class="text-gray-700 flex items-center">
+                    <i class="fas fa-map-pin text-red-500 mr-3 text-xl"></i>
+                    <span class="font-medium">Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</span>
+                </p>
+            </div>
+            
+            <!-- Info Grid -->
+            <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                <!-- Transport Section -->
+                <div class="px-6 py-5">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-bus text-primary-blue"></i>
                         </div>
-                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Email</h4>
-                        <p class="text-gray-600">
-                            <strong>Umum:</strong> mimuallimin77@gmail.com<br>
-                            <strong>Pendaftaran:</strong> pendaftaran@mimuallimin.sch.id<br>
-                            <strong>Akademik:</strong> akademik@mimuallimin.sch.id
+                        Transportasi Umum
+                    </h4>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mt-1 mr-3">
+                                <i class="fas fa-circle text-xs text-primary-blue"></i>
+                            </div>
+                            <span>Angkutan Kota: Rute Selatpanjang Selatan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mt-1 mr-3">
+                                <i class="fas fa-circle text-xs text-primary-blue"></i>
+                            </div>
+                            <span>Ojek Online: Tersedia di depan madrasah</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Parking Section -->
+                <div class="px-6 py-5">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-parking text-green-600"></i>
+                        </div>
+                        Fasilitas Parkir
+                    </h4>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-1 mr-3">
+                                <i class="fas fa-circle text-xs text-green-600"></i>
+                            </div>
+                            <span>Parkir motor: 50 slot</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-1 mr-3">
+                                <i class="fas fa-circle text-xs text-green-600"></i>
+                            </div>
+                            <span>Area parkir aman dan terjaga</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Media Sosial -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                            <span class="gradient-text">Media</span> Sosial
+                        </h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Ikuti kami untuk mendapatkan informasi terbaru seputar kegiatan madrasah
                         </p>
                     </div>
-                </div>
-                
-                <!-- Jam Operasional -->
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <h4 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Jam Operasional</h4>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-4">Kantor Administrasi</h5>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="flex justify-between">
-                                    <span>Senin - Jumat</span>
-                                    <span>07:00 - 15:00 WIB</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span>Sabtu</span>
-                                    <span>08:00 - 12:00 WIB</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span>Minggu & Libur</span>
-                                    <span>Tutup</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-4">Kegiatan Belajar Mengajar</h5>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="flex justify-between">
-                                    <span>Senin - Kamis</span>
-                                    <span>07:30 - 14:00 WIB</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span>Jumat</span>
-                                    <span>07:30 - 11:30 WIB</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span>Ekstrakurikuler</span>
-                                    <span>14:00 - 16:00 WIB</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formulir Kontak -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Kirim Pesan</h3>
-                    <p class="text-lg text-gray-600">Isi formulir di bawah ini dan kami akan segera menghubungi Anda kembali</p>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-md p-8">
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
-                                <input type="text" id="nama" name="nama" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="Masukkan nama lengkap">
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="nama@email.com">
-                            </div>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telepon</label>
-                                <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="08xx-xxxx-xxxx">
-                            </div>
-                            
-                            <div>
-                                <label for="subjek" class="block text-sm font-medium text-gray-700 mb-2">Subjek *</label>
-                                <select id="subjek" name="subjek" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
-                                    <option value="">Pilih subjek</option>
-                                    <option value="pendaftaran">Informasi Pendaftaran</option>
-                                    <option value="akademik">Program Akademik</option>
-                                    <option value="tahfiz">Program Tahfiz</option>
-                                    <option value="biaya">Biaya Pendidikan</option>
-                                    <option value="lainnya">Lainnya</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label for="pesan" class="block text-sm font-medium text-gray-700 mb-2">Pesan *</label>
-                            <textarea id="pesan" name="pesan" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder="Tulis pesan Anda di sini..."></textarea>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <input type="checkbox" id="setuju" name="setuju" required class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                            <label for="setuju" class="text-sm text-gray-600">
-                                Saya setuju dengan <a href="#" class="text-blue-600 hover:text-blue-800">kebijakan privasi</a> dan memberikan izin untuk dihubungi oleh pihak madrasah.
-                            </label>
-                        </div>
-                        
-                        <div class="text-center">
-                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
-                                <i class="fas fa-paper-plane mr-2"></i>Kirim Pesan
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Peta Lokasi -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Lokasi Madrasah</h3>
-                    <p class="text-lg text-gray-600">Temukan lokasi MI Mu'allimin Muhammadiyah Selatpanjang dengan mudah</p>
-                </div>
-                
-                <div class="bg-gray-200 rounded-xl overflow-hidden shadow-md">
-                    <!-- Placeholder untuk Google Maps -->
-                    <div class="h-96 bg-gradient-to-br from-blue-400 to-green-400 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <i class="fas fa-map-marked-alt text-6xl mb-4"></i>
-                            <h4 class="text-2xl font-semibold mb-2">Peta Lokasi</h4>
-                            <p class="text-lg">Google Maps akan ditampilkan di sini</p>
-                            <p class="text-sm mt-2">Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-8 grid md:grid-cols-2 gap-8">
-                    <div class="bg-blue-50 p-6 rounded-xl">
-                        <h5 class="text-lg font-semibold text-gray-800 mb-4">Transportasi Umum</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li><i class="fas fa-bus mr-2 text-blue-600"></i>Angkutan Kota: Rute Selatpanjang Selatan</li>
-                            <li><i class="fas fa-motorcycle mr-2 text-blue-600"></i>Ojek Online: Tersedia di depan madrasah</li>
-                        </ul>
-                    </div>
                     
-                    <div class="bg-green-50 p-6 rounded-xl">
-                        <h5 class="text-lg font-semibold text-gray-800 mb-4">Fasilitas Parkir</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li><i class="fas fa-motorcycle mr-2 text-green-600"></i>Parkir motor: 50 slot</li>
-                            <li><i class="fas fa-shield-alt mr-2 text-green-600"></i>Area parkir aman dan terjaga</li>
-                        </ul>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <a href="https://www.facebook.com/share/1W2ghwc78U/" 
+                           class="card-hover bg-blue-600 hover:bg-blue-700 text-white p-8 rounded-xl transition-colors flex flex-col items-center justify-center" 
+                           data-aos="fade-up" data-aos-delay="100">
+                            <i class="fab fa-facebook text-5xl mb-4"></i>
+                            <h5 class="text-xl font-semibold mb-2">Facebook</h5>
+                            <p>MI Mu'allimin Selatpanjang</p>
+                            <span class="mt-4 inline-block px-3 py-1 bg-white/20 rounded-full text-sm">Ikuti Kami</span>
+                        </a>
+                        
+                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" 
+                           class="card-hover bg-gradient-to-r from-pink-500 to-pink-600 hover:to-pink-700 text-white p-8 rounded-xl transition-colors flex flex-col items-center justify-center" 
+                           data-aos="fade-up" data-aos-delay="200">
+                            <i class="fab fa-instagram text-5xl mb-4"></i>
+                            <h5 class="text-xl font-semibold mb-2">Instagram</h5>
+                            <p>@mi_muallimin_selatpanjang</p>
+                            <span class="mt-4 inline-block px-3 py-1 bg-white/20 rounded-full text-sm">Ikuti Kami</span>
+                        </a>
+                        
+                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" 
+                           class="card-hover bg-red-600 hover:bg-red-700 text-white p-8 rounded-xl transition-colors flex flex-col items-center justify-center" 
+                           data-aos="fade-up" data-aos-delay="300">
+                            <i class="fab fa-youtube text-5xl mb-4"></i>
+                            <h5 class="text-xl font-semibold mb-2">YouTube</h5>
+                            <p>MI Mu'allimin Channel</p>
+                            <span class="mt-4 inline-block px-3 py-1 bg-white/20 rounded-full text-sm">Subscribe</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Media Sosial -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Ikuti Kami</h3>
-                <p class="text-lg text-gray-600 mb-8">Dapatkan update terbaru tentang kegiatan madrasah melalui media sosial kami</p>
-                
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="https://www.facebook.com/share/1W2ghwc78U/" class="bg-blue-600 hover:bg-blue-700 text-white p-6 rounded-xl transition-colors card-hover">
-                        <i class="fab fa-facebook text-4xl mb-4"></i>
-                        <h5 class="text-xl font-semibold mb-2">Facebook</h5>
-                        <p>MI Mu'allimin Selatpanjang</p>
-                    </a>
-                    
-                    <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="bg-pink-600 hover:bg-pink-700 text-white p-6 rounded-xl transition-colors card-hover">
-                        <i class="fab fa-instagram text-4xl mb-4"></i>
-                        <h5 class="text-xl font-semibold mb-2">Instagram</h5>
-                        <p>@mi_muallimin_selatpanjang</p>
-                    </a>
-                    
-                    <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="bg-red-600 hover:bg-red-700 text-white p-6 rounded-xl transition-colors card-hover">
-                        <i class="fab fa-youtube text-4xl mb-4"></i>
-                        <h5 class="text-xl font-semibold mb-2">YouTube</h5>
-                        <p>MI Mu'allimin Channel</p>
-                    </a>
+        <!-- Call to Action -->
+        <section class="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Masih Ada Pertanyaan?</h2>
+                    <p class="text-xl mb-8 opacity-90">
+                        Tim kami siap membantu Anda dengan segala informasi yang Anda butuhkan tentang MI Mu'allimin.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+6282285852725" class="btn-secondary">
+                            <i class="fas fa-phone-alt mr-2"></i>Telepon Sekarang
+                        </a>
+                        <a href="https://wa.me/6282285852725" class="bg-white text-primary hover:bg-gray-100 font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg">
+                            <i class="fab fa-whatsapp mr-2"></i>Chat via WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Informasi Sekolah -->
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-mosque text-white"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-bold">MI Mu'allimin Muhammadiyah</h4>
-                            <p class="text-sm text-gray-300">Selatpanjang</p>
-                        </div>
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Tentang Sekolah -->
+                <div data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-10 mr-3">
+                        <h3 class="text-xl font-bold">MI MU'ALLIMIN</h3>
                     </div>
-                    <p class="text-gray-300 mb-4">Madrasah Ibtidaiyah unggulan yang mengutamakan pendidikan Islam berkualitas dengan penguatan akidah dan akhlak mulia.</p>
+                    <p class="text-gray-400 mb-4">
+                        Madrasah Ibtidaiyah unggulan dengan pendidikan islam berkualitas di Selatpanjang, Riau.
+                    </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1W2ghwc78U/" class="text-gray-300 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-300 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-300 hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
+                        <a href="https://www.facebook.com/mi.muallimin" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="wa.me/+682285852725" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Menu Cepat -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Menu Cepat</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white">Beranda</a></li>
-                        <li><a href="tentang.html" class="text-gray-300 hover:text-white">Tentang Kami</a></li>
-                        <li><a href="akademik.html" class="text-gray-300 hover:text-white">Program Akademik</a></li>
-                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-white">Pendaftaran</a></li>
-                        <li><a href="galeri.html" class="text-gray-300 hover:text-white">Galeri</a></li>
+                <!-- Link Cepat -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-bold mb-6">Link Cepat</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="tentang.html" class="text-gray-400 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="akademik.html" class="text-gray-400 hover:text-white transition-colors">Program Akademik</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-400 hover:text-white transition-colors">Pendaftaran</a></li>
+                        <li><a href="berita.html" class="text-gray-400 hover:text-white transition-colors">Berita & Kegiatan</a></li>
+                        <li><a href="galeri.html" class="text-gray-400 hover:text-white transition-colors">Galeri</a></li>
                     </ul>
                 </div>
                 
                 <!-- Kontak -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-map-marker-alt mr-2"></i>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</li>
-                        <li><i class="fas fa-phone mr-2"></i>0822-8585-2725</li>
-                        <li><i class="fas fa-envelope mr-2"></i>mimuallimin77@gmail.com</li>
-                        <li><i class="fas fa-clock mr-2"></i>Senin - Jumat: 07:00 - 15:00</li>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-lg font-bold mb-6">Kontak Kami</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan, Riau</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3"></i>
+                            <span>0822-8585-2725</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3"></i>
+                            <span>mimuallimin77@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3"></i>
+                            <span>Senin-Jumat: 07.00 - 15.00 WIB</span>
+                        </li>
                     </ul>
                 </div>
                 
-                <!-- Kalender Hijriah -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Kalender Hijriah</h4>
-                    <div id="hijri-calendar" class="bg-gray-700 p-4 rounded-lg">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-yellow-400" id="hijri-date">Loading...</div>
-                            <div class="text-sm text-gray-300 mt-1" id="hijri-month-year">Kalender Hijriah Global Tunggal</div>
-                        </div>
-                    </div>
+                <!-- Newsletter -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Dapatkan informasi terbaru seputar kegiatan dan pengumuman dari MI Mu'allimin.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Anda" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi. | <a href="#" class="hover:text-white">Kebijakan Privasi</a></p>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Kebijakan Privasi</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Syarat & Ketentuan</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Peta Situs</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 invisible hover:bg-primary-dark hover:-translate-y-1">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.add('bg-white');
+                navbar.classList.remove('bg-white/90');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('bg-white/90');
+                navbar.classList.remove('bg-white');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
         // Form submission handler
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Basic form validation
-            if (validateForm('contact-form')) {
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const subjek = document.getElementById('subjek').value;
+            const pesan = document.getElementById('pesan').value;
+            const setuju = document.getElementById('setuju').checked;
+            
+            if (nama && email && subjek && pesan && setuju) {
                 // Simulate form submission
                 alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda kembali.');
                 this.reset();
             } else {
-                alert('Mohon lengkapi semua field yang wajib diisi.');
+                alert('Mohon lengkapi semua field yang wajib diisi dan setujui kebijakan privasi.');
             }
         });
     </script>
