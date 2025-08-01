@@ -8,7 +8,7 @@
     <meta name="keywords" content="galeri madrasah, foto kegiatan sekolah, dokumentasi MI Mu'allimin, kegiatan islami sekolah">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="logo.png" type="image/png">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,27 +17,50 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        'sans': ['Nunito', 'Inter', 'sans-serif'],
                         'arabic': ['Amiri', 'serif']
                     },
                     colors: {
                         primary: {
-                            DEFAULT: '#1E40AF',
-                            dark: '#1E3A8A'
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            DEFAULT: '#2563eb'
                         },
                         secondary: {
-                            DEFAULT: '#D97706',
-                            dark: '#B45309'
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            DEFAULT: '#eab308'
                         },
                         accent: {
-                            green: '#16A34A',
-                            gold: '#EAB308'
+                            green: '#16a34a',
+                            orange: '#ea580c',
+                            purple: '#9333ea'
                         }
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'fade-in': 'fadeIn 1s ease-out',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'zoom': 'zoom 0.5s ease-out'
                     },
                     keyframes: {
                         float: {
@@ -45,8 +68,24 @@
                             '50%': { transform: 'translateY(-20px)' }
                         },
                         fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' }
+                        },
+                        zoom: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
                         }
                     }
                 }
@@ -58,19 +97,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    
     <style>
-        /* Custom Styles dari index.html */
+        /* Custom Styles */
         .hero-bg {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%),
-                        url('assets/img/hero-galeri.jpg') no-repeat center center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(16, 163, 74, 0.8) 100%),
+                        url('assets/images/hero-section.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
         }
         
         .islamic-pattern {
@@ -85,8 +127,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
-            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
             z-index: 0;
         }
         
@@ -96,75 +138,50 @@
         }
         
         .card-hover:hover {
-            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
-        .text-outline {
-            text-shadow: 1px 1px 0 #1E3A8A, -1px -1px 0 #1E3A8A;
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
         }
         
         .logo-glow {
-            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.5));
+            filter: drop-shadow(0 0 20px rgba(234, 179, 8, 0.6));
         }
         
         .gradient-text {
-            background: linear-gradient(90deg, #1E40AF, #16A34A);
+            background: linear-gradient(135deg, #2563eb, #16a34a);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .btn-primary {
-            background-color: #1E40AF;
-            color: white;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .btn-primary:hover {
-            background-color: #1E3A8A;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-secondary {
-            background-color: #EAB308;
-            color: #1E3A8A;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #D97706;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Animation Delays */
-        .animation-delay-100 { animation-delay: 0.1s; }
-        .animation-delay-200 { animation-delay: 0.2s; }
-        .animation-delay-300 { animation-delay: 0.3s; }
-        
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
         
         ::-webkit-scrollbar-track {
-            background: #F1F1F1;
+            background: #f1f5f9;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #1E40AF, #16A34A);
+            background: linear-gradient(45deg, #2563eb, #16a34a);
             border-radius: 10px;
         }
         
@@ -173,179 +190,230 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: #1E40AF;
+            background: #2563eb;
             color: white;
-            padding: 8px;
+            padding: 8px 16px;
             z-index: 100;
             transition: top 0.3s;
+            border-radius: 0 0 8px 0;
         }
         
         .skip-link:focus {
             top: 0;
         }
         
-        /* Gallery Specific Styles */
+        /* Navbar scroll effect */
+        .navbar-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Gallery Styles */
         .gallery-item {
+            overflow: hidden;
+            border-radius: 16px;
+            position: relative;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
         
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            transition: all 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(37, 99, 235, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .video-thumbnail {
+            position: relative;
+        }
+        
+        .video-thumbnail::after {
+            content: "\f144";
+            font-family: "Font Awesome 6 Free";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .video-thumbnail:hover::after {
+            font-size: 3.5rem;
+            opacity: 1;
+        }
+        
+        /* Filter Buttons */
         .filter-btn {
             transition: all 0.3s ease;
         }
         
         .filter-btn.active {
-            background-color: #1E40AF;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
         
-        .video-thumbnail {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .video-thumbnail::before {
-            content: '';
-            position: absolute;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .video-thumbnail:hover::before {
-            background: rgba(0, 0, 0, 0.5);
-        }
-        
-        .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            display: flex;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
         }
         
-        .video-thumbnail:hover .video-play-btn {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translate(-50%, -50%) scale(1.1);
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoom 0.5s ease-out;
         }
         
-        .category-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .category-akademik {
-            background-color: #DBEAFE;
-            color: #1E40AF;
-        }
-        
-        .category-keagamaan {
-            background-color: #D1FAE5;
-            color: #065F46;
-        }
-        
-        .category-event {
-            background-color: #FEF3C7;
-            color: #92400E;
-        }
-        
-        .category-fasilitas {
-            background-color: #E9D5FF;
-            color: #6B21A8;
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans antialiased">
+<body>
     <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500">
-        <div class="text-center">
-            <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
-            <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 mx-auto mb-4">
-            <p class="text-gray-600">Memuat...</p>
-        </div>
-    </div>
-
     <!-- Header/Navigation -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 transition-all duration-300" id="navbar">
-        <nav class="container mx-auto px-4 py-3">
+    <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-40 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-12 logo-glow">
+                <div class="flex items-center space-x-4">
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-14 w-14 logo-glow">
                     <div>
                         <h1 class="text-xl font-bold text-gray-800">MI MU'ALLIMIN</h1>
-                        <p class="text-xs text-gray-600">Muhammadiyah Selatpanjang</p>
+                        <p class="text-sm text-gray-600">Muhammadiyah Selatpanjang</p>
                     </div>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Beranda
+                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-home mr-2"></i>Beranda
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="tentang.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Tentang Kami
+                    <a href="tentang.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-info-circle mr-2"></i>Tentang Kami
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Akademik
+                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-graduation-cap mr-2"></i>Akademik
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="pendaftaran.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Pendaftaran
+                    <a href="pendaftaran.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-user-plus mr-2"></i>Pendaftaran
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Berita
+                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-newspaper mr-2"></i>Berita
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="galeri.html" class="relative text-primary font-medium group">
-                        Galeri
-                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transition-all"></span>
+                    <a href="galeri.html" class="relative text-primary font-semibold group">
+                        <i class="fas fa-images mr-2"></i>Galeri
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></span>
                     </a>
-                    <a href="kalender.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Kalender KHGT
+                    <a href="kalender.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-calendar mr-2"></i>Kalender
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="kontak.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Kontak
+                    <a href="kontak.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-phone mr-2"></i>Kontak
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none p-2 rounded-lg hover:bg-gray-100" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Navigation -->
             <div class="lg:hidden mt-4 hidden" id="mobile-menu">
-                <div class="flex flex-col space-y-3 pb-4">
-                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Beranda</a>
-                    <a href="tentang.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Tentang Kami</a>
-                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Akademik</a>
-                    <a href="pendaftaran.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Pendaftaran</a>
-                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Berita</a>
-                    <a href="galeri.html" class="text-primary font-medium py-2 px-4 rounded-lg bg-primary/10">Galeri</a>
-                    <a href="kalender.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kalender KHGT</a>
-                    <a href="kontak.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kontak</a>
+                <div class="flex flex-col space-y-2 pb-4">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-home mr-3"></i>Beranda
+                    </a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-info-circle mr-3"></i>Tentang Kami
+                    </a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-graduation-cap mr-3"></i>Akademik
+                    </a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-user-plus mr-3"></i>Pendaftaran
+                    </a>
+                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-newspaper mr-3"></i>Berita
+                    </a>
+                    <a href="galeri.html" class="text-primary font-semibold py-3 px-4 rounded-lg bg-primary/10 flex items-center">
+                        <i class="fas fa-images mr-3"></i>Galeri
+                    </a>
+                    <a href="kalender.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-calendar mr-3"></i>Kalender
+                    </a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-phone mr-3"></i>Kontak
+                    </a>
                 </div>
             </div>
         </nav>
@@ -353,468 +421,346 @@
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero-bg text-white py-32 relative overflow-hidden islamic-pattern" data-aos="fade-in">
-            <div class="absolute inset-0 bg-black/30 z-0"></div>
+        <section class="hero-bg text-white py-20 md:py-32 relative overflow-hidden islamic-pattern">
+            <div class="absolute inset-0 bg-black/20 z-0"></div>
             <div class="container mx-auto px-4 text-center relative z-10">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    <span class="text-outline">Galeri</span><br>
-                    <span class="text-accent-gold">MI Mu'allimin Muhammadiyah</span>
+                <div class="flex justify-center mb-8" data-aos="zoom-in">
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-24 md:h-32 logo-glow animate-float">
+                </div>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" data-aos="fade-up">
+                    <span class="block">Galeri</span>
+                    <span class="block text-secondary gradient-text">Kegiatan</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
-                    Dokumentasi kegiatan dan momen berharga sekolah kami
+                <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    Dokumentasi visual kegiatan dan momen berharga di MI Mu'allimin Muhammadiyah Selatpanjang
                 </p>
-                <div class="flex justify-center" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#photo-gallery" class="btn-secondary">
-                        <i class="fas fa-images mr-2"></i>Lihat Galeri Foto
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Animated Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up" data-aos-delay="500">
-                <a href="#photo-gallery" class="text-white hover:text-accent-gold">
-                    <i class="fas fa-chevron-down text-2xl"></i>
-                </a>
             </div>
         </section>
 
-        <!-- Filter Galeri -->
-        <section class="py-12 bg-white" data-aos="fade-up">
+        <!-- Filter Section -->
+        <section class="py-10 bg-white">
             <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
-                        <span class="gradient-text">Filter Galeri</span>
-                    </h2>
-                    <div class="flex flex-wrap justify-center gap-3">
-                        <button class="filter-btn active bg-primary text-white px-6 py-2 rounded-full transition-all" data-filter="all">
-                            <i class="fas fa-th mr-2"></i>Semua
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                        <button class="filter-btn active px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all" data-filter="all">
+                            Semua
                         </button>
-                        <button class="filter-btn bg-gray-100 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all" data-filter="akademik">
-                            <i class="fas fa-graduation-cap mr-2"></i>Akademik
+                        <button class="filter-btn px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all" data-filter="akademik">
+                            Akademik
                         </button>
-                        <button class="filter-btn bg-gray-100 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all" data-filter="keagamaan">
-                            <i class="fas fa-mosque mr-2"></i>Keagamaan
+                        <button class="filter-btn px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all" data-filter="keagamaan">
+                            Keagamaan
                         </button>
-                        <button class="filter-btn bg-gray-100 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all" data-filter="event">
-                            <i class="fas fa-calendar-alt mr-2"></i>Event
+                        <button class="filter-btn px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all" data-filter="ekstrakurikuler">
+                            Ekstrakurikuler
                         </button>
-                        <button class="filter-btn bg-gray-100 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all" data-filter="fasilitas">
-                            <i class="fas fa-building mr-2"></i>Fasilitas
+                        <button class="filter-btn px-6 py-3 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all" data-filter="prestasi">
+                            Prestasi
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Galeri Foto -->
-        <section class="py-16 bg-gray-50" id="photo-gallery">
+        <!-- Gallery Section -->
+        <section class="py-16 bg-gradient-to-br from-blue-50 to-green-50">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Galeri</span> Foto
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Koleksi dokumentasi kegiatan dan momen berharga di MI Mu'allimin
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-container">
-                    <!-- Foto 1 - Akademik -->
-                    <div class="gallery-item card-hover" data-category="akademik" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Pembelajaran di Kelas" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-container">
+                        <!-- Gallery Item 1 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="akademik" data-aos="fade-up" data-aos-delay="100">
+                            <div class="gallery-category">Akademik</div>
+                            <div class="bg-gradient-to-br from-primary/10 to-primary/20 h-full flex items-center justify-center">
+                                <i class="fas fa-chalkboard-teacher text-6xl text-primary/50"></i>
                             </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Pembelajaran di Kelas</h3>
-                                <p class="text-gray-600 mb-4">Suasana pembelajaran interaktif di kelas 5 dengan metode terbaru</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-akademik">Akademik</span>
-                                    <span class="text-sm text-gray-500"><i class="far fa-calendar-alt mr-1"></i>15 Jan 2024</span>
-                                </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Kegiatan Belajar Mengajar</h3>
+                                <p class="text-sm text-gray-200">Suasana pembelajaran aktif di kelas dengan metode yang menyenangkan</p>
                             </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Kegiatan Belajar Mengajar"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 2 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="keagamaan" data-aos="fade-up" data-aos-delay="200">
+                            <div class="gallery-category">Keagamaan</div>
+                            <div class="bg-gradient-to-br from-secondary/10 to-secondary/20 h-full flex items-center justify-center">
+                                <i class="fas fa-mosque text-6xl text-secondary/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Sholat Berjamaah</h3>
+                                <p class="text-sm text-gray-200">Kegiatan sholat berjamaah yang rutin dilaksanakan setiap hari</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Sholat Berjamaah"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 3 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="ekstrakurikuler" data-aos="fade-up" data-aos-delay="300">
+                            <div class="gallery-category">Ekstrakurikuler</div>
+                            <div class="bg-gradient-to-br from-accent-green/10 to-accent-green/20 h-full flex items-center justify-center">
+                                <i class="fas fa-futbol text-6xl text-accent-green/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Kegiatan Olahraga</h3>
+                                <p class="text-sm text-gray-200">Latihan sepak bola untuk persiapan turnamen antar sekolah</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Kegiatan Olahraga"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 4 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="prestasi" data-aos="fade-up" data-aos-delay="100">
+                            <div class="gallery-category">Prestasi</div>
+                            <div class="bg-gradient-to-br from-purple-500/10 to-purple-500/20 h-full flex items-center justify-center">
+                                <i class="fas fa-trophy text-6xl text-purple-500/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Juara Lomba Tahfiz</h3>
+                                <p class="text-sm text-gray-200">Siswa MI Mu'allimin meraih juara 1 dalam lomba tahfiz tingkat kabupaten</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Juara Lomba Tahfiz"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 5 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="keagamaan" data-aos="fade-up" data-aos-delay="200">
+                            <div class="gallery-category">Keagamaan</div>
+                            <div class="bg-gradient-to-br from-accent-orange/10 to-accent-orange/20 h-full flex items-center justify-center">
+                                <i class="fas fa-book-quran text-6xl text-accent-orange/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Program Tahfiz Al-Quran</h3>
+                                <p class="text-sm text-gray-200">Kegiatan menghafal Al-Quran dengan metode yang menyenangkan</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Program Tahfiz Al-Quran"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 6 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="akademik" data-aos="fade-up" data-aos-delay="300">
+                            <div class="gallery-category">Akademik</div>
+                            <div class="bg-gradient-to-br from-blue-500/10 to-blue-500/20 h-full flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-6xl text-blue-500/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Praktikum Komputer</h3>
+                                <p class="text-sm text-gray-200">Siswa belajar dasar-dasar komputer di laboratorium</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Praktikum Komputer"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 7 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="ekstrakurikuler" data-aos="fade-up" data-aos-delay="100">
+                            <div class="gallery-category">Ekstrakurikuler</div>
+                            <div class="bg-gradient-to-br from-pink-500/10 to-pink-500/20 h-full flex items-center justify-center">
+                                <i class="fas fa-paint-brush text-6xl text-pink-500/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Kegiatan Seni</h3>
+                                <p class="text-sm text-gray-200">Siswa mengembangkan bakat seni melalui kegiatan melukis</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Kegiatan Seni"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 8 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="prestasi" data-aos="fade-up" data-aos-delay="200">
+                            <div class="gallery-category">Prestasi</div>
+                            <div class="bg-gradient-to-br from-red-500/10 to-red-500/20 h-full flex items-center justify-center">
+                                <i class="fas fa-medal text-6xl text-red-500/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Juara Olimpiade Matematika</h3>
+                                <p class="text-sm text-gray-200">Siswa MI Mu'allimin meraih juara dalam olimpiade matematika tingkat provinsi</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Juara Olimpiade Matematika"></a>
+                        </div>
+                        
+                        <!-- Gallery Item 9 -->
+                        <div class="gallery-item h-72 md:h-80" data-category="keagamaan" data-aos="fade-up" data-aos-delay="300">
+                            <div class="gallery-category">Keagamaan</div>
+                            <div class="bg-gradient-to-br from-green-500/10 to-green-500/20 h-full flex items-center justify-center">
+                                <i class="fas fa-hands-helping text-6xl text-green-500/50"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <h3 class="text-lg font-bold mb-1">Bakti Sosial Ramadhan</h3>
+                                <p class="text-sm text-gray-200">Kegiatan bakti sosial dengan membagikan takjil kepada masyarakat</p>
+                            </div>
+                            <a href="#" class="absolute inset-0" data-lightbox="gallery" data-title="Bakti Sosial Ramadhan"></a>
                         </div>
                     </div>
-
-                    <!-- Foto 2 - Keagamaan -->
-                    <div class="gallery-item card-hover" data-category="keagamaan" data-aos="fade-up" data-aos-delay="150">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Program Tahfizh" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Program Tahfizh</h3>
-                                <p class="text-gray-600 mb-4">Siswa sedang menghafal Al-Quran dengan bimbingan guru tahfiz</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-keagamaan">Keagamaan</span>
-                                    <span class="text-sm text-gray-500"><i class="far fa-calendar-alt mr-1"></i>12 Jan 2024</span>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-12" data-aos="fade-up">
+                        <button id="load-more" class="btn-primary">
+                            <i class="fas fa-plus mr-2"></i>Muat Lebih Banyak
+                        </button>
                     </div>
-
-                    <!-- Foto 3 - Event -->
-                    <div class="gallery-item card-hover" data-category="event" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Perlombaan MTQ" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Perlombaan MTQ</h3>
-                                <p class="text-gray-600 mb-4">Siswa meraih juara 1 MTQ tingkat kecamatan</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-event">Event</span>
-                                    <span class="text-sm text-gray-500"><i class="far fa-calendar-alt mr-1"></i>10 Jan 2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Foto 4 - Fasilitas -->
-                    <div class="gallery-item card-hover" data-category="fasilitas" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Lab Sains Digital" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Lab Sains Digital</h3>
-                                <p class="text-gray-600 mb-4">Fasilitas laboratorium sains dengan peralatan modern</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-fasilitas">Fasilitas</span>
-                                    <span class="text-sm text-gray-500"><i class="far fa-calendar-alt mr-1"></i>28 Des 2023</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Foto 5 - Akademik -->
-                    <div class="gallery-item card-hover" data-category="akademik" data-aos="fade-up" data-aos-delay="150">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Kelas Komputer" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Kelas Komputer</h3>
-                                <p class="text-gray-600 mb-4">Pembelajaran teknologi informasi untuk siswa kelas 4-6</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-akademik">Akademik</span>
-                                    <span class="text-sm text-gray-500"><i class="far fa-calendar-alt mr-1"></i>20 Des 2023</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Foto 6 - Keagamaan -->
-                    <div class="gallery-item card-hover" data-category="keagamaan" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Shalat Berjamaah" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Shalat Berjamaah</h3>
-                                <p class="text-gray-600 mb-4">Kegiatan shalat Dzuhur berjamaah di masjid sekolah</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-keagamaan">Keagamaan</span>
-                                    <span class="text-sm text-gray-500"><i class="far fa-calendar-alt mr-1"></i>18 Des 2023</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Load More Button -->
-                <div class="text-center mt-12" data-aos="fade-up">
-                    <button id="load-more" class="btn-primary">
-                        <i class="fas fa-plus-circle mr-2"></i>Muat Lebih Banyak
-                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- Video Dokumentasi -->
+        <!-- Video Gallery Section -->
         <section class="py-16 bg-white">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Video</span> Dokumentasi
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Dokumentasi kegiatan dalam bentuk video
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Video 1 -->
-                    <div class="card-hover" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="video-thumbnail relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Video Profil Sekolah" class="w-full h-full object-cover">
-                                <div class="video-play-btn">
-                                    <i class="fas fa-play text-primary text-xl"></i>
-                                </div>
-                                <div class="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded">
-                                    3:24
-                                </div>
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Galeri Video</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Dokumentasi video kegiatan dan momen berharga di MI Mu'allimin Muhammadiyah
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Video Item 1 -->
+                        <div class="video-thumbnail rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-gradient-to-br from-primary/10 to-primary/20 h-48 flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-6xl text-primary/50"></i>
                             </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Profil MI Mu'allimin</h3>
-                                <p class="text-gray-600 mb-4">Video profil lengkap sekolah dengan fasilitas dan kegiatan pembelajaran</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-akademik">Profil</span>
-                                    <a href="#" class="text-primary hover:text-primary-dark">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                            <div class="p-4 bg-white">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Wisuda Tahfiz Angkatan ke-15</h3>
+                                <p class="text-sm text-gray-600">Dokumentasi acara wisuda tahfiz Al-Quran angkatan ke-15</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Video Item 2 -->
+                        <div class="video-thumbnail rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-gradient-to-br from-secondary/10 to-secondary/20 h-48 flex items-center justify-center">
+                                <i class="fas fa-theater-masks text-6xl text-secondary/50"></i>
+                            </div>
+                            <div class="p-4 bg-white">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Pentas Seni Akhir Tahun</h3>
+                                <p class="text-sm text-gray-600">Penampilan siswa dalam acara pentas seni akhir tahun</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Video Item 3 -->
+                        <div class="video-thumbnail rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-gradient-to-br from-accent-green/10 to-accent-green/20 h-48 flex items-center justify-center">
+                                <i class="fas fa-flag text-6xl text-accent-green/50"></i>
+                            </div>
+                            <div class="p-4 bg-white">
+                                <h3 class="text-lg font-bold text-gray-800 mb-2">Upacara Bendera 17 Agustus</h3>
+                                <p class="text-sm text-gray-600">Kegiatan upacara bendera memperingati kemerdekaan RI</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Video 2 -->
-                    <div class="card-hover" data-aos="fade-up" data-aos-delay="150">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="video-thumbnail relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Kegiatan Tahfizh" class="w-full h-full object-cover">
-                                <div class="video-play-btn">
-                                    <i class="fas fa-play text-primary text-xl"></i>
-                                </div>
-                                <div class="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded">
-                                    5:12
-                                </div>
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Program Tahfizh Plus</h3>
-                                <p class="text-gray-600 mb-4">Dokumentasi kegiatan menghafal Al-Quran siswa-siswi</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-keagamaan">Keagamaan</span>
-                                    <a href="#" class="text-primary hover:text-primary-dark">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Video 3 -->
-                    <div class="card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full flex flex-col">
-                            <div class="video-thumbnail relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Prestasi MTQ" class="w-full h-full object-cover">
-                                <div class="video-play-btn">
-                                    <i class="fas fa-play text-primary text-xl"></i>
-                                </div>
-                                <div class="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded">
-                                    2:45
-                                </div>
-                            </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Prestasi MTQ</h3>
-                                <p class="text-gray-600 mb-4">Dokumentasi perlombaan MTQ dan prestasi yang diraih</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="category-badge category-event">Prestasi</span>
-                                    <a href="#" class="text-primary hover:text-primary-dark">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12" data-aos="fade-up">
-                    <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="btn-secondary" target="_blank">
-                        <i class="fab fa-youtube mr-2"></i>Lihat Semua di YouTube
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Pencarian Hijriah -->
-        <section class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-                        <div class="p-8 text-center">
-                            <h3 class="text-3xl font-bold text-gray-800 mb-4">
-                                <span class="gradient-text">Cari Berdasarkan</span> Tanggal Hijriah
-                            </h3>
-                            <p class="text-gray-600 mb-6">Temukan dokumentasi berdasarkan kalender Islam</p>
-                            
-                            <form class="space-y-6">
-                                <div class="grid md:grid-cols-3 gap-6">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2 text-left">Bulan</label>
-                                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
-                                            <option value="">Pilih Bulan</option>
-                                            <option value="1">Muharram</option>
-                                            <option value="2">Safar</option>
-                                            <option value="3">Rabi'ul Awwal</option>
-                                            <option value="4">Rabi'ul Akhir</option>
-                                            <option value="5">Jumadil Awwal</option>
-                                            <option value="6">Jumadil Akhir</option>
-                                            <option value="7">Rajab</option>
-                                            <option value="8">Sya'ban</option>
-                                            <option value="9">Ramadhan</option>
-                                            <option value="10">Syawwal</option>
-                                            <option value="11">Dzulqa'dah</option>
-                                            <option value="12">Dzulhijjah</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2 text-left">Tahun</label>
-                                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
-                                            <option value="">Pilih Tahun</option>
-                                            <option value="1446">1446 H</option>
-                                            <option value="1445">1445 H</option>
-                                            <option value="1444">1444 H</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2 text-left">Kategori</label>
-                                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
-                                            <option value="">Semua Kategori</option>
-                                            <option value="akademik">Akademik</option>
-                                            <option value="keagamaan">Keagamaan</option>
-                                            <option value="event">Event</option>
-                                            <option value="fasilitas">Fasilitas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <button type="submit" class="btn-primary">
-                                        <i class="fas fa-search mr-2"></i>Cari Dokumentasi
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <!-- Share Your Moments -->
+        <section class="py-16 bg-gradient-to-r from-primary to-accent-green text-white relative overflow-hidden">
+            <div class="absolute inset-0 islamic-pattern"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Bagikan Momen Anda
+                    </h2>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">
+                        Punya foto atau video kegiatan di MI Mu'allimin? Bagikan dengan kami untuk ditampilkan di galeri ini.
+                    </p>
+                    <a href="kontak.html" class="btn-secondary">
+                        <i class="fas fa-share-alt mr-2"></i>Bagikan Sekarang
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Modal for Image Preview -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="modal-caption" class="text-white text-center mt-4 text-xl"></div>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white pt-16 pb-8">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <!-- Tentang Sekolah -->
-                <div data-aos="fade-up">
-                    <div class="flex items-center mb-6">
-                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-12 mr-3 logo-glow">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo dan Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 logo-glow">
                         <div>
-                            <h4 class="text-xl font-bold">MI MU'ALLIMIN</h4>
-                            <p class="text-sm text-gray-300">Muhammadiyah Selatpanjang</p>
+                            <h3 class="text-xl font-bold">MI MU'ALLIMIN</h3>
+                            <p class="text-gray-400">Muhammadiyah Selatpanjang</p>
                         </div>
                     </div>
-                    <p class="text-gray-300 mb-4">
-                        Madrasah Ibtidaiyah unggulan dengan pendidikan islam berkualitas di Selatpanjang, Riau.
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Madrasah Ibtidaiyah unggulan yang berkomitmen menghasilkan generasi muslim 
+                        yang berilmu, berprestasi, terampil, dan berakhlak mulia.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/mi.muallimin" class="text-gray-300 hover:text-accent-gold transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-300 hover:text-accent-gold transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-300 hover:text-accent-gold transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="https://wa.me/6282285852725" class="text-gray-300 hover:text-accent-gold transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Link Cepat -->
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <h4 class="text-lg font-bold mb-6">Link Cepat</h4>
+                <!-- Menu Cepat -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Menu Cepat</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-300 hover:text-accent-gold transition-colors">Beranda</a></li>
-                        <li><a href="tentang.html" class="text-gray-300 hover:text-accent-gold transition-colors">Tentang Kami</a></li>
-                        <li><a href="akademik.html" class="text-gray-300 hover:text-accent-gold transition-colors">Akademik</a></li>
-                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-accent-gold transition-colors">Pendaftaran</a></li>
-                        <li><a href="berita.html" class="text-gray-300 hover:text-accent-gold transition-colors">Berita</a></li>
-                        <li><a href="galeri.html" class="text-gray-300 hover:text-accent-gold transition-colors">Galeri</a></li>
+                        <li><a href="tentang.html" class="text-gray-300 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="akademik.html" class="text-gray-300 hover:text-white transition-colors">Program Akademik</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-white transition-colors">Pendaftaran</a></li>
+                        <li><a href="berita.html" class="text-gray-300 hover:text-white transition-colors">Berita</a></li>
+                        <li><a href="galeri.html" class="text-gray-300 hover:text-white transition-colors">Galeri</a></li>
                     </ul>
                 </div>
                 
                 <!-- Kontak -->
-                <div data-aos="fade-up" data-aos-delay="200">
+                <div>
                     <h4 class="text-lg font-bold mb-6">Kontak Kami</h4>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent-gold"></i>
-                            <span>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan, Riau</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-3 text-accent-gold"></i>
-                            <span>082283419939</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3 text-accent-gold"></i>
-                            <span>mimuallimin77@gmail.com</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock mt-1 mr-3 text-accent-gold"></i>
-                            <span>Senin-Jumat: 07.00 - 15.00 WIB</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Newsletter -->
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
-                    <p class="text-gray-300 mb-4">
-                        Dapatkan informasi terbaru seputar kegiatan dan pengumuman dari MI Mu'allimin.
-                    </p>
-                    <form class="flex">
-                        <input type="email" placeholder="Email Anda" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
-                        <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">Jl. Pendidikan No. 123</p>
+                                <p class="text-gray-300">Selatpanjang, Riau</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <p class="text-gray-300">(0761) 123-4567</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <p class="text-gray-300">info@mimuallimin.sch.id</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-300 text-sm mb-4 md:mb-0">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
                     &copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi.
                 </p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-300 hover:text-accent-gold text-sm">Kebijakan Privasi</a>
-                    <a href="#" class="text-gray-300 hover:text-accent-gold text-sm">Syarat & Ketentuan</a>
-                    <a href="#" class="text-gray-300 hover:text-accent-gold text-sm">Peta Situs</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 invisible hover:bg-primary-dark hover:-translate-y-1">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-primary-dark transition-all transform hover:scale-110 opacity-0 invisible">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
-        // Initialize AOS animation
+        // Initialize AOS
         AOS.init({
             duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
-        // Preloader
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
         });
 
         // Mobile Menu Toggle
@@ -823,90 +769,113 @@
         
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
         // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.add('bg-white');
-                navbar.classList.remove('bg-white/90');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
             } else {
-                navbar.classList.remove('shadow-md');
-                navbar.classList.add('bg-white/90');
-                navbar.classList.remove('bg-white');
+                navbar.classList.remove('navbar-scrolled');
             }
         });
 
         // Back to Top Button
-        const backToTop = document.getElementById('back-to-top');
+        const backToTopBtn = document.getElementById('back-to-top');
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
             } else {
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
             }
         });
 
-        // Smooth scrolling for all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
 
-        // Gallery Filter Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-                    
-                    // Update active button
-                    filterButtons.forEach(btn => {
-                        btn.classList.remove('active', 'bg-primary', 'text-white');
-                        btn.classList.add('bg-gray-100', 'text-gray-700');
-                    });
-                    this.classList.add('active', 'bg-primary', 'text-white');
-                    this.classList.remove('bg-gray-100', 'text-gray-700');
-                    
-                    // Filter gallery items
-                    galleryItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
                 });
             });
+        });
 
-            // Load More Photos
-            document.getElementById('load-more').addEventListener('click', function() {
-                // In a real implementation, this would load more photos via AJAX
-                alert('Fitur muat lebih banyak akan segera tersedia!');
+        // Modal Image Preview
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalCaption = document.getElementById('modal-caption');
+        const closeBtn = document.getElementsByClassName('modal-close')[0];
+        
+        // Open modal when clicking on gallery item
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.querySelector('img') ? this.querySelector('img').src : '';
+                modalCaption.innerHTML = this.querySelector('.gallery-overlay h3').textContent;
             });
+        });
+        
+        // Close modal when clicking on close button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside the image
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Initialize Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'showImageNumberLabel': false,
+            'disableScrolling': true
+        });
+
+        // Load More Button (Simulated)
+        document.getElementById('load-more').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                this.innerHTML = 'Tidak ada lagi foto';
+                this.disabled = true;
+                this.classList.add('opacity-50', 'cursor-not-allowed');
+            }, 1500);
         });
     </script>
 </body>
 </html>
+
