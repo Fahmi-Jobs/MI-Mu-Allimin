@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalender Hijriah Global Tunggal - MI Mu'allimin Muhammadiyah Selatpanjang</title>
-    <meta name="description" content="Kalender Hijriah Global Tunggal Muhammadiyah dengan jadwal kegiatan akademik dan hari besar Islam">
-    <meta name="keywords" content="kalender hijriah, khgt muhammadiyah, kalender islam, jadwal puasa, hari besar islam">
+    <title>Kalender Akademik - MI Mu'allimin Muhammadiyah Selatpanjang</title>
+    <meta name="description" content="Kalender Akademik dan Kalender Hijriah Global Tunggal Muhammadiyah dengan jadwal kegiatan akademik dan hari besar Islam">
+    <meta name="keywords" content="kalender akademik, kalender hijriah, khgt muhammadiyah, kalender islam, jadwal puasa, hari besar islam">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="logo.png" type="image/png">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,27 +17,50 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        'sans': ['Nunito', 'Inter', 'sans-serif'],
                         'arabic': ['Amiri', 'serif']
                     },
                     colors: {
                         primary: {
-                            DEFAULT: '#1E40AF',
-                            dark: '#1E3A8A'
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            DEFAULT: '#2563eb'
                         },
                         secondary: {
-                            DEFAULT: '#D97706',
-                            dark: '#B45309'
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            DEFAULT: '#eab308'
                         },
                         accent: {
-                            green: '#16A34A',
-                            gold: '#EAB308'
+                            green: '#16a34a',
+                            orange: '#ea580c',
+                            purple: '#9333ea'
                         }
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'fade-in': 'fadeIn 1s ease-out',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'zoom': 'zoom 0.5s ease-out'
                     },
                     keyframes: {
                         float: {
@@ -45,8 +68,24 @@
                             '50%': { transform: 'translateY(-20px)' }
                         },
                         fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' }
+                        },
+                        zoom: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
                         }
                     }
                 }
@@ -58,20 +97,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- FullCalendar -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    
     <style>
         /* Custom Styles */
         .hero-bg {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%),
-                        url('Hero-Section.png') no-repeat center center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(16, 163, 74, 0.8) 100%),
+                        url('assets/images/hero-section.jpg') no-repeat center center;
+            background-size: cover;
             background-attachment: fixed;
-            background-size: 100% 100%;
             background-position: center center;
-            background-repeat: no-repeat;
         }
         
         .islamic-pattern {
@@ -86,8 +127,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
-            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
             z-index: 0;
         }
         
@@ -97,75 +138,68 @@
         }
         
         .card-hover:hover {
-            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
-        .text-outline {
-            text-shadow: 1px 1px 0 #1E3A8A, -1px -1px 0 #1E3A8A;
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            color: #1e3a8a;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(234, 179, 8, 0.4);
         }
         
         .logo-glow {
-            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.5));
+            filter: drop-shadow(0 0 20px rgba(234, 179, 8, 0.6));
         }
         
         .gradient-text {
-            background: linear-gradient(90deg, #1E40AF, #16A34A);
+            background: linear-gradient(135deg, #2563eb, #16a34a);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .btn-primary {
-            background-color: #1E40AF;
-            color: white;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .btn-primary:hover {
-            background-color: #1E3A8A;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-secondary {
-            background-color: #EAB308;
-            color: #1E3A8A;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #D97706;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Animation Delays */
-        .animation-delay-100 { animation-delay: 0.1s; }
-        .animation-delay-200 { animation-delay: 0.2s; }
-        .animation-delay-300 { animation-delay: 0.3s; }
-        
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
         
         ::-webkit-scrollbar-track {
-            background: #F1F1F1;
+            background: #f1f5f9;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #1E40AF, #16A34A);
+            background: linear-gradient(45deg, #2563eb, #16a34a);
             border-radius: 10px;
         }
         
@@ -174,258 +208,229 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: #1E40AF;
+            background: #2563eb;
             color: white;
-            padding: 8px;
+            padding: 8px 16px;
             z-index: 100;
             transition: top 0.3s;
+            border-radius: 0 0 8px 0;
         }
         
         .skip-link:focus {
             top: 0;
         }
-
-        /* Calendar Custom Styles */
-        .hijri-calendar-custom {
-            max-width: 100%;
-            margin: 0 auto;
-            border-radius: 0.75rem;
+        
+        /* Navbar scroll effect */
+        .navbar-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Calendar Styles */
+        .fc-theme-standard .fc-scrollgrid {
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .calendar-header {
-            background: linear-gradient(135deg, #1E40AF, #1E3A8A);
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .btn-nav {
-            transition: all 0.3s ease;
-            border-radius: 0.5rem;
-            padding: 0.5rem;
-            color: white;
-        }
-
-        .btn-nav:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .calendar-days-header {
-            background-color: #f8fafc;
-            border-bottom: 2px solid #1E3A8A;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            text-align: center;
-            font-weight: 600;
-            color: #374151;
-        }
-
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            min-height: 400px;
-        }
-
-        .calendar-day {
-            min-height: 80px;
-            position: relative;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-bottom: 1px solid #e5e7eb;
-            border-right: 1px solid #e5e7eb;
-        }
-
-        .calendar-day:hover {
-            background-color: #eff6ff !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .calendar-day.empty {
-            background-color: #f9fafb;
-            cursor: default;
-        }
-
-        .calendar-day.empty:hover {
-            background-color: #f9fafb !important;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .calendar-day.special-day {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            border-left: 4px solid #EAB308;
-        }
-
-        .calendar-day.today {
-            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-            border: 2px solid #1E40AF;
-            font-weight: bold;
-        }
-
-        .calendar-day.today.special-day {
-            background: linear-gradient(135deg, #fef3c7, #fbbf24);
-            border: 2px solid #EAB308;
-        }
-
-        .hijri-date {
-            font-family: 'Amiri', serif;
-            color: #1E3A8A;
+        
+        .fc .fc-toolbar-title {
             font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-            text-align: center;
+            font-weight: 700;
+            color: #1e40af;
         }
-
-        .gregorian-date {
-            font-size: 0.75rem;
+        
+        .fc .fc-button-primary {
+            background-color: #2563eb;
+            border-color: #2563eb;
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .fc .fc-button-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+        
+        .fc .fc-button-primary:not(:disabled).fc-button-active, 
+        .fc .fc-button-primary:not(:disabled):active {
+            background-color: #1e3a8a;
+            border-color: #1e3a8a;
+        }
+        
+        .fc-daygrid-day-number {
+            font-weight: 600;
+            color: #1e40af;
+        }
+        
+        .fc-day-today {
+            background-color: rgba(37, 99, 235, 0.1) !important;
+        }
+        
+        .fc-event {
+            border-radius: 4px;
+            padding: 2px 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .fc-event:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fc-event.academic {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+        
+        .fc-event.islamic {
+            background-color: #16a34a;
+            border-color: #16a34a;
+        }
+        
+        .fc-event.holiday {
+            background-color: #eab308;
+            border-color: #eab308;
+            color: #1e3a8a;
+        }
+        
+        .fc-event.exam {
+            background-color: #ef4444;
+            border-color: #ef4444;
+        }
+        
+        /* Event Modal */
+        .event-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .event-modal-content {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: zoom 0.3s ease-out;
+        }
+        
+        .event-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
             color: #6b7280;
-            text-align: center;
+            transition: all 0.3s ease;
         }
-
-        .special-indicator {
-            width: 8px;
-            height: 8px;
-            background-color: #EAB308;
-            border-radius: 50%;
-            margin: 0.25rem auto 0;
-            animation: pulse 2s infinite;
-        }
-
-        .calendar-footer {
-            background-color: #f8fafc;
-            border-top: 2px solid #e5e7eb;
-            padding: 1.5rem;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .calendar-day {
-                min-height: 60px;
-                padding: 0.5rem !important;
-            }
-            
-            .hijri-date {
-                font-size: 1.25rem;
-            }
-            
-            .gregorian-date {
-                font-size: 0.625rem;
-            }
-            
-            .calendar-header {
-                padding: 1rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .calendar-day {
-                min-height: 50px;
-                padding: 0.25rem !important;
-            }
-            
-            .hijri-date {
-                font-size: 1rem;
-            }
-            
-            .calendar-days-header div {
-                padding: 0.5rem 0.25rem !important;
-                font-size: 0.75rem;
-            }
+        
+        .event-modal-close:hover {
+            color: #1e40af;
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans antialiased">
+<body>
     <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500">
-        <div class="text-center">
-            <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
-            <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 mx-auto mb-4">
-            <p class="text-gray-600">Memuat...</p>
-        </div>
-    </div>
-
     <!-- Header/Navigation -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 transition-all duration-300" id="navbar">
-        <nav class="container mx-auto px-4 py-3">
+    <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-40 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-12 logo-glow">
+                <div class="flex items-center space-x-4">
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-14 w-14 logo-glow">
                     <div>
                         <h1 class="text-xl font-bold text-gray-800">MI MU'ALLIMIN</h1>
-                        <p class="text-xs text-gray-600">Muhammadiyah Selatpanjang</p>
+                        <p class="text-sm text-gray-600">Muhammadiyah Selatpanjang</p>
                     </div>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Beranda
+                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-home mr-2"></i>Beranda
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="tentang.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Tentang Kami
+                    <a href="tentang.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-info-circle mr-2"></i>Tentang Kami
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Akademik
+                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-graduation-cap mr-2"></i>Akademik
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="pendaftaran.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Pendaftaran
+                    <a href="pendaftaran.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-user-plus mr-2"></i>Pendaftaran
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Berita
+                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-newspaper mr-2"></i>Berita
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="galeri.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Galeri
+                    <a href="galeri.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-images mr-2"></i>Galeri
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="kalender.html" class="relative text-primary font-medium group">
-                        Kalender KHGT
-                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary transition-all"></span>
+                    <a href="kalender.html" class="relative text-primary font-semibold group">
+                        <i class="fas fa-calendar mr-2"></i>Kalender
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></span>
                     </a>
-                    <a href="kontak.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Kontak
+                    <a href="kontak.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-phone mr-2"></i>Kontak
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none p-2 rounded-lg hover:bg-gray-100" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Navigation -->
             <div class="lg:hidden mt-4 hidden" id="mobile-menu">
-                <div class="flex flex-col space-y-3 pb-4">
-                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Beranda</a>
-                    <a href="tentang.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Tentang Kami</a>
-                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Akademik</a>
-                    <a href="pendaftaran.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Pendaftaran</a>
-                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Berita</a>
-                    <a href="galeri.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Galeri</a>
-                    <a href="kalender.html" class="text-primary font-medium py-2 px-4 rounded-lg bg-primary/10">Kalender KHGT</a>
-                    <a href="kontak.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kontak</a>
+                <div class="flex flex-col space-y-2 pb-4">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-home mr-3"></i>Beranda
+                    </a>
+                    <a href="tentang.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-info-circle mr-3"></i>Tentang Kami
+                    </a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-graduation-cap mr-3"></i>Akademik
+                    </a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-user-plus mr-3"></i>Pendaftaran
+                    </a>
+                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-newspaper mr-3"></i>Berita
+                    </a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-images mr-3"></i>Galeri
+                    </a>
+                    <a href="kalender.html" class="text-primary font-semibold py-3 px-4 rounded-lg bg-primary/10 flex items-center">
+                        <i class="fas fa-calendar mr-3"></i>Kalender
+                    </a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-phone mr-3"></i>Kontak
+                    </a>
                 </div>
             </div>
         </nav>
@@ -433,482 +438,527 @@
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero-bg text-white py-32 relative overflow-hidden islamic-pattern">
-            <div class="absolute inset-0 bg-black/30 z-0"></div>
-            <div class="container mx-auto px-4 text-center relative z-10" data-aos="fade-up">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    <span class="text-outline">Kalender Hijriah</span><br>
-                    <span class="text-accent-gold">Global Tunggal</span>
+        <section class="hero-bg text-white py-20 md:py-32 relative overflow-hidden islamic-pattern">
+            <div class="absolute inset-0 bg-black/20 z-0"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="flex justify-center mb-8" data-aos="zoom-in">
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-24 md:h-32 logo-glow animate-float">
+                </div>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" data-aos="fade-up">
+                    <span class="block">Kalender</span>
+                    <span class="block text-secondary gradient-text">Akademik</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
-                    Panduan resmi Muhammadiyah untuk penentuan waktu ibadah dan kegiatan akademik
+                <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    Jadwal kegiatan akademik dan hari besar Islam di MI Mu'allimin Muhammadiyah Selatpanjang
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#kalender" class="btn-secondary">
-                        <i class="fas fa-calendar-alt mr-2"></i>Lihat Kalender
-                    </a>
-                    <a href="#kegiatan" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
-                        <i class="fas fa-list-check mr-2"></i>Kegiatan Akademik
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Animated Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up" data-aos-delay="500">
-                <a href="#kalender" class="text-white hover:text-accent-gold">
-                    <i class="fas fa-chevron-down text-2xl"></i>
-                </a>
             </div>
         </section>
 
-        <!-- Kalender KHGT Kustom -->
-        <section id="kalender" class="py-20 bg-white">
+        <!-- Calendar Section -->
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Kalender</span> Hijriah 1447 H
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Berdasarkan penetapan Majelis Tarjih dan Tajdid PP Muhammadiyah
-                    </p>
-                </div>
-                
                 <div class="max-w-6xl mx-auto">
-                    <!-- Info Header -->
-                    <div class="text-center mb-8" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-primary/10 rounded-lg p-4 inline-block mb-6">
-                            <div class="text-accent-gold font-bold text-lg">KHGT Muhammadiyah</div>
-                            <div class="text-sm text-gray-600">Kalender Hijriah Global Tunggal</div>
-                        </div>
-                        <div class="mt-4">
-                            <a href="https://khgt.muhammadiyah.or.id/kalendar-hijriah" target="_blank" class="btn-secondary inline-flex items-center">
-                                <i class="fas fa-external-link-alt mr-2"></i>Lihat di Website Resmi KHGT
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Kalender Container -->
-                    <div id="hijri-calendar-container" data-aos="fade-up" data-aos-delay="200">
-                        <!-- Kalender akan diisi oleh JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Kegiatan Akademik Berdasarkan Kalender Hijriah -->
-        <section id="kegiatan" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Kegiatan Akademik</span> Tahun 1447 H
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Jadwal kegiatan sekolah berdasarkan Kalender Hijriah Global Tunggal
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    <!-- Semester Ganjil -->
-                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8" data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
-                                <i class="fas fa-book-open text-xl"></i>
-                            </div>
-                            <h4 class="text-2xl font-bold text-primary">Semester Ganjil 1447 H</h4>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">Awal Masuk Sekolah</div>
-                                    <div class="text-sm text-gray-600">1 Muharam 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">26 Jun 2025</div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">UTS Semester Ganjil</div>
-                                    <div class="text-sm text-gray-600">15-22 Safar 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">9-16 Agu 2025</div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">UAS Semester Ganjil</div>
-                                    <div class="text-sm text-gray-600">20-27 Rabiulakhir 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">13-20 Okt 2025</div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">Pembagian Raport</div>
-                                    <div class="text-sm text-gray-600">5 Jumadilawal 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">28 Okt 2025</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Semester Genap -->
-                    <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8" data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
-                                <i class="fas fa-graduation-cap text-xl"></i>
-                            </div>
-                            <h4 class="text-2xl font-bold text-primary">Semester Genap 1447 H</h4>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">Awal Semester Genap</div>
-                                    <div class="text-sm text-gray-600">15 Jumadilawal 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">7 Nov 2025</div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">UTS Semester Genap</div>
-                                    <div class="text-sm text-gray-600">15-22 Syakban 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">8-15 Feb 2026</div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">UAS Semester Genap</div>
-                                    <div class="text-sm text-gray-600">20-27 Syawal 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">13-20 Apr 2026</div>
-                            </div>
-                            
-                            <div class="flex justify-between items-center p-4 bg-white rounded-lg shadow-sm">
-                                <div>
-                                    <div class="font-medium text-gray-800">Pembagian Raport</div>
-                                    <div class="text-sm text-gray-600">5 Zulkaidah 1447 H</div>
-                                </div>
-                                <div class="text-primary font-bold">28 Apr 2026</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Hari Besar Islam -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Hari Besar</span> Islam 1447 H
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Tanggal-tanggal penting dalam Islam berdasarkan Kalender Hijriah Global Tunggal
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                    <!-- Muharam -->
-                    <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                        <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-4xl">
-                            <i class="fas fa-calendar-star"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">1 Muharam 1447 H</h3>
-                            <p class="text-gray-600 mb-4">Tahun Baru Islam</p>
-                            <div class="flex items-center text-sm text-primary">
-                                <i class="far fa-calendar-alt mr-2"></i>
-                                <span>26 Juni 2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Maulid Nabi -->
-                    <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                        <div class="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white text-4xl">
-                            <i class="fas fa-mosque"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">12 Rabiulawal 1447 H</h3>
-                            <p class="text-gray-600 mb-4">Maulid Nabi Muhammad SAW</p>
-                            <div class="flex items-center text-sm text-primary">
-                                <i class="far fa-calendar-alt mr-2"></i>
-                                <span>4 September 2025</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Isra Mi'raj -->
-                    <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                        <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-white text-4xl">
-                            <i class="fas fa-kaaba"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">27 Rajab 1447 H</h3>
-                            <p class="text-gray-600 mb-4">Isra Mi'raj</p>
-                            <div class="flex items-center text-sm text-primary">
-                                <i class="far fa-calendar-alt mr-2"></i>
-                                <span>16 Januari 2026</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Ramadan -->
-                    <div class="card-hover bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                        <div class="h-48 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center text-white text-4xl">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">1 Ramadan 1447 H</h3>
-                            <p class="text-gray-600 mb-4">Awal Puasa Ramadan</p>
-                            <div class="flex items-center text-sm text-primary">
-                                <i class="far fa-calendar-alt mr-2"></i>
-                                <span>15 Februari 2026</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-12" data-aos="fade-up">
-                    <a href="#kalender" class="btn-primary">
-                        <i class="fas fa-calendar-days mr-2"></i>Lihat Semua Hari Besar
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Panduan Penggunaan Kalender -->
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-16" data-aos="fade-up">
-                        <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-                            <span class="gradient-text">Panduan</span> Penggunaan
-                        </h2>
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Kalender Akademik</h2>
                         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Cara menggunakan Kalender Hijriah Global Tunggal dengan optimal
+                            Jadwal kegiatan akademik, ujian, libur, dan hari besar Islam untuk tahun ajaran 2024/2025
                         </p>
                     </div>
                     
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Navigasi -->
-                        <div class="card-hover text-center p-6 bg-white rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
-                                <i class="fas fa-arrows-alt-h"></i>
+                    <div class="bg-white rounded-2xl shadow-xl p-4 md:p-8" data-aos="fade-up">
+                        <div class="flex flex-wrap gap-4 mb-6 justify-center">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-primary"></span>
+                                <span class="text-gray-700">Kegiatan Akademik</span>
                             </div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Navigasi Bulan</h4>
-                            <p class="text-sm text-gray-600">Gunakan tombol panah kiri/kanan untuk melihat bulan sebelumnya atau berikutnya</p>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-accent-green"></span>
+                                <span class="text-gray-700">Hari Besar Islam</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-secondary"></span>
+                                <span class="text-gray-700">Libur Sekolah</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-4 h-4 rounded-full bg-red-500"></span>
+                                <span class="text-gray-700">Ujian</span>
+                            </div>
                         </div>
                         
-                        <!-- Hari Istimewa -->
-                        <div class="card-hover text-center p-6 bg-white rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
-                                <i class="fas fa-star"></i>
+                        <div id="calendar" class="mt-6"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kalender Hijriah Section -->
+        <section class="py-16 bg-gradient-to-br from-blue-50 to-green-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Kalender Hijriah Global Tunggal</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Kalender Hijriah Global Tunggal Muhammadiyah untuk tahun 1446 H
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Kalender Hijriah Info -->
+                        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8" data-aos="fade-up">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Tentang Kalender Hijriah Global Tunggal</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Kalender Hijriah Global Tunggal (KHGT) adalah kalender Islam yang disusun berdasarkan 
+                                perhitungan astronomis dengan kriteria visibilitas hilal yang dapat diterima secara global. 
+                                Kalender ini dikembangkan oleh Majelis Tarjih dan Tajdid Pimpinan Pusat Muhammadiyah.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="bg-primary/10 p-3 rounded-full">
+                                        <i class="fas fa-moon text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Kriteria Visibilitas Hilal</h4>
+                                        <p class="text-gray-600">
+                                            Menggunakan kriteria wujudul hilal global dengan memperhitungkan posisi bulan dan matahari.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="bg-primary/10 p-3 rounded-full">
+                                        <i class="fas fa-globe text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Penerapan Global</h4>
+                                        <p class="text-gray-600">
+                                            Dapat diterapkan secara global sehingga umat Islam di seluruh dunia dapat memulai bulan hijriah pada hari yang sama.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="bg-primary/10 p-3 rounded-full">
+                                        <i class="fas fa-calendar-alt text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">Manfaat</h4>
+                                        <p class="text-gray-600">
+                                            Memberikan kepastian dalam penentuan awal bulan hijriah, terutama untuk ibadah seperti puasa Ramadhan dan Idul Fitri.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Hari Istimewa</h4>
-                            <p class="text-sm text-gray-600">Tanggal dengan latar belakang emas menandakan hari besar Islam atau Ayyamul Bidh</p>
+                            <div class="mt-8">
+                                <a href="#" class="btn-primary">
+                                    <i class="fas fa-download mr-2"></i>Unduh Kalender Hijriah
+                                </a>
+                            </div>
                         </div>
                         
-                        <!-- Tanggal Hari Ini -->
-                        <div class="card-hover text-center p-6 bg-white rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
-                                <i class="fas fa-calendar-day"></i>
+                        <!-- Hari Besar Islam -->
+                        <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Hari Besar Islam 1446 H</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl">
+                                    <div class="bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center text-xl font-bold">
+                                        1
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">1 Muharram 1446 H</h4>
+                                        <p class="text-gray-600">Tahun Baru Hijriah</p>
+                                        <p class="text-sm text-primary font-medium">7 Juli 2024</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl">
+                                    <div class="bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center text-xl font-bold">
+                                        10
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">10 Muharram 1446 H</h4>
+                                        <p class="text-gray-600">Hari Asyura</p>
+                                        <p class="text-sm text-primary font-medium">16 Juli 2024</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl">
+                                    <div class="bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center text-xl font-bold">
+                                        12
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">12 Rabiul Awal 1446 H</h4>
+                                        <p class="text-gray-600">Maulid Nabi Muhammad SAW</p>
+                                        <p class="text-sm text-primary font-medium">16 September 2024</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl">
+                                    <div class="bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center text-xl font-bold">
+                                        27
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">27 Rajab 1446 H</h4>
+                                        <p class="text-gray-600">Isra Mi'raj Nabi Muhammad SAW</p>
+                                        <p class="text-sm text-primary font-medium">27 Januari 2025</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl">
+                                    <div class="bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center text-xl font-bold">
+                                        1
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">1 Ramadhan 1446 H</h4>
+                                        <p class="text-gray-600">Awal Puasa Ramadhan</p>
+                                        <p class="text-sm text-primary font-medium">2 Maret 2025</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl">
+                                    <div class="bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center text-xl font-bold">
+                                        1
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">1 Syawal 1446 H</h4>
+                                        <p class="text-gray-600">Hari Raya Idul Fitri</p>
+                                        <p class="text-sm text-primary font-medium">31 Maret 2025</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl">
+                                    <div class="bg-primary text-white h-12 w-12 rounded-full flex items-center justify-center text-xl font-bold">
+                                        10
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-800">10 Dzulhijjah 1446 H</h4>
+                                        <p class="text-gray-600">Hari Raya Idul Adha</p>
+                                        <p class="text-sm text-primary font-medium">7 Juni 2025</p>
+                                    </div>
+                                </div>
                             </div>
-                            <h4 class="font-semibold text-gray-800 mb-2">Hari Ini</h4>
-                            <p class="text-sm text-gray-600">Tanggal dengan border biru menandakan hari ini dalam kalender Hijriah</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Info KHGT -->
-        <section class="py-20 bg-white">
+        <!-- Jadwal Kegiatan Akademik -->
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="card-hover bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl shadow-lg p-8" data-aos="fade-up">
-                        <div class="text-center mb-8">
-                            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl">
-                                <i class="fas fa-info-circle"></i>
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Jadwal Kegiatan Akademik</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Jadwal kegiatan akademik penting untuk tahun ajaran 2024/2025
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Semester Ganjil -->
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up">
+                            <div class="bg-primary text-white p-4">
+                                <h3 class="text-xl font-bold">Semester Ganjil 2024/2025</h3>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Tentang Kalender Hijriah Global Tunggal</h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">
-                                Kalender Hijriah Global Tunggal (KHGT) adalah kalender resmi yang ditetapkan oleh Pimpinan Pusat Muhammadiyah 
-                                berdasarkan perhitungan astronomis yang akurat oleh Majelis Tarjih dan Tajdid PP Muhammadiyah. Kalender ini digunakan sebagai pedoman dalam menentukan 
-                                hari-hari besar Islam dan kegiatan keagamaan di seluruh dunia.
-                            </p>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-semibold text-primary mb-4 text-lg">Keunggulan KHGT:</h4>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Perhitungan astronomis yang akurat</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Digunakan secara global</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Ditetapkan oleh otoritas resmi</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Konsisten dan terpercaya</span>
-                                    </li>
-                                </ul>
+                            <div class="p-6">
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-primary/10 p-3 rounded-full">
+                                            <i class="fas fa-door-open text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Hari Pertama Masuk Sekolah</h4>
+                                            <p class="text-gray-600">15 Juli 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-primary/10 p-3 rounded-full">
+                                            <i class="fas fa-book-open text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Masa Pengenalan Lingkungan Sekolah</h4>
+                                            <p class="text-gray-600">15 - 17 Juli 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-primary/10 p-3 rounded-full">
+                                            <i class="fas fa-user-friends text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Pertemuan Orang Tua Siswa</h4>
+                                            <p class="text-gray-600">20 Juli 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-red-100 p-3 rounded-full">
+                                            <i class="fas fa-clipboard-check text-red-500"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Penilaian Tengah Semester</h4>
+                                            <p class="text-gray-600">23 - 28 September 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-accent-green/10 p-3 rounded-full">
+                                            <i class="fas fa-mosque text-accent-green"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Peringatan Maulid Nabi</h4>
+                                            <p class="text-gray-600">16 September 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-red-100 p-3 rounded-full">
+                                            <i class="fas fa-clipboard-check text-red-500"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Penilaian Akhir Semester</h4>
+                                            <p class="text-gray-600">2 - 7 Desember 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-secondary/10 p-3 rounded-full">
+                                            <i class="fas fa-award text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Pembagian Rapor</h4>
+                                            <p class="text-gray-600">21 Desember 2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-secondary/10 p-3 rounded-full">
+                                            <i class="fas fa-umbrella-beach text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Libur Semester Ganjil</h4>
+                                            <p class="text-gray-600">23 Desember 2024 - 5 Januari 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-primary mb-4 text-lg">Manfaat untuk Sekolah:</h4>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Panduan jadwal akademik</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Perencanaan kegiatan keagamaan</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Edukasi kalender Islam</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
-                                        <span class="text-gray-600">Sinkronisasi dengan Muhammadiyah</span>
-                                    </li>
-                                </ul>
+                        </div>
+                        
+                        <!-- Semester Genap -->
+                        <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-accent-green text-white p-4">
+                                <h3 class="text-xl font-bold">Semester Genap 2024/2025</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-accent-green/10 p-3 rounded-full">
+                                            <i class="fas fa-door-open text-accent-green"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Awal Semester Genap</h4>
+                                            <p class="text-gray-600">6 Januari 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-accent-green/10 p-3 rounded-full">
+                                            <i class="fas fa-moon text-accent-green"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Peringatan Isra Mi'raj</h4>
+                                            <p class="text-gray-600">27 Januari 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-red-100 p-3 rounded-full">
+                                            <i class="fas fa-clipboard-check text-red-500"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Penilaian Tengah Semester</h4>
+                                            <p class="text-gray-600">17 - 22 Februari 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-accent-green/10 p-3 rounded-full">
+                                            <i class="fas fa-utensils text-accent-green"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Awal Puasa Ramadhan</h4>
+                                            <p class="text-gray-600">2 Maret 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-secondary/10 p-3 rounded-full">
+                                            <i class="fas fa-umbrella-beach text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Libur Hari Raya Idul Fitri</h4>
+                                            <p class="text-gray-600">29 Maret - 6 April 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-red-100 p-3 rounded-full">
+                                            <i class="fas fa-clipboard-check text-red-500"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Ujian Sekolah Kelas 6</h4>
+                                            <p class="text-gray-600">14 - 19 April 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-red-100 p-3 rounded-full">
+                                            <i class="fas fa-clipboard-check text-red-500"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Penilaian Akhir Tahun</h4>
+                                            <p class="text-gray-600">2 - 7 Juni 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="bg-secondary/10 p-3 rounded-full">
+                                            <i class="fas fa-award text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-gray-800">Pembagian Rapor</h4>
+                                            <p class="text-gray-600">21 Juni 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="mt-8 text-center">
-                            <a href="https://khgt.muhammadiyah.or.id" target="_blank" class="btn-primary inline-flex items-center">
-                                <i class="fas fa-external-link-alt mr-2"></i>Kunjungi Website Resmi KHGT
-                            </a>
-                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="py-16 bg-gradient-to-r from-primary to-accent-green text-white relative overflow-hidden">
+            <div class="absolute inset-0 islamic-pattern"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Unduh Kalender Akademik
+                    </h2>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">
+                        Dapatkan kalender akademik dan kalender hijriah dalam format PDF untuk referensi Anda.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#" class="btn-secondary">
+                            <i class="fas fa-download mr-2"></i>Kalender Akademik 2024/2025
+                        </a>
+                        <a href="#" class="btn-primary bg-white text-primary hover:bg-gray-100 hover:text-primary-700">
+                            <i class="fas fa-download mr-2"></i>Kalender Hijriah 1446 H
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Event Modal -->
+    <div id="event-modal" class="event-modal">
+        <div class="event-modal-content">
+            <span class="event-modal-close">&times;</span>
+            <h3 id="event-title" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-calendar-day text-primary"></i>
+                    <p id="event-date" class="text-gray-700"></p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-tag text-primary"></i>
+                    <p id="event-category" class="text-gray-700"></p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <i class="fas fa-info-circle text-primary mt-1"></i>
+                    <p id="event-description" class="text-gray-700"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white pt-16 pb-8">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <!-- Tentang Sekolah -->
-                <div data-aos="fade-up">
-                    <div class="flex items-center mb-6">
-                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-10 mr-3">
-                        <h3 class="text-xl font-bold">MI MU'ALLIMIN</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo dan Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 logo-glow">
+                        <div>
+                            <h3 class="text-xl font-bold">MI MU'ALLIMIN</h3>
+                            <p class="text-gray-400">Muhammadiyah Selatpanjang</p>
+                        </div>
                     </div>
-                    <p class="text-gray-400 mb-4">
-                        Madrasah Ibtidaiyah unggulan dengan pendidikan islam berkualitas di Selatpanjang, Riau.
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Madrasah Ibtidaiyah unggulan yang berkomitmen menghasilkan generasi muslim 
+                        yang berilmu, berprestasi, terampil, dan berakhlak mulia.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/mi.muallimin" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="wa.me/+682285852725" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Link Cepat -->
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-lg font-bold mb-6">Link Cepat</h3>
+                <!-- Menu Cepat -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Menu Cepat</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
-                        <li><a href="tentang.html" class="text-gray-400 hover:text-white transition-colors">Tentang Kami</a></li>
-                        <li><a href="akademik.html" class="text-gray-400 hover:text-white transition-colors">Program Akademik</a></li>
-                        <li><a href="pendaftaran.html" class="text-gray-400 hover:text-white transition-colors">Pendaftaran</a></li>
-                        <li><a href="berita.html" class="text-gray-400 hover:text-white transition-colors">Berita & Kegiatan</a></li>
-                        <li><a href="galeri.html" class="text-gray-400 hover:text-white transition-colors">Galeri</a></li>
-                        <li><a href="kalender.html" class="text-gray-400 hover:text-white transition-colors">Kalender KHGT</a></li>
+                        <li><a href="tentang.html" class="text-gray-300 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="akademik.html" class="text-gray-300 hover:text-white transition-colors">Program Akademik</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-white transition-colors">Pendaftaran</a></li>
+                        <li><a href="berita.html" class="text-gray-300 hover:text-white transition-colors">Berita</a></li>
+                        <li><a href="galeri.html" class="text-gray-300 hover:text-white transition-colors">Galeri</a></li>
                     </ul>
                 </div>
                 
                 <!-- Kontak -->
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-lg font-bold mb-6">Kontak Kami</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent-gold"></i>
-                            <span>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan, Riau</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-3 text-accent-gold"></i>
-                            <span>082283419939</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3 text-accent-gold"></i>
-                            <span>mimuallimin77@gmail.com</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock mt-1 mr-3 text-accent-gold"></i>
-                            <span>Senin-Jumat: 07.00 - 15.00 WIB</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Newsletter -->
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">
-                        Dapatkan informasi terbaru seputar kegiatan dan pengumuman dari MI Mu'allimin.
-                    </p>
-                    <form class="flex">
-                        <input type="email" placeholder="Email Anda" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
-                        <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Kontak Kami</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">Jl. Pendidikan No. 123</p>
+                                <p class="text-gray-300">Selatpanjang, Riau</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <p class="text-gray-300">(0761) 123-4567</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <p class="text-gray-300">info@mimuallimin.sch.id</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
                     &copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi.
                 </p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Kebijakan Privasi</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Syarat & Ketentuan</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Peta Situs</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 invisible hover:bg-primary-dark hover:-translate-y-1">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-primary-dark transition-all transform hover:scale-110 opacity-0 invisible">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script>
-        // Initialize AOS animation
+        // Initialize AOS
         AOS.init({
             duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
-        // Preloader
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
         });
 
         // Mobile Menu Toggle
@@ -917,353 +967,292 @@
         
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
         // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.add('bg-white');
-                navbar.classList.remove('bg-white/90');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
             } else {
-                navbar.classList.remove('shadow-md');
-                navbar.classList.add('bg-white/90');
-                navbar.classList.remove('bg-white');
+                navbar.classList.remove('navbar-scrolled');
             }
         });
 
         // Back to Top Button
-        const backToTop = document.getElementById('back-to-top');
+        const backToTopBtn = document.getElementById('back-to-top');
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
             } else {
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
             }
         });
 
-        // Smooth scrolling for all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
 
-        // Kalender Hijriah Kustom dengan Navigasi Per Bulan
-        class HijriCalendarCustom {
-            constructor() {
-                this.currentMonth = 1; // Safar 1447 H (bulan saat ini)
-                this.currentYear = 1447;
-                this.monthNames = [
-                    'Muharam', 'Safar', 'Rabiulawal', 'Rabiulakhir', 
-                    'Jumadilawal', 'Jumadilakhir', 'Rajab', 'Syakban',
-                    'Ramadan', 'Syawal', 'Zulkaidah', 'Zulhijjah'
-                ];
-                this.dayNames = ['Ahad', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-                this.init();
-            }
-
-            init() {
-                this.createCalendarHTML();
-                this.bindEvents();
-                this.renderCurrentMonth();
-            }
-
-            createCalendarHTML() {
-                const calendarContainer = document.getElementById('hijri-calendar-container');
-                if (!calendarContainer) return;
-
-                calendarContainer.innerHTML = `
-                    <div class="hijri-calendar-custom bg-white rounded-xl shadow-lg overflow-hidden">
-                        <!-- Header dengan Navigasi -->
-                        <div class="calendar-header bg-gradient-to-r from-primary to-primary-dark text-white p-6">
-                            <div class="flex items-center justify-between">
-                                <button id="prev-month" class="btn-nav hover:bg-white hover:bg-opacity-20 p-2 rounded-lg transition-colors">
-                                    <i class="fas fa-chevron-left text-xl"></i>
-                                </button>
-                                <div class="text-center">
-                                    <h3 id="current-month-year" class="text-2xl font-bold mb-1"></h3>
-                                    <p class="text-accent-gold text-sm">Kalender Hijriah Global Tunggal</p>
-                                </div>
-                                <button id="next-month" class="btn-nav hover:bg-white hover:bg-opacity-20 p-2 rounded-lg transition-colors">
-                                    <i class="fas fa-chevron-right text-xl"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Hari dalam Seminggu -->
-                        <div class="calendar-days-header bg-gray-100 grid grid-cols-7 text-center text-sm font-semibold text-gray-700">
-                            ${this.dayNames.map(day => `<div class="p-3">${day}</div>`).join('')}
-                        </div>
-
-                        <!-- Grid Kalender -->
-                        <div id="calendar-grid" class="calendar-grid grid grid-cols-7 bg-white">
-                            <!-- Tanggal akan diisi oleh JavaScript -->
-                        </div>
-
-                        <!-- Hari Istimewa -->
-                        <div class="calendar-footer bg-gray-50 p-6">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Hari Istimewa Bulan Ini</h4>
-                            <div id="special-days" class="space-y-2">
-                                <!-- Hari istimewa akan diisi oleh JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-
-            bindEvents() {
-                const prevBtn = document.getElementById('prev-month');
-                const nextBtn = document.getElementById('next-month');
-
-                if (prevBtn) {
-                    prevBtn.addEventListener('click', () => this.previousMonth());
-                }
-
-                if (nextBtn) {
-                    nextBtn.addEventListener('click', () => this.nextMonth());
-                }
-            }
-
-            previousMonth() {
-                this.currentMonth--;
-                if (this.currentMonth < 0) {
-                    this.currentMonth = 11;
-                    this.currentYear--;
-                }
-                this.renderCurrentMonth();
-            }
-
-            nextMonth() {
-                this.currentMonth++;
-                if (this.currentMonth > 11) {
-                    this.currentMonth = 0;
-                    this.currentYear++;
-                }
-                this.renderCurrentMonth();
-            }
-
-            renderCurrentMonth() {
-                this.updateHeader();
-                this.renderCalendarGrid();
-                this.renderSpecialDays();
-            }
-
-            updateHeader() {
-                const headerElement = document.getElementById('current-month-year');
-                if (headerElement) {
-                    const monthName = this.monthNames[this.currentMonth];
-                    headerElement.textContent = `${monthName} ${this.currentYear} H`;
-                }
-            }
-
-            renderCalendarGrid() {
-                const gridElement = document.getElementById('calendar-grid');
-                if (!gridElement) return;
-
-                const monthData = this.getMonthData(this.currentMonth, this.currentYear);
-                let gridHTML = '';
-
-                // Hari kosong di awal bulan
-                for (let i = 0; i < monthData.startDay; i++) {
-                    gridHTML += '<div class="calendar-day empty p-4"></div>';
-                }
-
-                // Hari-hari dalam bulan
-                for (let day = 1; day <= monthData.daysInMonth; day++) {
-                    const isSpecial = this.isSpecialDay(day, this.currentMonth, this.currentYear);
-                    const isToday = this.isToday(day, this.currentMonth, this.currentYear);
-                    const gregorianDate = this.getGregorianDate(day, this.currentMonth, this.currentYear);
-                    
-                    const specialClass = isSpecial ? 'special-day' : '';
-                    const todayClass = isToday ? 'today' : '';
-                    
-                    gridHTML += `
-                        <div class="calendar-day ${specialClass} ${todayClass} p-4 border-b border-r border-gray-200 hover:bg-blue-50 transition-colors">
-                            <div class="text-center">
-                                <div class="hijri-date text-2xl font-bold text-primary-navy mb-1">${this.toArabicNumerals(day)}</div>
-                                <div class="gregorian-date text-xs text-gray-600">${gregorianDate}</div>
-                                ${isSpecial ? '<div class="special-indicator w-2 h-2 bg-primary-gold rounded-full mx-auto mt-1"></div>' : ''}
-                            </div>
-                        </div>
-                    `;
-                }
-
-                gridElement.innerHTML = gridHTML;
-            }
-
-            renderSpecialDays() {
-                const specialDaysElement = document.getElementById('special-days');
-                if (!specialDaysElement) return;
-
-                const specialDays = this.getSpecialDaysForMonth(this.currentMonth, this.currentYear);
-                
-                if (specialDays.length === 0) {
-                    specialDaysElement.innerHTML = '<p class="text-gray-500 text-sm">Tidak ada hari istimewa khusus bulan ini</p>';
-                    return;
-                }
-
-                const specialDaysHTML = specialDays.map(day => `
-                    <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
-                        <div>
-                            <div class="font-medium text-gray-800">${day.name}</div>
-                            <div class="text-sm text-gray-600">${day.hijriDate} / ${day.gregorianDate}</div>
-                        </div>
-                        <div class="w-3 h-3 bg-primary-gold rounded-full"></div>
-                    </div>
-                `).join('');
-
-                specialDaysElement.innerHTML = specialDaysHTML;
-            }
-
-            getMonthData(month, year) {
-                // Data kalender Hijriah 1447 H
-                const monthsData = {
-                    0: { daysInMonth: 30, startDay: 3, startGregorian: new Date(2025, 5, 26) }, // Muharam
-                    1: { daysInMonth: 29, startDay: 6, startGregorian: new Date(2025, 6, 25) }, // Safar
-                    2: { daysInMonth: 30, startDay: 1, startGregorian: new Date(2025, 7, 23) }, // Rabiulawal
-                    3: { daysInMonth: 29, startDay: 4, startGregorian: new Date(2025, 8, 22) }, // Rabiulakhir
-                    4: { daysInMonth: 30, startDay: 6, startGregorian: new Date(2025, 9, 20) }, // Jumadilawal
-                    5: { daysInMonth: 29, startDay: 2, startGregorian: new Date(2025, 10, 19) }, // Jumadilakhir
-                    6: { daysInMonth: 30, startDay: 4, startGregorian: new Date(2025, 11, 18) }, // Rajab
-                    7: { daysInMonth: 29, startDay: 0, startGregorian: new Date(2026, 0, 17) }, // Syakban
-                    8: { daysInMonth: 30, startDay: 2, startGregorian: new Date(2026, 1, 15) }, // Ramadan
-                    9: { daysInMonth: 29, startDay: 5, startGregorian: new Date(2026, 2, 17) }, // Syawal
-                    10: { daysInMonth: 30, startDay: 0, startGregorian: new Date(2026, 3, 15) }, // Zulkaidah
-                    11: { daysInMonth: 29, startDay: 3, startGregorian: new Date(2026, 4, 15) }  // Zulhijjah
-                };
-
-                return monthsData[month] || { daysInMonth: 30, startDay: 0, startGregorian: new Date() };
-            }
-
-            getGregorianDate(hijriDay, hijriMonth, hijriYear) {
-                const monthData = this.getMonthData(hijriMonth, hijriYear);
-                const gregorianDate = new Date(monthData.startGregorian);
-                gregorianDate.setDate(gregorianDate.getDate() + hijriDay - 1);
-                
-                return gregorianDate.toLocaleDateString('id-ID', { 
-                    day: 'numeric', 
-                    month: 'short' 
-                });
-            }
-
-            isSpecialDay(day, month, year) {
-                const specialDays = this.getSpecialDaysForMonth(month, year);
-                return specialDays.some(special => special.day === day);
-            }
-
-            isToday(day, month, year) {
-                // Untuk demo, anggap hari ini adalah 1 Safar 1447 H
-                return month === 1 && day === 1 && year === 1447;
-            }
-
-            getSpecialDaysForMonth(month, year) {
-                const allSpecialDays = {
-                    0: [ // Muharam
-                        { day: 1, name: 'Tahun Baru Islam (Hijriah)', hijriDate: '1 Muharam 1447 H', gregorianDate: '26 Jun 2025' },
-                        { day: 9, name: 'Hari Tasua', hijriDate: '9 Muharam 1447 H', gregorianDate: '4 Jul 2025' },
-                        { day: 10, name: 'Hari Asyura', hijriDate: '10 Muharam 1447 H', gregorianDate: '5 Jul 2025' },
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Muharam 1447 H', gregorianDate: '8 Jul 2025' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Muharam 1447 H', gregorianDate: '9 Jul 2025' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Muharam 1447 H', gregorianDate: '10 Jul 2025' }
-                    ],
-                    1: [ // Safar
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Safar 1447 H', gregorianDate: '7 Agt 2025' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Safar 1447 H', gregorianDate: '8 Agt 2025' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Safar 1447 H', gregorianDate: '9 Agt 2025' }
-                    ],
-                    2: [ // Rabiulawal
-                        { day: 12, name: 'Maulid Nabi Muhammad SAW', hijriDate: '12 Rabiulawal 1447 H', gregorianDate: '4 Sep 2025' },
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Rabiulawal 1447 H', gregorianDate: '5 Sep 2025' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Rabiulawal 1447 H', gregorianDate: '6 Sep 2025' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Rabiulawal 1447 H', gregorianDate: '7 Sep 2025' }
-                    ],
-                    3: [ // Rabiulakhir
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Rabiulakhir 1447 H', gregorianDate: '5 Okt 2025' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Rabiulakhir 1447 H', gregorianDate: '6 Okt 2025' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Rabiulakhir 1447 H', gregorianDate: '7 Okt 2025' }
-                    ],
-                    4: [ // Jumadilawal
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Jumadilawal 1447 H', gregorianDate: '4 Nov 2025' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Jumadilawal 1447 H', gregorianDate: '5 Nov 2025' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Jumadilawal 1447 H', gregorianDate: '6 Nov 2025' }
-                    ],
-                    5: [ // Jumadilakhir
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Jumadilakhir 1447 H', gregorianDate: '3 Des 2025' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Jumadilakhir 1447 H', gregorianDate: '4 Des 2025' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Jumadilakhir 1447 H', gregorianDate: '5 Des 2025' }
-                    ],
-                    6: [ // Rajab
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Rajab 1447 H', gregorianDate: '2 Jan 2026' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Rajab 1447 H', gregorianDate: '3 Jan 2026' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Rajab 1447 H', gregorianDate: '4 Jan 2026' },
-                        { day: 27, name: 'Isra Mi\'raj', hijriDate: '27 Rajab 1447 H', gregorianDate: '16 Jan 2026' }
-                    ],
-                    7: [ // Syakban
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Syakban 1447 H', gregorianDate: '1 Feb 2026' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Syakban 1447 H', gregorianDate: '2 Feb 2026' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Syakban 1447 H', gregorianDate: '3 Feb 2026' }
-                    ],
-                    8: [ // Ramadan
-                        { day: 1, name: 'Awal Ramadan', hijriDate: '1 Ramadan 1447 H', gregorianDate: '15 Feb 2026' },
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Ramadan 1447 H', gregorianDate: '27 Feb 2026' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Ramadan 1447 H', gregorianDate: '28 Feb 2026' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Ramadan 1447 H', gregorianDate: '1 Mar 2026' },
-                        { day: 21, name: 'Lailatul Qadr (perkiraan)', hijriDate: '21 Ramadan 1447 H', gregorianDate: '7 Mar 2026' }
-                    ],
-                    9: [ // Syawal
-                        { day: 1, name: 'Idul Fitri', hijriDate: '1 Syawal 1447 H', gregorianDate: '17 Mar 2026' },
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Syawal 1447 H', gregorianDate: '29 Mar 2026' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Syawal 1447 H', gregorianDate: '30 Mar 2026' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Syawal 1447 H', gregorianDate: '31 Mar 2026' }
-                    ],
-                    10: [ // Zulkaidah
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Zulkaidah 1447 H', gregorianDate: '27 Apr 2026' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Zulkaidah 1447 H', gregorianDate: '28 Apr 2026' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Zulkaidah 1447 H', gregorianDate: '29 Apr 2026' }
-                    ],
-                    11: [ // Zulhijjah
-                        { day: 9, name: 'Hari Arafah', hijriDate: '9 Zulhijjah 1447 H', gregorianDate: '23 Mei 2026' },
-                        { day: 10, name: 'Idul Adha', hijriDate: '10 Zulhijjah 1447 H', gregorianDate: '24 Mei 2026' },
-                        { day: 13, name: 'Ayyamul Bidh', hijriDate: '13 Zulhijjah 1447 H', gregorianDate: '27 Mei 2026' },
-                        { day: 14, name: 'Ayyamul Bidh', hijriDate: '14 Zulhijjah 1447 H', gregorianDate: '28 Mei 2026' },
-                        { day: 15, name: 'Ayyamul Bidh', hijriDate: '15 Zulhijjah 1447 H', gregorianDate: '29 Mei 2026' }
-                    ]
-                };
-
-                return allSpecialDays[month] || [];
-            }
-
-            toArabicNumerals(number) {
-                const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-                return number.toString().split('').map(digit => arabicNumerals[parseInt(digit)]).join('');
-            }
-        }
-
-        // Inisialisasi kalender saat DOM loaded
+        // Initialize FullCalendar
         document.addEventListener('DOMContentLoaded', function() {
-            if (document.getElementById('hijri-calendar-container')) {
-                new HijriCalendarCustom();
-            }
+            const calendarEl = document.getElementById('calendar');
+            
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,listMonth'
+                },
+                buttonText: {
+                    today: 'Hari Ini',
+                    month: 'Bulan',
+                    list: 'Daftar'
+                },
+                locale: 'id',
+                events: [
+                    {
+                        title: 'Hari Pertama Masuk Sekolah',
+                        start: '2024-07-15',
+                        className: 'academic',
+                        extendedProps: {
+                            category: 'Kegiatan Akademik',
+                            description: 'Hari pertama masuk sekolah untuk tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Masa Pengenalan Lingkungan Sekolah',
+                        start: '2024-07-15',
+                        end: '2024-07-18',
+                        className: 'academic',
+                        extendedProps: {
+                            category: 'Kegiatan Akademik',
+                            description: 'Masa pengenalan lingkungan sekolah untuk siswa baru.'
+                        }
+                    },
+                    {
+                        title: 'Tahun Baru Hijriah 1446 H',
+                        start: '2024-07-07',
+                        className: 'islamic',
+                        extendedProps: {
+                            category: 'Hari Besar Islam',
+                            description: 'Peringatan tahun baru Hijriah 1446 H.'
+                        }
+                    },
+                    {
+                        title: 'Hari Asyura',
+                        start: '2024-07-16',
+                        className: 'islamic',
+                        extendedProps: {
+                            category: 'Hari Besar Islam',
+                            description: 'Peringatan hari Asyura 10 Muharram 1446 H.'
+                        }
+                    },
+                    {
+                        title: 'Pertemuan Orang Tua Siswa',
+                        start: '2024-07-20',
+                        className: 'academic',
+                        extendedProps: {
+                            category: 'Kegiatan Akademik',
+                            description: 'Pertemuan orang tua siswa untuk membahas program sekolah tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Libur Hari Kemerdekaan',
+                        start: '2024-08-17',
+                        className: 'holiday',
+                        extendedProps: {
+                            category: 'Libur Nasional',
+                            description: 'Libur memperingati Hari Kemerdekaan Republik Indonesia.'
+                        }
+                    },
+                    {
+                        title: 'Maulid Nabi Muhammad SAW',
+                        start: '2024-09-16',
+                        className: 'islamic',
+                        extendedProps: {
+                            category: 'Hari Besar Islam',
+                            description: 'Peringatan Maulid Nabi Muhammad SAW 12 Rabiul Awal 1446 H.'
+                        }
+                    },
+                    {
+                        title: 'Penilaian Tengah Semester Ganjil',
+                        start: '2024-09-23',
+                        end: '2024-09-29',
+                        className: 'exam',
+                        extendedProps: {
+                            category: 'Ujian',
+                            description: 'Penilaian tengah semester ganjil tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Penilaian Akhir Semester Ganjil',
+                        start: '2024-12-02',
+                        end: '2024-12-08',
+                        className: 'exam',
+                        extendedProps: {
+                            category: 'Ujian',
+                            description: 'Penilaian akhir semester ganjil tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Pembagian Rapor Semester Ganjil',
+                        start: '2024-12-21',
+                        className: 'academic',
+                        extendedProps: {
+                            category: 'Kegiatan Akademik',
+                            description: 'Pembagian rapor semester ganjil tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Libur Semester Ganjil',
+                        start: '2024-12-23',
+                        end: '2025-01-06',
+                        className: 'holiday',
+                        extendedProps: {
+                            category: 'Libur Sekolah',
+                            description: 'Libur semester ganjil tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Awal Semester Genap',
+                        start: '2025-01-06',
+                        className: 'academic',
+                        extendedProps: {
+                            category: 'Kegiatan Akademik',
+                            description: 'Awal semester genap tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Isra Mi\'raj Nabi Muhammad SAW',
+                        start: '2025-01-27',
+                        className: 'islamic',
+                        extendedProps: {
+                            category: 'Hari Besar Islam',
+                            description: 'Peringatan Isra Mi\'raj Nabi Muhammad SAW 27 Rajab 1446 H.'
+                        }
+                    },
+                    {
+                        title: 'Penilaian Tengah Semester Genap',
+                        start: '2025-02-17',
+                        end: '2025-02-23',
+                        className: 'exam',
+                        extendedProps: {
+                            category: 'Ujian',
+                            description: 'Penilaian tengah semester genap tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Awal Puasa Ramadhan',
+                        start: '2025-03-02',
+                        className: 'islamic',
+                        extendedProps: {
+                            category: 'Hari Besar Islam',
+                            description: 'Awal puasa Ramadhan 1446 H.'
+                        }
+                    },
+                    {
+                        title: 'Libur Hari Raya Idul Fitri',
+                        start: '2025-03-29',
+                        end: '2025-04-07',
+                        className: 'holiday',
+                        extendedProps: {
+                            category: 'Libur Sekolah',
+                            description: 'Libur Hari Raya Idul Fitri 1446 H.'
+                        }
+                    },
+                    {
+                        title: 'Ujian Sekolah Kelas 6',
+                        start: '2025-04-14',
+                        end: '2025-04-20',
+                        className: 'exam',
+                        extendedProps: {
+                            category: 'Ujian',
+                            description: 'Ujian sekolah untuk kelas 6.'
+                        }
+                    },
+                    {
+                        title: 'Penilaian Akhir Tahun',
+                        start: '2025-06-02',
+                        end: '2025-06-08',
+                        className: 'exam',
+                        extendedProps: {
+                            category: 'Ujian',
+                            description: 'Penilaian akhir tahun ajaran 2024/2025.'
+                        }
+                    },
+                    {
+                        title: 'Hari Raya Idul Adha',
+                        start: '2025-06-07',
+                        className: 'islamic',
+                        extendedProps: {
+                            category: 'Hari Besar Islam',
+                            description: 'Hari Raya Idul Adha 10 Dzulhijjah 1446 H.'
+                        }
+                    },
+                    {
+                        title: 'Pembagian Rapor Semester Genap',
+                        start: '2025-06-21',
+                        className: 'academic',
+                        extendedProps: {
+                            category: 'Kegiatan Akademik',
+                            description: 'Pembagian rapor semester genap tahun ajaran 2024/2025.'
+                        }
+                    }
+                ],
+                eventClick: function(info) {
+                    const modal = document.getElementById('event-modal');
+                    const title = document.getElementById('event-title');
+                    const date = document.getElementById('event-date');
+                    const category = document.getElementById('event-category');
+                    const description = document.getElementById('event-description');
+                    
+                    title.textContent = info.event.title;
+                    
+                    // Format date
+                    const startDate = info.event.start;
+                    const endDate = info.event.end;
+                    
+                    if (endDate) {
+                        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                        date.textContent = `${startDate.toLocaleDateString('id-ID', options)} - ${endDate.toLocaleDateString('id-ID', options)}`;
+                    } else {
+                        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                        date.textContent = startDate.toLocaleDateString('id-ID', options);
+                    }
+                    
+                    category.textContent = info.event.extendedProps.category;
+                    description.textContent = info.event.extendedProps.description;
+                    
+                    modal.style.display = 'flex';
+                }
+            });
+            
+            calendar.render();
+            
+            // Event Modal Close
+            const modal = document.getElementById('event-modal');
+            const closeBtn = document.getElementsByClassName('event-modal-close')[0];
+            
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
 </html>
+
