@@ -8,7 +8,7 @@
     <meta name="keywords" content="madrasah ibtidaiyah, sejarah MI Mu'allimin, visi misi sekolah islam, profil madrasah, pendidikan islam selatpanjang">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="logo.png" type="image/png">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,27 +17,49 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        'sans': ['Nunito', 'Inter', 'sans-serif'],
                         'arabic': ['Amiri', 'serif']
                     },
                     colors: {
                         primary: {
-                            DEFAULT: '#1E40AF',
-                            dark: '#1E3A8A'
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            DEFAULT: '#2563eb'
                         },
                         secondary: {
-                            DEFAULT: '#D97706',
-                            dark: '#B45309'
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            DEFAULT: '#eab308'
                         },
                         accent: {
-                            green: '#16A34A',
-                            gold: '#EAB308'
+                            green: '#16a34a',
+                            orange: '#ea580c',
+                            purple: '#9333ea'
                         }
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'fade-in': 'fadeIn 1s ease-out',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite'
                     },
                     keyframes: {
                         float: {
@@ -45,8 +67,20 @@
                             '50%': { transform: 'translateY(-20px)' }
                         },
                         fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' }
                         }
                     }
                 }
@@ -58,7 +92,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -66,10 +100,11 @@
     <style>
         /* Custom Styles */
         .hero-bg {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%),
-                        url('assets/img/about-hero.jpg') no-repeat center center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(16, 163, 74, 0.8) 100%),
+                        url('assets/images/hero-section.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
+            background-attachment: fixed;
+            background-position: center center;
         }
         
         .islamic-pattern {
@@ -84,138 +119,61 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSI+PC9yZWN0PjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSI+PC9yZWN0Pjwvc3ZnPg==');
-            opacity: 0.1;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
             z-index: 0;
         }
         
         .card-hover {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
-            perspective: 1000px;
         }
         
         .card-hover:hover {
-            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
-        .teacher-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-            perspective: 1000px;
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
         
-        .teacher-card:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-        }
-        
-        .teacher-card .teacher-img {
-            transition: transform 0.5s ease;
-        }
-        
-        .teacher-card:hover .teacher-img {
-            transform: scale(1.05);
-        }
-        
-        .text-outline {
-            text-shadow: 1px 1px 0 #1E3A8A, -1px -1px 0 #1E3A8A;
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
         }
         
         .logo-glow {
-            filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.5));
+            filter: drop-shadow(0 0 20px rgba(234, 179, 8, 0.6));
         }
         
         .gradient-text {
-            background: linear-gradient(90deg, #1E40AF, #16A34A);
+            background: linear-gradient(135deg, #2563eb, #16a34a);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .btn-primary {
-            background-color: #1E40AF;
-            color: white;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .btn-primary:hover {
-            background-color: #1E3A8A;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-secondary {
-            background-color: #EAB308;
-            color: #1E3A8A;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #D97706;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #10b981;
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-bottom: 2rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #10b981;
-            border: 3px solid white;
-        }
-        
-        /* Animation Delays */
-        .animation-delay-100 { animation-delay: 0.1s; }
-        .animation-delay-200 { animation-delay: 0.2s; }
-        .animation-delay-300 { animation-delay: 0.3s; }
-        
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
         
         ::-webkit-scrollbar-track {
-            background: #F1F1F1;
+            background: #f1f5f9;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #1E40AF, #16A34A);
+            background: linear-gradient(45deg, #2563eb, #16a34a);
             border-radius: 10px;
         }
         
@@ -224,97 +182,112 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: #1E40AF;
+            background: #2563eb;
             color: white;
-            padding: 8px;
+            padding: 8px 16px;
             z-index: 100;
             transition: top 0.3s;
+            border-radius: 0 0 8px 0;
         }
         
         .skip-link:focus {
             top: 0;
         }
+        
+        /* Navbar scroll effect */
+        .navbar-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
-<body class="bg-gray-50 font-sans antialiased">
+<body class="bg-gradient-to-br from-blue-50 to-green-50 font-sans antialiased">
     <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500">
-        <div class="text-center">
-            <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
-            <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 mx-auto mb-4">
-            <p class="text-gray-600">Memuat...</p>
-        </div>
-    </div>
-
     <!-- Header/Navigation -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 transition-all duration-300" id="navbar">
-        <nav class="container mx-auto px-4 py-3">
+    <header class="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-40 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-12 logo-glow">
+                <div class="flex items-center space-x-4">
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-14 w-14 logo-glow">
                     <div>
                         <h1 class="text-xl font-bold text-gray-800">MI MU'ALLIMIN</h1>
-                        <p class="text-xs text-gray-600">Muhammadiyah Selatpanjang</p>
+                        <p class="text-sm text-gray-600">Muhammadiyah Selatpanjang</p>
                     </div>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Beranda
+                    <a href="index.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-home mr-2"></i>Beranda
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="tentang.html" class="relative text-primary font-medium group">
-                        Tentang Kami
+                    <a href="tentang.html" class="relative text-primary font-semibold group">
+                        <i class="fas fa-info-circle mr-2"></i>Tentang Kami
                         <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></span>
                     </a>
-                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Akademik
+                    <a href="akademik.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-graduation-cap mr-2"></i>Akademik
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="pendaftaran.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Pendaftaran
+                    <a href="pendaftaran.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-user-plus mr-2"></i>Pendaftaran
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Berita
+                    <a href="berita.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-newspaper mr-2"></i>Berita
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="galeri.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Galeri
+                    <a href="galeri.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-images mr-2"></i>Galeri
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                     <a href="kalender.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Kalender KHGT
+                    <a href="kalender.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-calendar mr-2"></i>Kalender
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
-                    <a href="kontak.html" class="relative text-gray-700 hover:text-primary font-medium group">
-                        Kontak
+                    <a href="kontak.html" class="relative text-gray-700 hover:text-primary font-medium group transition-colors">
+                        <i class="fas fa-phone mr-2"></i>Kontak
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                     </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <button class="lg:hidden text-gray-700 hover:text-primary focus:outline-none p-2 rounded-lg hover:bg-gray-100" id="mobile-menu-btn" aria-label="Toggle mobile menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
             
             <!-- Mobile Navigation -->
             <div class="lg:hidden mt-4 hidden" id="mobile-menu">
-                <div class="flex flex-col space-y-3 pb-4">
-                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Beranda</a>
-                    <a href="tentang.html" class="text-primary font-medium py-2 px-4 rounded-lg bg-primary/10">Tentang Kami</a>
-                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Akademik</a>
-                    <a href="pendaftaran.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Pendaftaran</a>
-                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Berita</a>
-                    <a href="galeri.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Galeri</a>
-                    <a href="kalender.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kalender KHGT</a>
-                    <a href="kontak.html" class="text-gray-700 hover:text-primary font-medium py-2 px-4 rounded-lg hover:bg-primary/10">Kontak</a>
+                <div class="flex flex-col space-y-2 pb-4">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-home mr-3"></i>Beranda
+                    </a>
+                    <a href="tentang.html" class="text-primary font-semibold py-3 px-4 rounded-lg bg-primary/10 flex items-center">
+                        <i class="fas fa-info-circle mr-3"></i>Tentang Kami
+                    </a>
+                    <a href="akademik.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-graduation-cap mr-3"></i>Akademik
+                    </a>
+                    <a href="pendaftaran.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-user-plus mr-3"></i>Pendaftaran
+                    </a>
+                    <a href="berita.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-newspaper mr-3"></i>Berita
+                    </a>
+                    <a href="galeri.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-images mr-3"></i>Galeri
+                    </a>
+                    <a href="kalender.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-calendar mr-3"></i>Kalender
+                    </a>
+                    <a href="kontak.html" class="text-gray-700 hover:text-primary font-medium py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors flex items-center">
+                        <i class="fas fa-phone mr-3"></i>Kontak
+                    </a>
                 </div>
             </div>
         </nav>
@@ -322,746 +295,327 @@
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero-bg text-white py-32 relative overflow-hidden islamic-pattern">
-            <div class="absolute inset-0 bg-black/30 z-0"></div>
-            <div class="container mx-auto px-4 text-center relative z-10" data-aos="fade-up">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    <span class="text-outline">Tentang</span><br>
-                    <span class="text-accent-gold">MI Mu'allimin Muhammadiyah</span>
+        <section class="hero-bg text-white py-20 md:py-32 relative overflow-hidden islamic-pattern">
+            <div class="absolute inset-0 bg-black/20 z-0"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="flex justify-center mb-8" data-aos="zoom-in">
+                    <img src="logo.png" alt="Logo MI Mu'allimin" class="h-24 md:h-32 logo-glow animate-float">
+                </div>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" data-aos="fade-up">
+                    <span class="block">Tentang</span>
+                    <span class="block text-secondary gradient-text">MI Mu'allimin Muhammadiyah</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
+                <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="200">
                     Mengenal lebih dekat sejarah, visi, misi, dan nilai-nilai yang menjadi fondasi pendidikan kami
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#sejarah" class="btn-secondary">
-                        <i class="fas fa-landmark mr-2"></i>Sejarah Kami
-                    </a>
-                    <a href="#visi-misi" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
-                        <i class="fas fa-bullseye mr-2"></i>Visi & Misi
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Animated Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" data-aos="fade-up" data-aos-delay="500">
-                <a href="#profil" class="text-white hover:text-accent-gold">
-                    <i class="fas fa-chevron-down text-2xl"></i>
-                </a>
             </div>
         </section>
 
-        <!-- Profil Sekolah -->
-        <section class="py-20 bg-white" id="profil">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12" data-aos="fade-up">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                            <span class="gradient-text">Profil</span> Sekolah
-                        </h2>
-                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Identitas lengkap MI Mu'allimin Muhammadiyah Selatpanjang</p>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-md mb-8 card-hover" data-aos="fade-up" data-aos-delay="100">
-                        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Identitas Satuan Pendidikan</h4>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <p class="font-medium text-gray-800">Nama Sekolah:</p>
-                                <p class="text-gray-600 mb-4">MI Mu'allimin Muhammadiyah Selatpanjang</p>
-                                
-                                <p class="font-medium text-gray-800">NPSN:</p>
-                                <p class="text-gray-600 mb-4">69827661</p>
-                                
-                                <p class="font-medium text-gray-800">NSM:</p>
-                                <p class="text-gray-600 mb-4">111214100013</p>
-                                
-                                <p class="font-medium text-gray-800">Alamat:</p>
-                                <p class="text-gray-600">Jl. Masjid Taqwa No. 02, Selatpanjang Selatan</p>
-                                
-                                <p class="font-medium text-gray-800">Desa/Kelurahan:</p>
-                                <p class="text-gray-600 mb-4">Selatpanjang Selatan</p>
-                                
-                                <p class="font-medium text-gray-800">Status Sekolah:</p>
-                                <p class="text-gray-600 mb-4">Swasta</p>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-800">Kecamatan:</p>
-                                <p class="text-gray-600 mb-4">Tebing Tinggi</p>
-                                
-                                <p class="font-medium text-gray-800">Kabupaten:</p>
-                                <p class="text-gray-600 mb-4">Kepulauan Meranti</p>
-                                
-                                <p class="font-medium text-gray-800">Provinsi:</p>
-                                <p class="text-gray-600 mb-4">Riau</p>
-                                
-                                <p class="font-medium text-gray-800">Bentuk Pendidikan:</p>
-                                <p class="text-gray-600 mb-4">Madrasah Ibtidaiyah (MI)</p>
-                                
-                                <p class="font-medium text-gray-800">Jenjang Pendidikan:</p>
-                                <p class="text-gray-600 mb-4">Pendidikan Dasar (DIKDAS)</p>
-                                
-                                <p class="font-medium text-gray-800">Email:</p>
-                                <p class="text-gray-600">mimuallimin77@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-md mb-8 card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Dokumentasi dan Perijinan</h4>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <p class="font-medium text-gray-800">Kementerian Pembina:</p>
-                                <p class="text-gray-600 mb-4">Kementerian Agama</p>
-                                
-                                <p class="font-medium text-gray-800">Naungan:</p>
-                                <p class="text-gray-600 mb-4">Majelis Dikdasmen PDM Kabupaten Kepulauan Meranti</p>
-                                
-                                <p class="font-medium text-gray-800">NPYP:</p>
-                                <p class="text-gray-600 mb-4">AO5552</p>
-                                
-                                <p class="font-medium text-gray-800">Nomor SK Pendirian:</p>
-                                <p class="text-gray-600 mb-4">80/C-II/80</p>
-                                
-                                <p class="font-medium text-gray-800">Tanggal SK Pendirian:</p>
-                                <p class="text-gray-600 mb-4">17 September 1980</p>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-800">Nomor SK Operasional:</p>
-                                <p class="text-gray-600 mb-4">Kd.04.12/2/MIS/PP.00.4/0013/2013</p>
-                                
-                                <p class="font-medium text-gray-800">Tanggal SK Operasional:</p>
-                                <p class="text-gray-600 mb-4">1 April 2013</p>
-                                
-                                <p class="font-medium text-gray-800">Akreditasi:</p>
-                                <p class="text-gray-600 mb-4">B (SK Akreditasi No. 193/BAP-SM/KP-09/XI/2017)</p>
-                                
-                                <p class="font-medium text-gray-800">Tanggal Upload SK Operasional:</p>
-                                <p class="text-gray-600 mb-4">3 Juni 2021</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-md card-hover" data-aos="fade-up" data-aos-delay="300">
-                        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Identitas Kepala Sekolah</h4>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <p class="font-medium text-gray-800">Nama:</p>
-                                <p class="text-gray-600 mb-4">Husniyati, SH</p>
-                                
-                                <p class="font-medium text-gray-800">Alamat:</p>
-                                <p class="text-gray-600">Jl. Masjid Taqwa</p>
-                            </div>
-                            <div>
-                                <p class="font-medium text-gray-800">No. HP:</p>
-                                <p class="text-gray-600 mb-4">082283419939</p>
-                                
-                                <p class="font-medium text-gray-800">Email:</p>
-                                <p class="text-gray-600">mimuallimin77@gmail.com</p>
-                                
-                                <p class="font-medium text-gray-800">Tanggal Mulai Tugas:</p>
-                                <p class="text-gray-600">13 Januari 2005</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sejarah Sekolah -->
-        <section class="py-20 bg-gray-50" id="sejarah">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12" data-aos="fade-up">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                            <span class="gradient-text">Sejarah</span> MI Mu'allimin
-                        </h2>
-                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Perjalanan panjang pendidikan Islam di Selatpanjang</p>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-xl shadow-md card-hover" data-aos="fade-up">
-                        <div class="timeline">
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Awal Mula (1960-an)</h4>
-                                <p class="text-gray-600">Perguruan Mu'allimin Muhammadiyah Selatpanjang berawal dari SMP Muhammadiyah yang berdiri pada tahun 1960-an. Awal berdirinya penuh dengan rintangan dari masyarakat Selatpanjang karena membawa nama Muhammadiyah yang dianggap sebagai aliran baru. Murid pertama hanya 6 orang dengan gedung sekolah menumpang di Koperasi Wan Ahmad.</p>
-                            </div>
-                            
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Pembangunan Gedung (1968)</h4>
-                                <p class="text-gray-600">Pada tahun 1968, Muhammadiyah Selatpanjang membentuk tim untuk mendirikan gedung sekolah sendiri setelah mendapat hibah tanah dari Syekh Abdurrahman di Jalan Rintis. Gedung dibangun dengan sumbangan masyarakat berupa atap daun, tiang nibung, dan lantai papan meranti. Pada masa ini sekolah berubah nama menjadi SMP Jenderal Sudirman (1968-1972) karena tekanan politik.</p>
-                            </div>
-                            
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Kembali ke Nama Asal (1972)</h4>
-                                <p class="text-gray-600">Tahun 1972, nama sekolah kembali menjadi Perguruan Mu'allimin Muhammadiyah dengan kurikulum dari Pimpinan Pusat Muhammadiyah. Sekolah berkembang pesat dengan siswa dari berbagai daerah sekitar Selatpanjang.</p>
-                            </div>
-                            
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Perkembangan Lembaga (1978)</h4>
-                                <p class="text-gray-600">Tahun 1978, Perguruan Mu'allimin berkembang menjadi Madrasah Ibtidaiyah (setingkat SD), Madrasah Tsanawiyah (setingkat SMP), dan Madrasah Aliyah (setingkat SMA) sesuai regulasi pemerintah. Pada 1 November 1979 didirikan Panti Asuhan 'Aisyiyah yang menampung anak yatim dan pra-sejahtera yang bersekolah di Mu'allimin.</p>
-                            </div>
-                            
-                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
-                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Era Modern</h4>
-                                <p class="text-gray-600">MI Mu'allimin terus berkembang dengan berbagai prestasi dan peningkatan kualitas pendidikan. Saat ini memiliki 311 siswa dengan 14 rombongan belajar dan 24 tenaga pendidik yang profesional.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Fasilitas -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Fasilitas</span> Sekolah
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Berbagai fasilitas yang disediakan untuk mendukung proses belajar mengajar</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start card-hover" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-school text-green-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-1">Ruang Kelas</h5>
-                            <p class="text-gray-600">Ruang kelas yang nyaman dan kondusif untuk belajar</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start card-hover" data-aos="fade-up" data-aos-delay="150">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-book text-blue-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-1">Perpustakaan</h5>
-                            <p class="text-gray-600">Koleksi buku pelajaran dan bacaan penunjang</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-running text-yellow-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-1">Lapangan Olahraga</h5>
-                            <p class="text-gray-600">Fasilitas olahraga untuk pengembangan fisik siswa</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start card-hover" data-aos="fade-up" data-aos-delay="250">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-mosque text-purple-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-1">Musholla/Masjid</h5>
-                            <p class="text-gray-600">Tempat ibadah dan kegiatan keagamaan</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start card-hover" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-utensils text-red-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-1">Kantin Sekolah</h5>
-                            <p class="text-gray-600">Menyediakan makanan sehat untuk siswa</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md flex items-start card-hover" data-aos="fade-up" data-aos-delay="350">
-                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-laptop text-indigo-600 text-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-lg font-semibold text-gray-800 mb-1">Lab Komputer</h5>
-                            <p class="text-gray-600">Fasilitas pembelajaran teknologi informasi</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Visi, Misi, Tujuan -->
-        <section class="py-20 bg-gray-50" id="visi-misi">
+        <!-- Sejarah -->
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-12" data-aos="fade-up">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                            <span class="gradient-text">Visi, Misi & Tujuan</span>
-                        </h2>
-                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Landasan filosofis pendidikan di MI Mu'allimin</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Sejarah Kami</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Perjalanan panjang dalam membangun pendidikan Islam berkualitas
+                        </p>
                     </div>
                     
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Visi -->
-                        <div class="bg-white p-8 rounded-xl shadow-md card-hover" data-aos="fade-up" data-aos-delay="100">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fas fa-eye text-green-600 text-2xl"></i>
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div data-aos="fade-right">
+                            <div class="bg-gradient-to-br from-primary/5 to-accent-green/5 p-8 rounded-3xl">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-6">Awal Mula Berdiri</h3>
+                                <div class="prose prose-lg text-gray-600 leading-relaxed">
+                                    <p class="mb-4">
+                                        MI Mu'allimin Muhammadiyah Selatpanjang didirikan pada tahun 1999 dengan semangat 
+                                        untuk memberikan pendidikan Islam yang berkualitas bagi anak-anak di Kepulauan Meranti, 
+                                        khususnya di wilayah Selatpanjang.
+                                    </p>
+                                    <p class="mb-4">
+                                        Berawal dari keprihatinan para tokoh Muhammadiyah setempat terhadap minimnya 
+                                        lembaga pendidikan Islam yang berkualitas, maka dibentuklah madrasah ini sebagai 
+                                        jawaban atas kebutuhan masyarakat akan pendidikan yang memadukan ilmu agama dan umum.
+                                    </p>
+                                    <p class="mb-4">
+                                        Dengan dukungan penuh dari Pimpinan Cabang Muhammadiyah Selatpanjang dan 
+                                        masyarakat sekitar, MI Mu'allimin terus berkembang dan menjadi salah satu 
+                                        madrasah ibtidaiyah terdepan di wilayah Kepulauan Meranti.
+                                    </p>
+                                </div>
                             </div>
-                            <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Visi</h4>
-                            <ul class="text-gray-700 space-y-3">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                    <span>Islam</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                    <span>Berilmu Pengetahuan</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                    <span>Berprestasi</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                    <span>Terampil dan Berakhlak Mulia</span>
-                                </li>
-                            </ul>
+                        </div>
+                        <div data-aos="fade-left">
+                            <div class="relative">
+                                <div class="w-full h-96 bg-gradient-to-br from-primary to-accent-green rounded-3xl flex items-center justify-center text-white">
+                                    <div class="text-center">
+                                        <i class="fas fa-mosque text-8xl mb-4"></i>
+                                        <h3 class="text-2xl font-bold">Sejak 1999</h3>
+                                        <p class="text-lg opacity-90">Melayani Pendidikan Islam</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visi Misi -->
+        <section class="py-16 bg-gradient-to-br from-blue-50 to-green-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Visi & Misi</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Landasan dan arah pengembangan pendidikan di MI Mu'allimin
+                        </p>
+                    </div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <!-- Visi -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Visi</h3>
+                            <div class="text-gray-600 leading-relaxed">
+                                <p class="text-lg font-semibold text-primary mb-4">
+                                    "Menjadi Madrasah Ibtidaiyah unggulan yang menghasilkan generasi muslim yang berilmu, 
+                                    berprestasi, terampil, dan berakhlak mulia."
+                                </p>
+                                <p>
+                                    Visi ini mencerminkan komitmen kami untuk mencetak generasi yang tidak hanya unggul 
+                                    dalam bidang akademik, tetapi juga memiliki karakter islami yang kuat dan siap 
+                                    menghadapi tantangan masa depan.
+                                </p>
+                            </div>
                         </div>
                         
                         <!-- Misi -->
-                        <div class="bg-white p-8 rounded-xl shadow-md card-hover" data-aos="fade-up" data-aos-delay="200">
-                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fas fa-bullseye text-blue-600 text-2xl"></i>
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-16 h-16 bg-gradient-to-br from-accent-green to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+                                <i class="fas fa-bullseye"></i>
                             </div>
-                            <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Misi</h4>
-                            <ul class="text-gray-700 space-y-3">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                    <span>Membudayakan dan membiasakan hidup Islami kepada warga sekolah</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                    <span>Pembinaan dan pendalaman di bidang akademik dan keagamaan</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
-                                    <span>Menghasilkan peserta didik yang terampil dalam membaca Al-Quran dan komputer</span>
-                                </li>
-                            </ul>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Misi</h3>
+                            <div class="text-gray-600 leading-relaxed">
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
+                                        <span>Menyelenggarakan pendidikan Islam yang berkualitas dan berkarakter</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
+                                        <span>Mengembangkan potensi siswa secara optimal dalam bidang akademik dan non-akademik</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
+                                        <span>Menanamkan nilai-nilai Islam dalam kehidupan sehari-hari</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
+                                        <span>Membangun kerjasama yang baik dengan orang tua dan masyarakat</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent-green mt-1 mr-3"></i>
+                                        <span>Menciptakan lingkungan belajar yang kondusif dan menyenangkan</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nilai-Nilai -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nilai-Nilai Kami</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Prinsip-prinsip yang menjadi pedoman dalam setiap aktivitas pendidikan
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Nilai 1 -->
+                        <div class="text-center p-8 bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-quran-quran"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Religius</h3>
+                            <p class="text-gray-600">
+                                Menanamkan nilai-nilai keislaman dalam setiap aspek kehidupan dan pembelajaran
+                            </p>
                         </div>
                         
-                        <!-- Tujuan -->
-                        <div class="bg-white p-8 rounded-xl shadow-md card-hover" data-aos="fade-up" data-aos-delay="300">
-                            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fas fa-flag text-yellow-600 text-2xl"></i>
+                        <!-- Nilai 2 -->
+                        <div class="text-center p-8 bg-gradient-to-br from-accent-green/5 to-accent-green/10 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-20 h-20 bg-gradient-to-br from-accent-green to-green-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <h4 class="text-2xl font-bold text-gray-800 mb-4 text-center">Tujuan</h4>
-                            <ul class="text-gray-700 space-y-3">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
-                                    <span>Berprestasi dalam kegiatan keagamaan</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
-                                    <span>Berprestasi dalam perolehan nilai UAN</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
-                                    <span>Berprestasi dalam persaingan masuk SMP/MTs Negeri</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
-                                    <span>Berprestasi dalam penerapan ilmu pengetahuan dan teknologi</span>
-                                </li>
-                            </ul>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Berkualitas</h3>
+                            <p class="text-gray-600">
+                                Memberikan pendidikan terbaik dengan standar mutu yang tinggi dan berkelanjutan
+                            </p>
+                        </div>
+                        
+                        <!-- Nilai 3 -->
+                        <div class="text-center p-8 bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-20 h-20 bg-gradient-to-br from-secondary to-orange-500 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Inovatif</h3>
+                            <p class="text-gray-600">
+                                Mengembangkan metode pembelajaran yang kreatif dan sesuai dengan perkembangan zaman
+                            </p>
+                        </div>
+                        
+                        <!-- Nilai 4 -->
+                        <div class="text-center p-8 bg-gradient-to-br from-purple-500/5 to-purple-500/10 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="400">
+                            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-accent-purple rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Peduli</h3>
+                            <p class="text-gray-600">
+                                Menumbuhkan rasa empati dan kepedulian terhadap sesama dan lingkungan sekitar
+                            </p>
+                        </div>
+                        
+                        <!-- Nilai 5 -->
+                        <div class="text-center p-8 bg-gradient-to-br from-red-500/5 to-red-500/10 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="500">
+                            <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Kerjasama</h3>
+                            <p class="text-gray-600">
+                                Membangun sinergi yang baik antara sekolah, orang tua, dan masyarakat
+                            </p>
+                        </div>
+                        
+                        <!-- Nilai 6 -->
+                        <div class="text-center p-8 bg-gradient-to-br from-indigo-500/5 to-indigo-500/10 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="600">
+                            <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-4">Berprestasi</h3>
+                            <p class="text-gray-600">
+                                Mendorong siswa untuk selalu berusaha mencapai prestasi terbaik dalam segala bidang
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Nilai-nilai Sekolah -->
-        <section class="py-20 bg-white">
+        <!-- Struktur Organisasi -->
+        <section class="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Nilai-nilai</span> Kami
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Prinsip-prinsip yang menjadi landasan dalam setiap kegiatan pendidikan di MI Mu'allimin</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="text-center p-6 bg-green-50 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-quran text-white text-2xl"></i>
-                        </div>
-                        <h5 class="text-xl font-semibold text-gray-800 mb-2">Al-Quran sebagai Pedoman</h5>
-                        <p class="text-gray-600">Menjadikan Al-Quran sebagai dasar dalam seluruh aspek pendidikan</p>
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Struktur Organisasi</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Tim profesional yang berdedikasi untuk kemajuan pendidikan
+                        </p>
                     </div>
                     
-                    <div class="text-center p-6 bg-blue-50 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Kepala Sekolah -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-24 h-24 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Drs. H. Ahmad Syukri, M.Pd.I</h3>
+                            <p class="text-primary font-semibold mb-4">Kepala Sekolah</p>
+                            <p class="text-gray-600 text-sm">
+                                Memimpin dan mengarahkan seluruh kegiatan pendidikan di MI Mu'allimin
+                            </p>
                         </div>
-                        <h5 class="text-xl font-semibold text-gray-800 mb-2">Keunggulan Akademik</h5>
-                        <p class="text-gray-600">Mengutamakan penguasaan ilmu pengetahuan dan teknologi</p>
-                    </div>
-                    
-                    <div class="text-center p-6 bg-yellow-50 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-trophy text-white text-2xl"></i>
+                        
+                        <!-- Wakil Kepala Sekolah -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-24 h-24 bg-gradient-to-br from-accent-green to-green-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Hj. Siti Aminah, S.Pd.I</h3>
+                            <p class="text-accent-green font-semibold mb-4">Wakil Kepala Sekolah</p>
+                            <p class="text-gray-600 text-sm">
+                                Membantu kepala sekolah dalam mengelola kegiatan akademik dan administrasi
+                            </p>
                         </div>
-                        <h5 class="text-xl font-semibold text-gray-800 mb-2">Budaya Prestasi</h5>
-                        <p class="text-gray-600">Mendorong siswa untuk berprestasi di berbagai bidang</p>
-                    </div>
-                    
-                    <div class="text-center p-6 bg-purple-50 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="400">
-                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-hands-helping text-white text-2xl"></i>
+                        
+                        <!-- Koordinator Kurikulum -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-24 h-24 bg-gradient-to-br from-secondary to-orange-500 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Muhammad Ridwan, S.Pd</h3>
+                            <p class="text-secondary font-semibold mb-4">Koordinator Kurikulum</p>
+                            <p class="text-gray-600 text-sm">
+                                Mengkoordinasikan pengembangan dan implementasi kurikulum
+                            </p>
                         </div>
-                        <h5 class="text-xl font-semibold text-gray-800 mb-2">Akhlak Mulia</h5>
-                        <p class="text-gray-600">Membangun karakter siswa berdasarkan akhlak Islami</p>
+                        
+                        <!-- Koordinator Kesiswaan -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center" data-aos="fade-up" data-aos-delay="400">
+                            <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-accent-purple rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Fatimah Zahra, S.Pd</h3>
+                            <p class="text-purple-500 font-semibold mb-4">Koordinator Kesiswaan</p>
+                            <p class="text-gray-600 text-sm">
+                                Mengelola kegiatan dan pembinaan siswa di luar akademik
+                            </p>
+                        </div>
+                        
+                        <!-- Bendahara -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center" data-aos="fade-up" data-aos-delay="500">
+                            <div class="w-24 h-24 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Hj. Khadijah, S.E</h3>
+                            <p class="text-red-500 font-semibold mb-4">Bendahara</p>
+                            <p class="text-gray-600 text-sm">
+                                Mengelola keuangan dan administrasi sekolah
+                            </p>
+                        </div>
+                        
+                        <!-- Tata Usaha -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center" data-aos="fade-up" data-aos-delay="600">
+                            <div class="w-24 h-24 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Ahmad Fauzi, S.Kom</h3>
+                            <p class="text-indigo-500 font-semibold mb-4">Kepala Tata Usaha</p>
+                            <p class="text-gray-600 text-sm">
+                                Mengelola administrasi dan dokumentasi sekolah
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Tim Pengajar -->
-        <section class="py-20 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Tenaga Pendidik</span>
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Tim pengajar profesional yang berdedikasi untuk pendidikan terbaik</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Guru 1 -->
-                    <div class="teacher-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Husniyati, SH" 
-                                 class="w-full h-full object-cover teacher-img"
-                                 loading="lazy">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-1">Husniyati, SH</h3>
-                            <p class="text-sm text-gray-500 mb-3">Kepala Madrasah</p>
-                            <div class="flex items-center text-sm text-gray-600 mb-2">
-                                <i class="fas fa-user-graduate mr-2"></i>
-                                <span>S1</span>
-                            </div>
-                            <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-calendar-alt mr-2"></i>
-                                <span>Mulai 13 Jan 2005</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Guru 2 -->
-                    <div class="teacher-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="150">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Hasanah" 
-                                 class="w-full h-full object-cover teacher-img"
-                                 loading="lazy">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-1">Hasanah</h3>
-                            <p class="text-sm text-gray-500 mb-3">Guru Bidang Studi Ismuba</p>
-                            <div class="flex items-center text-sm text-gray-600 mb-2">
-                                <i class="fas fa-user-graduate mr-2"></i>
-                                <span>SMA</span>
-                            </div>
-                            <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-calendar-alt mr-2"></i>
-                                <span>Mulai 18 Sep 1987</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Guru 3 -->
-                    <div class="teacher-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Halimah, S.Ag" 
-                                 class="w-full h-full object-cover teacher-img"
-                                 loading="lazy">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-1">Halimah, S.Ag</h3>
-                            <p class="text-sm text-gray-500 mb-3">Guru Kelas</p>
-                            <div class="flex items-center text-sm text-gray-600 mb-2">
-                                <i class="fas fa-user-graduate mr-2"></i>
-                                <span>S1</span>
-                            </div>
-                            <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-calendar-alt mr-2"></i>
-                                <span>Mulai 17 Jun 1989</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Guru 4 -->
-                    <div class="teacher-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="250">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                                 alt="Zulhelmi, S.Pd.I" 
-                                 class="w-full h-full object-cover teacher-img"
-                                 loading="lazy">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-1">Zulhelmi, S.Pd.I</h3>
-                            <p class="text-sm text-gray-500 mb-3">Guru Kelas</p>
-                            <div class="flex items-center text-sm text-gray-600 mb-2">
-                                <i class="fas fa-user-graduate mr-2"></i>
-                                <span>S1</span>
-                            </div>
-                            <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-calendar-alt mr-2"></i>
-                                <span>Mulai 09 Sep 1990</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-12" data-aos="fade-up">
-                    <a href="#" class="btn-primary">
-                        Lihat Semua Guru
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rekapitulasi -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                        <span class="gradient-text">Data Statistik</span>
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Rekapitulasi siswa dan tenaga pendidik MI Mu'allimin</p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                    <div class="bg-green-50 p-6 rounded-xl shadow-md text-center card-hover" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-4xl font-bold text-green-600 mb-2">311</div>
-                        <h5 class="text-lg font-semibold text-gray-800">Jumlah Siswa</h5>
-                    </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-xl shadow-md text-center card-hover" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">14</div>
-                        <h5 class="text-lg font-semibold text-gray-800">Rombongan Belajar</h5>
-                    </div>
-                    
-                    <div class="bg-yellow-50 p-6 rounded-xl shadow-md text-center card-hover" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-4xl font-bold text-yellow-600 mb-2">24</div>
-                        <h5 class="text-lg font-semibold text-gray-800">Tenaga Pendidik</h5>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Program Unggulan Detail -->
-<section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
-                <span class="gradient-text">Detail</span> Program Unggulan
-            </h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Deskripsi lengkap program-program unggulan kami
-            </p>
-        </div>
-
-        <!-- Tahfiz Plus -->
-        <div class="grid md:grid-cols-2 gap-12 mb-20">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-right">
-                <div class="h-64 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white">
-                    <i class="fas fa-quran text-6xl opacity-30"></i>
-                </div>
-            </div>
-            <div class="flex flex-col justify-center" data-aos="fade-left">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-star text-green-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800">Tahfizh Plus</h3>
-                </div>
-                <h4 class="text-xl font-semibold text-gray-800 mb-4">Target: 3 Juz per Tahun</h4>
-                <p class="text-gray-600 mb-6">
-                    Program menghafal Al-Quran dengan metode pembelajaran yang efektif dan menyenangkan. Siswa dibimbing oleh guru tahfizh bersertifikat dengan pendekatan individual sesuai kemampuan masing-masing.
-                </p>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h5 class="font-semibold text-gray-800 mb-3">Persyaratan Peserta:</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>Mampu membaca Al-Quran dengan baik</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>Komitmen tinggi untuk menghafal</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>Dukungan penuh dari orang tua</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="font-semibold text-gray-800 mb-3">Jadwal Pelaksanaan:</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-start">
-                                <i class="far fa-clock text-blue-500 mt-1 mr-2"></i>
-                                <span>Senin-Kamis: 06:30-07:30</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="far fa-clock text-blue-500 mt-1 mr-2"></i>
-                                <span>Jumat: 13:00-14:00</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="far fa-clock text-blue-500 mt-1 mr-2"></i>
-                                <span>Sabtu: 08:00-10:00</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Lab Sains Digital -->
-        <div class="grid md:grid-cols-2 gap-12 mb-20">
-            <div class="flex flex-col justify-center order-1 md:order-2" data-aos="fade-right">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-flask text-blue-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800">Lab Sains Digital</h3>
-                </div>
-                <h4 class="text-xl font-semibold text-gray-800 mb-4">Teknologi Pembelajaran Terdepan</h4>
-                <p class="text-gray-600 mb-6">
-                    Laboratorium sains modern dengan peralatan digital untuk mendukung pembelajaran STEM yang interaktif dan inovatif. Dilengkapi dengan mikroskop digital, kit eksperimen, dan software simulasi.
-                </p>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h5 class="font-semibold text-gray-800 mb-3">Fasilitas:</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
-                                <span>Mikroskop digital 20 unit</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
-                                <span>Kit eksperimen lengkap</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
-                                <span>Software simulasi sains</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="font-semibold text-gray-800 mb-3">Kegiatan:</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-start">
-                                <i class="fas fa-vial text-blue-500 mt-1 mr-2"></i>
-                                <span>Praktikum IPA terpadu</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-project-diagram text-blue-500 mt-1 mr-2"></i>
-                                <span>Proyek sains sederhana</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-trophy text-blue-500 mt-1 mr-2"></i>
-                                <span>Olimpiade sains</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover order-2 md:order-1" data-aos="fade-left">
-                <div class="h-64 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white">
-                    <i class="fas fa-microscope text-6xl opacity-30"></i>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bahasa Intensif -->
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-right">
-                <div class="h-64 bg-gradient-to-br from-yellow-600 to-yellow-800 flex items-center justify-center text-white">
-                    <i class="fas fa-language text-6xl opacity-30"></i>
-                </div>
-            </div>
-            <div class="flex flex-col justify-center" data-aos="fade-left">
-                <div class="flex items-center mb-4">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-globe-asia text-yellow-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-800">Bahasa Intensif</h3>
-                </div>
-                <h4 class="text-xl font-semibold text-gray-800 mb-4">Pembelajaran Bahasa Arab & Inggris</h4>
-                <p class="text-gray-600 mb-6">
-                    Program pembelajaran bahasa asing intensif untuk mempersiapkan siswa menghadapi tantangan global. Menggunakan metode komunikatif dengan native speaker dan teknologi pembelajaran modern.
-                </p>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h5 class="font-semibold text-gray-800 mb-3">Bahasa Arab:</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-start">
-                                <i class="fas fa-comments text-yellow-500 mt-1 mr-2"></i>
-                                <span>Conversation daily</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-book-open text-yellow-500 mt-1 mr-2"></i>
-                                <span>Qiroah dan kitabah</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-pen-fancy text-yellow-500 mt-1 mr-2"></i>
-                                <span>Nahwu shorof dasar</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="font-semibold text-gray-800 mb-3">Bahasa Inggris:</h5>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-start">
-                                <i class="fas fa-headphones text-yellow-500 mt-1 mr-2"></i>
-                                <span>Speaking & listening</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-spell-check text-yellow-500 mt-1 mr-2"></i>
-                                <span>Grammar dasar</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-child text-yellow-500 mt-1 mr-2"></i>
-                                <span>English for kids</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
         <!-- Call to Action -->
-        <section class="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
-            <div class="container mx-auto px-4 text-center">
-                <div class="max-w-3xl mx-auto" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Ingin Bergabung dengan MI Mu'allimin?</h2>
-                    <p class="text-xl mb-8 opacity-90">
-                        Daftarkan putra/putri Anda sekarang dan dapatkan pendidikan terbaik yang mengintegrasikan ilmu dunia dan akhirat.
+        <section class="py-16 bg-gradient-to-r from-primary to-accent-green text-white relative overflow-hidden">
+            <div class="absolute inset-0 islamic-pattern"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Bergabunglah dengan Keluarga Besar MI Mu'allimin
+                    </h2>
+                    <p class="text-lg md:text-xl mb-8 opacity-90">
+                        Daftarkan putra-putri Anda sekarang dan berikan mereka pendidikan Islam terbaik 
+                        untuk masa depan yang gemilang.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="pendaftaran.html" class="btn-secondary">
+                        <a href="pendaftaran.html" class="bg-secondary hover:bg-orange-500 text-primary-dark font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
                             <i class="fas fa-user-plus mr-2"></i>Daftar Sekarang
                         </a>
-                        <a href="kontak.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg">
-                            <i class="fas fa-phone-alt mr-2"></i>Hubungi Kami
+                        <a href="kontak.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-semibold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center">
+                            <i class="fas fa-phone mr-2"></i>Hubungi Kami
                         </a>
                     </div>
                 </div>
@@ -1070,118 +624,95 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white pt-16 pb-8">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <!-- Tentang Sekolah -->
-                <div data-aos="fade-up">
-                    <div class="flex items-center mb-6">
-                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-10 mr-3">
-                        <h3 class="text-xl font-bold">MI MU'ALLIMIN</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo dan Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <img src="logo.png" alt="Logo MI Mu'allimin" class="h-16 logo-glow">
+                        <div>
+                            <h3 class="text-xl font-bold">MI MU'ALLIMIN</h3>
+                            <p class="text-gray-400">Muhammadiyah Selatpanjang</p>
+                        </div>
                     </div>
-                    <p class="text-gray-400 mb-4">
-                        Madrasah Ibtidaiyah unggulan dengan pendidikan islam berkualitas di Selatpanjang, Riau.
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Madrasah Ibtidaiyah unggulan yang berkomitmen menghasilkan generasi muslim 
+                        yang berilmu, berprestasi, terampil, dan berakhlak mulia.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/mi.muallimin" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/mi_muallimin_selatpanjang?igsh=MXZ4bXdtOTkxNDVlcQ==" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://youtube.com/@mimuallimin9699?feature=shared" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="wa.me/+682285852725" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-dark transition-colors">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Link Cepat -->
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-lg font-bold mb-6">Link Cepat</h3>
+                <!-- Menu Cepat -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Menu Cepat</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Beranda</a></li>
-                        <li><a href="tentang.html" class="text-gray-400 hover:text-white transition-colors">Tentang Kami</a></li>
-                        <li><a href="akademik.html" class="text-gray-400 hover:text-white transition-colors">Program Akademik</a></li>
-                        <li><a href="pendaftaran.html" class="text-gray-400 hover:text-white transition-colors">Pendaftaran</a></li>
-                        <li><a href="berita.html" class="text-gray-400 hover:text-white transition-colors">Berita & Kegiatan</a></li>
-                        <li><a href="galeri.html" class="text-gray-400 hover:text-white transition-colors">Galeri</a></li>
+                        <li><a href="tentang.html" class="text-gray-300 hover:text-white transition-colors">Tentang Kami</a></li>
+                        <li><a href="akademik.html" class="text-gray-300 hover:text-white transition-colors">Program Akademik</a></li>
+                        <li><a href="pendaftaran.html" class="text-gray-300 hover:text-white transition-colors">Pendaftaran</a></li>
+                        <li><a href="berita.html" class="text-gray-300 hover:text-white transition-colors">Berita</a></li>
+                        <li><a href="galeri.html" class="text-gray-300 hover:text-white transition-colors">Galeri</a></li>
                     </ul>
                 </div>
                 
                 <!-- Kontak -->
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-lg font-bold mb-6">Kontak Kami</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
-                            <span>Jl. Masjid Taqwa No. 02, Selatpanjang Selatan, Riau</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-3"></i>
-                            <span>082283419939</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3"></i>
-                            <span>mimuallimin77@gmail.com</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock mt-1 mr-3"></i>
-                            <span>Senin-Jumat: 07.00 - 15.00 WIB</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Newsletter -->
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">
-                        Dapatkan informasi terbaru seputar kegiatan dan pengumuman dari MI Mu'allimin.
-                    </p>
-                    <form class="flex">
-                        <input type="email" placeholder="Email Anda" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
-                        <button type="submit" class="bg-primary hover:bg-primary-dark px-4 py-2 rounded-r-lg">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Kontak Kami</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <div>
+                                <p class="text-gray-300">Jl. Pendidikan No. 123</p>
+                                <p class="text-gray-300">Selatpanjang, Riau</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <p class="text-gray-300">(0761) 123-4567</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <p class="text-gray-300">info@mimuallimin.sch.id</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
                     &copy; 2024 MI Mu'allimin Muhammadiyah Selatpanjang. Semua hak cipta dilindungi.
                 </p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Kebijakan Privasi</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Syarat & Ketentuan</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Peta Situs</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 invisible hover:bg-primary-dark hover:-translate-y-1">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-primary-dark transition-all transform hover:scale-110 opacity-0 invisible">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS animation
+        // Initialize AOS
         AOS.init({
             duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
-        // Preloader
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
         });
 
         // Mobile Menu Toggle
@@ -1190,55 +721,54 @@
         
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
         // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.add('bg-white');
-                navbar.classList.remove('bg-white/90');
+            if (window.scrollY > 100) {
+                navbar.classList.add('navbar-scrolled');
             } else {
-                navbar.classList.remove('shadow-md');
-                navbar.classList.add('bg-white/90');
-                navbar.classList.remove('bg-white');
+                navbar.classList.remove('navbar-scrolled');
             }
         });
 
         // Back to Top Button
-        const backToTop = document.getElementById('back-to-top');
+        const backToTopBtn = document.getElementById('back-to-top');
         window.addEventListener('scroll', function() {
             if (window.scrollY > 300) {
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
             } else {
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
             }
         });
 
-        // Smooth scrolling for all links
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
                 }
             });
         });
     </script>
 </body>
 </html>
+
